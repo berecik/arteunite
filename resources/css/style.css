@@ -258,7 +258,7 @@ header {
 	background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/stodola.png);
 	background-size: cover;
 	background-position: center;
-	height: 60vh;
+	height: 70vh;
 	background-attachment: fixed;
 	padding-bottom: 0;
 	margin-bottom: 0;
@@ -267,8 +267,8 @@ header {
 .stodola-text {
 	text-align: center;
 	font-size: 140%;
-	margin-top: 10%;
 	padding-left: 10%;
+	margin-top: 0;
 	
 }
 .stodola-title {
