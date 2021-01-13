@@ -189,6 +189,9 @@ header {
 /*------------------*/
 
 .section-gallery {
+	width: auto;
+	padding-bottom: 90px;
+	margin-bottom: 800px;
 }
 .gallery-showcase {
 	list-style: none;
@@ -245,7 +248,6 @@ header {
 }
 .title-rwz {
 	text-align: center;
-	margin-top
 }
 
 /*------------------*/
@@ -258,22 +260,42 @@ header {
 	background-position: center;
 	height: 60vh;
 	background-attachment: fixed;
+	padding-bottom: 0;
+	margin-bottom: 0;
 }
 
 .stodola-text {
 	text-align: center;
-	font-size: 130%;
-	margin-top: 25%;
+	font-size: 140%;
+	margin-top: 10%;
 	padding-left: 10%;
+	
+}
+.stodola-title {
+	text-align: center;
+	color: #fff;
+	
 }
 
 /*------------------*/
 /*WARSZTATY*/
 /*------------------*/
 
+.workshop {
+	background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/w3.png);
+	background-size: cover;
+	background-position: center;
+	height: 60hv;
+	background-attachment: fixed;
+	margin-top: 0;
+	padding-top: 0;
+	
+}
+
 .workshop-header {
 	text-align: center;
-	margin-top: 3%;
+	color: #fff;
+	
 }
 .workshop-box {
 	margin-top: 30px;
@@ -285,7 +307,10 @@ header {
 .workshop-box:last-child {
 	text-align: right;
 	padding-left: 35;
-	margin-top: 15%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	color: #fff;
+	font-size: 140%
 }
 .humantree {
 	width: 100%;
@@ -294,6 +319,15 @@ header {
 /*------------------*/
 /*SECTION CALL*/
 /*------------------*/
+.title-call {
+	text-align: center;
+	margin-left: 10%;
+	margin-bottom: 20px;
+}
+.section-call {
+	margin-bottom: 500px;
+	transform: translate(15%);
+}
 .title-box {
 	background-color: #f8f8f8;
 	border-radius: 10px;
@@ -303,6 +337,9 @@ header {
 .title-box div {
 	padding: 15px;
 	border-bottom: 1px solid #bababa;
+}
+.title-call {
+	text-align: 
 }
 
 /*------------------*/
