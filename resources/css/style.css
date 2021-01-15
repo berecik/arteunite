@@ -150,6 +150,10 @@ header {
 	border-bottom: 2px solid rgba(245, 245, 245, 0.78);
 }
 
+/*------------------*/
+/*HEADER SUBPAGE*/
+/*------------------*/
+
 
 /*------------------*/
 /*SECTION FEATURES*/
@@ -258,7 +262,7 @@ header {
 	background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/stodola.png);
 	background-size: cover;
 	background-position: center;
-	height: 70vh;
+	height: 80vh;
 	background-attachment: fixed;
 	padding-bottom: 0;
 	margin-bottom: 0;
@@ -312,10 +316,7 @@ header {
 	color: #fff;
 	font-size: 140%
 }
-.humantree {
-	width: 100%;
-	height: auto;
-}
+
 /*------------------*/
 /*SECTION CALL*/
 /*------------------*/
@@ -338,8 +339,9 @@ header {
 	padding: 15px;
 	border-bottom: 1px solid #bababa;
 }
-.title-call {
-	text-align: 
+.title-box ul {
+	
+	list-style: none;
 }
 
 /*------------------*/
