@@ -104,6 +104,11 @@ header {
 	
 }
 
+#subpage-RWZ {
+	background-image:linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.08)), url(img/grass.jpg);
+	height: 30vh;
+}
+
 .main-quote-box {
 	position: absolute;
 	width: 1140;
@@ -150,9 +155,6 @@ header {
 	border-bottom: 2px solid rgba(245, 245, 245, 0.78);
 }
 
-/*------------------*/
-/*HEADER SUBPAGE*/
-/*------------------*/
 
 
 /*------------------*/
@@ -320,20 +322,19 @@ header {
 /*------------------*/
 /*SECTION CALL*/
 /*------------------*/
+
+.title-box {
+	display: inline-block;
+}
 .title-call {
 	text-align: center;
-	margin-left: 10%;
 	margin-bottom: 20px;
 }
-.section-call {
-	margin-bottom: 500px;
-	transform: translate(15%);
-}
+
 .title-box {
 	background-color: #f8f8f8;
 	border-radius: 10px;
 	width: 90%;
-	margin-left: 5%;
 }
 .title-box div {
 	padding: 15px;
@@ -377,29 +378,45 @@ footer {
 	color: rgba(202, 185, 139);
 }
 
-/* <footer>
-			<div class="row">
-				<div class="col span-1-of-2">
-					<ul class="footer-nav">
-						<li><a href="#">FAQ</a></li>
-						<li><a href="#">Prasa</a></li>
-						<li><a href="#">Praca</a></li>
-						<li><a href="#">Kontakt</a></li>
-					</ul>
-				</div>
-				<div class="col span-1-of-2">
-					<ul class="social-links">
-						<li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
-						<li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
-						<li><a href="#"><ion-icon name="logo-youtube"></ion-icon></a></li>
-						<li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
-					</ul>
-				</div>
-			</div>
-			
-			<div class="row">
-				<p class="copyrights">
-					Arte Unite 2020. &copy; Wszelkie prawa zastrzeżone;
-				</p>
-			</div>
-		</footer> */
+/*------------------*/
+/*Subpage RUCH WOLNEJ ZIEMI*/
+/*------------------*/
+
+.heading-subpage {
+	padding: 30px 0px;
+	font-size: 100%;
+	text-align: center;
+}
+.humantree {
+	width: 50%;
+	height: auto;
+	float: right;
+	transform: translate(-50%);
+	padding-bottom: 5%;
+	padding-top: 5%;
+}
+.text-first {
+	padding: 50px 10px;
+	text-align: center;
+	font-size: 110%;
+}
+.rainbow-photo {
+	width: 100%;
+	height: auto;
+	margin: 15% 0%;
+}
+.line-subpage {
+	display: block;
+	height: 2px;
+	background-color: rgb(134, 8, 9);
+	width: 300px;
+	margin: 0 auto;
+	margin-bottom: 30px;
+
+}
+.text-bottom {
+	margin: 0 5%;
+}
+.title-call {
+	padding: 2%;
+}
