@@ -72,7 +72,8 @@ q {
 /*------------------*/
 
 .btn:link,
-.btn:visited {
+.btn:visited,
+input[type=submit] {
 	display:inline-block;
 	padding: 10px 40px;
 	margin-left: 20px;
@@ -86,7 +87,8 @@ q {
 	transition: background-color 0.3s, color 0.3s;
 }
 .btn:hover,
-.btn:active {
+.btn:active,
+input[type=submit] {
 	background-color: rgba(202, 185, 139, 0.74);
 	color: rgba(255, 255, 255, 0.74);
 }
@@ -108,6 +110,15 @@ header {
 	background-image:linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.08)), url(img/grass.jpg);
 	height: 30vh;
 }
+#kontakt {
+	background-image:linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.08)), url(img/grass.jpg);
+	height: 30vh;
+}
+#misja {
+	background-image:linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.08)), url(img/grass.jpg);
+	height: 30vh;
+}
+
 
 .main-quote-box {
 	position: absolute;
@@ -185,9 +196,9 @@ header {
 }
 .quote-h {
 	text-align: center;
-	padding-left: 20px;
-	padding-right: 20px;
-	letter-spacing: 0.5px;
+	color: #fff;
+	padding-top: 10%;
+	font-size: 120%;
 }
 
 /*------------------*/
@@ -419,4 +430,37 @@ footer {
 }
 .title-call {
 	padding: 2%;
+}
+/*------------------*/
+/*Subpage KONTAKT*/
+/*------------------*/
+
+.contact-form {
+	width: 60%;
+	margin: 0 auto;
+}
+input[type=text]
+input[type=email],
+select,
+textarea {
+	width: 100%;
+	padding: 7px;
+	border-radius: 3px;
+	border: 1px solid #ccc;
+}
+textarea {
+	height: 100px;
+}
+
+input[type=checkbox] {
+	margin: 10px 5px 10px 0;
+}
+
+/*------------------*/
+/*Subpage Misja*/
+/*------------------*/
+
+.owl {
+	width: 100%;
+	height: auto;
 }
