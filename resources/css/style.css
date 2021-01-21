@@ -106,19 +106,10 @@ header {
 	
 }
 
-#subpage-RWZ {
+.subpage-header {
 	background-image:linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.08)), url(img/grass.jpg);
 	height: 30vh;
 }
-#kontakt {
-	background-image:linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.08)), url(img/grass.jpg);
-	height: 30vh;
-}
-#misja {
-	background-image:linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.08)), url(img/grass.jpg);
-	height: 30vh;
-}
-
 
 .main-quote-box {
 	position: absolute;
@@ -361,8 +352,7 @@ header {
 /*------------------*/
 
 footer {
-
-	background-color: rgba(11, 4, 4, 0.78);
+	background-image:linear-gradient(rgba(26, 11, 11, 0.87), rgba(0, 0, 0, 0.68)), url(img/grass.jpg);
 }
 .footer-nav {
 	list-style: none;
@@ -463,4 +453,66 @@ input[type=checkbox] {
 .owl {
 	width: 60%;
 	height: auto;
+	transform: translate(30%);
 }
+
+/*------------------*/
+/*Subpage Miejsce*/
+/*------------------*/
+
+.map-point {
+	width: 70%;
+	transform: translate(20%);
+}
+.stodola-photo {
+	width: 100%;
+	height: auto;
+	padding-top: 15%;
+	padding-right: 2%;
+}
+.text-first-miejsca {
+	padding: 3% 0;
+	
+}
+.text-bottom-miejsca {
+	padding: 10% 0;
+}
+
+/*------------------*/
+/*Subpage Warsztaty*/
+/*------------------*/
+
+.hand {
+	width: 40%;
+	height: auto;
+	transform: translate(75%);
+	margin: 5% 0;
+}
+.workshop-autor {
+	width: 300px;
+	border-radius: 50%;
+}
+.line-subpage-w {
+	display: block;
+	height: 2px;
+	background-color: rgb(134, 8, 9);
+	width: 200px;
+	margin: 2% auto;
+}
+.content-subpage span {
+	font-size: 200%;
+}
+
+/*------------------*/
+/*Subpage Status*/
+/*------------------*/
+
+.statut-title {
+	padding: 3% 0;
+	text-align: center;
+}
+.statut-text {
+	padding: 2% 4%;
+	text-align: left;
+}
+
