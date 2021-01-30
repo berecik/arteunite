@@ -8,7 +8,7 @@
 	left: 55%;
 	font-size: 100%;
 	margin-top: 0;
-		padding-top: 0;
+	padding-top: 0;
 	}
 	.main-quote-box h1 {
 	text-align: center;
@@ -149,6 +149,14 @@ input[type=submit] {
 	text-align: center;
 	font-size: 110%;
 }
+	.wolna-ziemia {
+	height: 90vh;
+	width: auto;
+}
+	.stodola {
+		height: 100vh;
+		width: auto;
+	}
 
 }
 
@@ -189,13 +197,17 @@ input[type=submit] {
 	@media only screen and (max-width:891px){
 		
 			.main-nav {
-		left: 50%;
-		font-size: 90%;
-	}
+			left: 50%;
+			font-size: 90%;
+			}
 			.main-nav li {
-	margin-left: 5px;
-	margin-top: 30px;
-}
+			margin-left: 5px;
+			margin-top: 30px;
+			}
+		.stodola {
+			height: 120vh;
+		}
+		
 		
 	}
 	@media only screen and (max-width:826px){
@@ -209,6 +221,9 @@ input[type=submit] {
 	}
 		.logo {
 			height: 80px;
+		}
+		.stodola {
+			height: 110vh;
 		}
 		
 	}
@@ -225,11 +240,15 @@ input[type=submit] {
 		font-size: 80%;
 		right: 2%;
 	}
+		.stodola {
+			height: 120vh;
+		}
+		
 	
 		
 	}
 	
-	@media only screen and (max-width:660px){
+	@media only screen and (max-width:686px){
 		
 		.btn-main:link,
 		.btn-main:visited,
@@ -242,6 +261,30 @@ input[type=submit] {
 		font-size: 70%;
 		right: 1%;
 	}
+		.stodola {
+			height: 130vh;
+			width: auto;
+		}
+ 	}
+	
+	@media only screen and (max-width:623px){
+		.main-nav {
+		display: none;
+		}
 		
+		.btn-main:link,
+		.btn-main:visited,
+		input[type=submit] {
+			margin-left: 0;
+			margin-right:0;
+		}
+		.stodola {
+			height: 140vh;
+			width: auto;
+		}
+		.wolna-ziemia {
+		height: 80vh;
+		width: auto;
+		}
 	}
 	
