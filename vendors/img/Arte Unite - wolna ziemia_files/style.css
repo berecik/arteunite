@@ -185,7 +185,6 @@ header {
 	top:50%;
 	left: 50%;
 	transform: translate(-50%,-50%);
-	margin-top: 3%;
 }
 .main-quote-box h1 {
 	text-align: center;
@@ -195,7 +194,6 @@ header {
 	width: auto;
 	float: left;
 	margin-top: 40px;
-	margin-left: 3%;
 	transform: translate(-50%);
 } 
 
@@ -303,10 +301,6 @@ header {
 /*SECTION RUCH WOLNEJ ZIEMI*/
 /*------------------*/
 
-.wolna-ziemia {
-	height: 100vh;
-}
-
 .wz-box {
 	margin-top: 30px;
 	height: 35vh;
@@ -344,7 +338,7 @@ header {
 	background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/stodola.png);
 	background-size: cover;
 	background-position: center;
-	height: 150vh;
+	height: 60vh;
 	background-attachment: fixed;
 	padding-bottom: 0;
 	margin-bottom: 0;
