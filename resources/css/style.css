@@ -166,10 +166,12 @@ input[type=submit] {
 /*------------------*/
 
 header {
+	display: flex;
 	background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.08)), url(img/grass.jpg);
 	background-size: cover;
 	background-position: center;
 	height: 100vh;
+	width: auto;
 	background-attachment: fixed;
 	
 }
@@ -190,25 +192,26 @@ header {
 .main-quote-box h1 {
 	text-align: center;
 }
+.header-row {
+	display: flex;
+	justify-content:center;
+	transform: translate(30%, 20%);
+}
 .logo {
-	height: 120px;
+	display: flex;
+	justify-content: flex-start;
+	height: 150px;
 	width: auto;
-	float: left;
-	margin-top: 40px;
-	margin-left: 3%;
-	transform: translate(-50%);
+	margin: 5% 50%; 
 } 
 
-
 .main-nav {
-	position: absolute;
-	width: 1140;
-	left: 55%;
-	margin-top: 50px;
-	font-size: 130%;
+	display: flex;
+	justify-content: flex-end;
 }
+
 .main-nav li {
-	display: inline-block;
+	display: flex;
 	margin-left: 40px;
 	margin-top: 40px;
 }
@@ -225,6 +228,13 @@ header {
 .main-nav li a:hover,
 .main-nav li a:active {
 	border-bottom: 2px solid rgba(245, 245, 245, 0.78);
+}
+.quote-mix {
+	display: flex;
+	flex-direction: row;
+	justify-content:space-around;
+	align-items: flex-end;
+	
 }
 
 
