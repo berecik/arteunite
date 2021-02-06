@@ -160,6 +160,27 @@ input[type=submit] {
 	background-color: rgba(202, 185, 139, 0.74);
 	color: rgba(255, 255, 255, 0.74);
 }
+.btn-features:link,
+.btn-features:visited,
+input[type=submit] {
+	display:inline-block;
+	padding: 15px 40px;
+	margin-left: 20px;
+	margin-right: 15px;
+	margin-top: 10%;
+	text-decoration: none;
+	font-weight: 600;
+	border-radius: 200px;
+	color: rgb(134, 8, 9);
+	background-color: rgba(245, 245, 245, 0.78);
+	transition: background-color 0.3s, color 0.3s;
+}
+.btn:hover,
+.btn:active,
+input[type=submit] {
+	background-color: rgba(202, 185, 139, 0.74);
+	color: rgba(255, 255, 255, 0.74);
+}
 
 /*------------------*/
 /*HEADER*/
@@ -271,7 +292,6 @@ header {
 	padding-top: 10%;
 	font-size: 120%;
 }
-
 /*------------------*/
 /*GALLERY*/
 /*------------------*/
@@ -314,7 +334,7 @@ header {
 /*------------------*/
 
 .wolna-ziemia {
-	height: 100vh;
+	height: 60vh;
 }
 
 .wz-box {
@@ -354,7 +374,7 @@ header {
 	background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/stodola.png);
 	background-size: cover;
 	background-position: center;
-	height: 150vh;
+	height: 70vh;
 	background-attachment: fixed;
 	padding-bottom: 0;
 	margin-bottom: 0;
