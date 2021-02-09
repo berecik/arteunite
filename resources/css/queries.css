@@ -1,6 +1,6 @@
 
 
-/* Screens from 1403px:(smaller than 1404)*/
+/* Screens from 1403px:(smaller than 1404)
 
 @media only screen and (max-width:1571px){
 	
@@ -25,7 +25,7 @@
 
 
 
-/* Big tablets to big 1200px:(widths smaller than the 1140 row)*/
+/* Big tablets to big 1200px:(widths smaller than the 1140 row)
 
 @media only screen and (max-width:1360px){
 	
@@ -44,7 +44,7 @@ input[type=submit] {
 }
 
 
-/* Small tablet to big tablet: 768 to 1023px */
+/* Small tablet to big tablet: 768 to 1023px 
 
 @media only screen and (max-width:1300px){
 	
@@ -63,7 +63,7 @@ input[type=submit] {
 }
 
 
-/* Small phones to small tablets: 481 to 767px */
+/* Small phones to small tablets: 481 to 767px 
 
 @media only screen and (max-width:1200px){
 	
@@ -78,7 +78,7 @@ input[type=submit] {
 
 
 
-/* Small phones form 0 to 480px */
+/* Small phones form 0 to 480px 
 
 
 @media only screen and (max-width:1109px){
@@ -288,3 +288,4 @@ input[type=submit] {
 		}
 	}
 	
+*/

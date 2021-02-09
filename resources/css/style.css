@@ -197,7 +197,7 @@ header, subpage-header {
 	background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.08)), url(img/grass.jpg);
 	background-size: cover;
 	background-position: center;
-	height: 90vh;
+	height: 100vh;
 	background-attachment: fixed;
 	
 }
@@ -267,7 +267,10 @@ header, subpage-header {
 	height: 40vh;
 }
 
-
+.subpage-header div {
+	display: flex;
+	justify-content: flex-end;
+}
 
 /*------------------*/
 /*SECTION FEATURES*/
