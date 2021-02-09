@@ -259,6 +259,37 @@ header {
 }
 
 
+.main-nav-subpage {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.main-nav-subpage li {
+	display: flex;
+	margin-left: 40px;
+	margin-top: 40px;
+}
+.main-nav-subpage li a:link,
+.main-nav-subpage li a:visited {
+	padding: 4px 0;
+	color: #fff;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-size: 90%;
+	border-bottom: 2px solid transparent;
+	transition: border-bottom 0.3s;
+}
+.main-nav-subpage li a:hover,
+.main-nav-subpage li a:active {
+	border-bottom: 2px solid rgba(245, 245, 245, 0.78);
+}
+.quote-mix {
+	display: flex;
+	flex-direction: row;
+	justify-content:space-around;
+	align-items: flex-end;
+	
+}
 
 /*------------------*/
 /*SECTION FEATURES*/
