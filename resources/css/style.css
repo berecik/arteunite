@@ -144,7 +144,7 @@ input[type=submit] {
 	padding: 10px 40px;
 	margin-left: 20px;
 	margin-right: 15px;
-	margin-top: 15px;
+	margin-top: 10px;
 	text-decoration: none;
 	font-weight: 600;
 	font-size: 120%;
@@ -387,12 +387,12 @@ header {
 	margin-top: 0;
 	letter-spacing: 0.5px;
 	word-spacing: 1px;
+	height: 50vh;
 	
 }
 .stodola-title {
 	text-align: center;
 	color: #fff;
-	
 }
 
 /*------------------*/
@@ -561,7 +561,7 @@ input[type=checkbox] {
 /*------------------*/
 
 .owl {
-	width: 60%;
+	width: 40%;
 	height: auto;
 	transform: translate(30%);
 }
@@ -626,5 +626,106 @@ input[type=checkbox] {
 	text-align: left;
 }
 
+/*------------------*/
+/*Subpage Dołącz się*/
+/*------------------*/
 
+.dolaczsie-people {
+	width: 50%;
+	transform: translate(50%);
+	margin-bottom: 7%;
+}
+.dolacz-text {
+	margin-top: 3%;
+}
+.dolaczsie{
+	margin-bottom: 3%;
+}
+.dolacz-bottom {
+	margin-bottom: 3%;
+}
+.newsletter-sub {
+	transform: translate(30%);	
+}
+#email-newsletter {
+	width: 40%;
+	height: auto;
+}
+.btn-dolacz:link,
+.btn-dolacz:visited,
+input[type=submit] {
+	display:inline-block;
+	padding: 20px 50px;
+	margin-left:15px;
+	margin-right: 15px;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	text-decoration: none;
+	font-weight: 600;
+	border-radius: 200px;
+	color: rgb(134, 8, 9);
+	background-color: rgba(245, 245, 245, 0.78);
+	transition: background-color 0.3s, color 0.3s;
+	transform: translate(120%);
+}
+.btn-dolacz:hover,
+.btn-dolacz:active,
+input[type=submit] {
+	background-color: rgba(202, 185, 139, 0.74);
+	color: rgba(255, 255, 255, 0.74);
+}
+/*------------------*/
+/*Subpage Dorzuć się*/
+/*------------------*/
+.dorzuc-sie-hands {
+	width: 60%;
+	transform: translate(30%);
+	margin-bottom: 3%;
+}
 
+.btn-dorzuc:link,
+.btn-dorzuc:visited,
+input[type=submit] {
+	display:inline-block;
+	padding: 30px 60px;
+	margin-left:15px;
+	margin-right: 15px;
+	margin-top: 10px;
+	margin-bottom: 40px;
+	text-decoration: none;
+	font-weight: 600;
+	border-radius: 200px;
+	color: rgb(134, 8, 9);
+	background-color: rgba(245, 245, 245, 0.78);
+	transition: background-color 0.3s, color 0.3s;
+	transform: translate(200%);
+}
+.btn-dorzuc:hover,
+.btn-dorzuc:active,
+input[type=submit] {
+	background-color: rgba(202, 185, 139, 0.74);
+	color: rgba(255, 255, 255, 0.74);
+}
+.btn-press:link,
+.btn-press:visited,
+input[type=submit] {
+	display:inline-block;
+	padding: 30px 60px;
+	margin-left:15px;
+	margin-right: 15px;
+	margin-top: 30px;
+	margin-bottom: 40px;
+	text-decoration: none;
+	font-weight: 600;
+	border-radius: 200px;
+	color: rgb(134, 8, 9);
+	background-color: rgba(245, 245, 245, 0.78);
+	transition: background-color 0.3s, color 0.3s;
+	transform: translate(5%);
+}
+.btn-press:hover,
+.btn-press:active,
+input[type=submit] {
+	background-color: rgba(202, 185, 139, 0.74);
+	color: rgba(255, 255, 255, 0.74);
+}
