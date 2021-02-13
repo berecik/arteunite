@@ -121,6 +121,30 @@ input[type=submit] {
 	color: rgba(255, 255, 255, 0.74);
 }
 
+.btn-ruch:link,
+.btn-ruch:visited,
+input[type=submit] {
+	display:inline-block;
+	padding: 10px 40px;
+	margin-left: 20px;
+	margin-right: 15px;
+	margin-top: 25px;
+	text-decoration: none;
+	font-weight: 600;
+	border-radius: 200px;
+	color: rgb(134, 8, 9);
+	background-color: rgba(245, 245, 245, 0.78);
+	transition: background-color 0.3s, color 0.3s;
+	transform: translate(-50%);
+	margin-top: 10%;
+}
+.btn-ruch:hover,
+.btn-ruch:active,
+input[type=submit] {
+	background-color: rgba(202, 185, 139, 0.74);
+	color: rgba(255, 255, 255, 0.74);
+}
+
 .btn-section-workshop:link,
 .btn-section-workshop:visited,
 input[type=submit] {
@@ -138,7 +162,7 @@ input[type=submit] {
 	transform: translate(-25%);
 }
 .btn-section-workshop:hover,
-.btn-section-wrkshop:active,
+.btn-section-workshop:active,
 input[type=submit] {
 	background-color: rgba(202, 185, 139, 0.74);
 	color: rgba(255, 255, 255, 0.74);
@@ -181,12 +205,35 @@ input[type=submit] {
 	background-color: rgba(245, 245, 245, 0.78);
 	transition: background-color 0.3s, color 0.3s;
 }
-.btn:hover,
-.btn:active,
+.btn-features:hover,
+.btn-feautres:active,
 input[type=submit] {
 	background-color: rgba(202, 185, 139, 0.74);
 	color: rgba(255, 255, 255, 0.74);
 }
+
+.btn-statut:link,
+.btn-statut:visited,
+input[type=submit] {
+	display:inline-block;
+	padding: 15px 40px;
+	margin-left: 20px;
+	margin-right: 15px;
+	margin-top: 10%;
+	text-decoration: none;
+	font-weight: 600;
+	border-radius: 200px;
+	color: rgb(134, 8, 9);
+	background-color: rgba(245, 245, 245, 0.78);
+	transition: background-color 0.3s, color 0.3s;
+}
+.btn-statut:hover,
+.btn-statut:active,
+input[type=submit] {
+	background-color: rgba(202, 185, 139, 0.74);
+	color: rgba(255, 255, 255, 0.74);
+}
+
 
 /*------------------*/
 /*HEADER*/
@@ -220,13 +267,14 @@ header, subpage-header {
 	width: auto;
 	float:left;
 	margin:3%;
+	margin-left: 4%;
 } 
 .quote-h {
 	position: absolute;
-	width: 570;
+	width: 70vh;
 	top:75%;
 	left: 75%;
-	transform: translate(-25%, -55%);
+	transform: translate(-55%, -55%);
 	
 }
 .main-nav {
@@ -347,25 +395,22 @@ header, subpage-header {
 	padding-bottom: 0;
 	margin-bottom: 0;
 }
-.wz-box:first-child {
+.wz-box {
 	text-align: right;
 	padding-left: 35;
 	margin-top: 1%;
 
 }
-.wz-box:last-child {
-	padding-left: 4%;
-	margin-top: 10%;
-}
 .ind {
-	width: 70%;
-	margin-top: 7%;
+	width: 80%; 
+	margin-left: 50%;
 }
 .wz-header {
 	text-align: center;
 }
 .title-rwz {
 	text-align: center;
+	margin-bottom: 30px;
 }
 
 /*------------------*/
@@ -395,6 +440,7 @@ header, subpage-header {
 .stodola-title {
 	text-align: center;
 	color: #fff;
+	margin-bottom: 2%
 }
 
 /*------------------*/
@@ -415,6 +461,7 @@ header, subpage-header {
 .workshop-header {
 	text-align: center;
 	color: #fff;
+	margin-bottom: 2%;
 	
 }
 
@@ -457,6 +504,16 @@ header, subpage-header {
 .title-box ul {
 	
 	list-style: none;
+}
+
+.line-end {
+	display: block;
+	height: 2px;
+	background-color: rgb(134, 8, 9);
+	width: 300px;
+	margin: 0 auto;
+	margin-bottom: 30px;
+	margin-top: 30px;
 }
 
 /*------------------*/
@@ -730,4 +787,13 @@ input[type=submit] {
 input[type=submit] {
 	background-color: rgba(202, 185, 139, 0.74);
 	color: rgba(255, 255, 255, 0.74);
+}
+
+/* button statut */
+
+.content-bottom-s {
+	display: inline-block;
+	width: 1140px;
+	transform: translate(33%);
+	margin-bottom: 5%;
 }
