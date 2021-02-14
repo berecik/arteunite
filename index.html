@@ -21,7 +21,7 @@
 				<div class=" header-row">
 					<img src="resources/img/logo_RED.png" alt="Arte Unite Logo" class="logo">
 		
-					<ul class="main-nav">
+					<ul class="main-nav js--main-nav">
 						<li><a href="index.html">Główna</a></li>
 						<li><a href="warsztaty.html">Warsztaty</a></li>
 						<li><a href="misja.html">Misja</a></li>
@@ -29,6 +29,7 @@
 						<li><a href="RuchWolnejZiemi.html">Ruch Wolnej Ziemi</a></li>
 						<li><a href="arteunitestatut.html">Statuty</a></li>
 					</ul>
+					<a class="mobile-nav-icon js--nav-icon"><ion-icon name="reorder-four-outline"></ion-icon></a>
 				</div>
 			
 				
@@ -36,7 +37,7 @@
 			
 			<div class="main-quote-box">
 				<h1>Stowarzyszenie na rzecz uwalniania Ziemi spod własności indywidualnej, dla wspólnot ekoosadowych.</h1>
-				<a class="btn-main" href="#">Dowiedz się</a>
+				<a class="btn-main js--scroll-to-features" href="#">Dowiedz się</a>
 				<a class="btn-main" href="dolaczsie.html">Dołącz się</a>
 				<a class="btn-main" href="dorzucsie.html">Dorzuć się</a>
 
@@ -55,7 +56,7 @@
 		
 			<section class="section-features">
 				
-				<div class="row">
+				<div class="row js--section-features">
 				<div class="col span-1-of-3 box">
 					<ion-icon name="earth"></ion-icon>
 					<h3>Rozwój w kierunku integracji z całym życiem na Ziemi jest naturalną możliwością przetrwania każdego gatunku i wynika bezpośrednio z ewolucji życia, dlatego jest też naturalnym kierunkiem ewolucji świadomości człowieka.</h3>
@@ -287,10 +288,14 @@
 	
 		
 	<script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
-	
-	</body>
-
+	<script src="resources/js/script.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/respond@0.9.0/main.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/html5shiv.min.js@3.7.2/html5shiv.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/selectivizr@1.0.3/selectivizr.min.js"></script>
+	
+	
+	</body>
+
+	
 </html>

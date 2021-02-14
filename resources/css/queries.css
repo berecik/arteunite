@@ -250,23 +250,29 @@ input[type=submit] {
 	}
 	}
 	
-/* Ipad - 768 X 1024 */ 
+/* Ipad - 776 X 1024 */ 
 	
-@media only screen and (max-width:769px){
+@media only screen and (max-width:776px){
 	
 		
 		.main-nav {
-			float: right; 
-			list-style: none;
-			margin-right: 5%;
-			margin-top: 2%;
+			display: none;
+			float: left;
+			font-size: 65%;
+			margin-left: 20px;
 		}
-		
-		.main-nav li a:link,
-		.main-nav li a:visited {
-			font-size: 60%;
-		
-	}
+		.main-nav li {
+			display: block;
+		}
+		.mobile-nav-icon {
+			display: inline-block;
+		}
+		.main-nav li a: link,
+		.main-nav li a: visited {
+			display: block;
+			border: 0;
+			
+		}
 		.stodola {
 		height: 110vh;
 	}
@@ -288,10 +294,8 @@ input[type=submit] {
 	@media only screen and (max-width:541px){
 		
 		
-		.main-nav {
-			display: none;
-			
-		}
+		
+	
 		.logo {
 			margin: 5%;
 			margin-left: 10%;

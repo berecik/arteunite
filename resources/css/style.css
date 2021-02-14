@@ -309,7 +309,15 @@ header, subpage-header {
 	border-bottom: 2px solid rgba(245, 245, 245, 0.78);
 }
 
-	
+.mobile-nav-icon {
+	float:right;
+	margin-top: 10px;
+	margin-right: 10px;
+	color: #fff;
+	font-size: 150%;
+	cursor: pointer;
+	display: none;
+}
 
 .subpage-header {
 	height: 40vh;
