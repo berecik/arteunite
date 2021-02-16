@@ -258,19 +258,27 @@ input[type=submit] {
 		.main-nav {
 			display: none;
 			float: left;
-			font-size: 65%;
-			margin-left: 20px;
+			font-size: 100%;
+			margin-left: 30px;
+			margin-top: 15px;
 		}
-		.main-nav li {
-			display: block;
-		}
+		
 		.mobile-nav-icon {
 			display: inline-block;
+			
+		}
+		.sticky .mobile-nav-icon {
+		color: rgba(85, 85, 85, 0.57);
+	}
+		.main-nav li {
+			display: block;
+			padding: 6px 0;
 		}
 		.main-nav li a: link,
 		.main-nav li a: visited {
 			display: block;
 			border: 0;
+			color: #fff;
 			
 		}
 		.stodola {
