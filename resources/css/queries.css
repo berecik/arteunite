@@ -107,7 +107,7 @@ input[type=submit] {
 			margin: 0 5%;
 		}
 		.wolna-ziemia {
-			height: 120vh;
+			height: 90vh;
 		}
 
 		.stodola {
@@ -140,7 +140,7 @@ input[type=submit] {
 			width: 70vh;
 			top:75%;
 			left: 65%;
-			transform: translate(-50%, -5%);
+			transform: translate(-40%, -25%);
 	
 		}
 
@@ -187,6 +187,10 @@ input[type=submit] {
 		margin-top: 50%;
 		margin-left: -5%;
 	}
+	.quote-h {
+			transform: translate(-50%, -35%);
+	
+		}
 
 }
 	
@@ -233,8 +237,9 @@ input[type=submit] {
 	}
 	
 	.quote-h {
-		font-size: 100%;
-	}
+			display: none;
+	
+		}
 		.btn-section-stodola:link,
 		.btn-section-stodola:visited,
 		input[type=submit] {
@@ -243,7 +248,7 @@ input[type=submit] {
 			margin-left: -15%;
 	}
 		.wolna-ziemia {
-			height: 140vh;
+			height: 100vh;
 		}
 		.stodola {
 		height: 220vh;
@@ -292,7 +297,7 @@ input[type=submit] {
 			margin-left: -20%;
 	}
 		.wolna-ziemia {
-			height: 80vh;
+			height: 120vh;
 		}
 		
 	}
@@ -374,6 +379,72 @@ input[type=submit] {
 			margin-top: 60%;
 			margin-left: -30%;
 	}
-
-		
 	}
+		
+		@media only screen and (max-width:376px) {
+			.logo {
+				height: 70px;
+				margin: 5%;
+				margin-left: 5%;
+		}
+			.mobile-nav-icon {
+				font-size: 150%;
+				margin-top: 10px;
+				margin-bottom: 50px;
+		}
+			.main-quote-box h1 {
+				font-size: 110%;
+				margin-bottom: 20px;
+			}
+			.wolna-ziemia {
+				height: 150vh;
+			}
+			.ind {
+				height: 100%;
+				width: auto;
+				margin-top: 450px;
+				margin-bottom: 10px;
+				transform: translate(-30%);
+			}
+			.stodola {
+				height: 180vh;
+			}
+			.btn-section-stodola:link,
+			.btn-section-stodola:visited,
+			input[type=submit] {-
+				display:inline-block;
+				margin-top: 115%;
+				margin-left: -30%;
+		}
+			
+	}
+
+			@media only screen and (max-width:321px) {
+				
+			.main-quote-box h1 {
+				font-size: 90%;
+				margin-bottom: 20px;
+			}
+				.logo {
+					height: 50px;}
+				.mobile-nav-icon {
+					font-size: 140%;
+					margin-top: 0;
+			}
+				.wolna-ziemia {
+				height: 190vh;
+			}
+				.ind {
+				height: 120%;
+				margin-top: 550px;
+				}
+				.stodola {
+				height: 240vh;
+			}
+				.btn-section-stodola:link,
+		.btn-section-stodola:visited,
+		input[type=submit] {
+			margin-top: 210%;
+			margin-left: -46%;
+				
+			}
