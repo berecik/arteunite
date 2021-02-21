@@ -239,6 +239,17 @@ ALTER SEQUENCE public.auth_user_user_permissions_id_seq OWNED BY public.auth_use
 
 
 --
+-- Name: contact_contactpage; Type: TABLE; Schema: public; Owner: beret
+--
+
+CREATE TABLE public.contact_contactpage (
+    page_ptr_id integer NOT NULL
+);
+
+
+ALTER TABLE public.contact_contactpage OWNER TO beret;
+
+--
 -- Name: django_admin_log; Type: TABLE; Schema: public; Owner: beret
 --
 
@@ -364,18 +375,6 @@ CREATE TABLE public.django_session (
 ALTER TABLE public.django_session OWNER TO beret;
 
 --
--- Name: home_arteunitemock; Type: TABLE; Schema: public; Owner: beret
---
-
-CREATE TABLE public.home_arteunitemock (
-    page_ptr_id integer NOT NULL,
-    intro text NOT NULL
-);
-
-
-ALTER TABLE public.home_arteunitemock OWNER TO beret;
-
---
 -- Name: home_homepage; Type: TABLE; Schema: public; Owner: beret
 --
 
@@ -397,6 +396,52 @@ CREATE TABLE public.home_homepage (
 
 
 ALTER TABLE public.home_homepage OWNER TO beret;
+
+--
+-- Name: miejsca_miejscapage; Type: TABLE; Schema: public; Owner: beret
+--
+
+CREATE TABLE public.miejsca_miejscapage (
+    page_ptr_id integer NOT NULL,
+    opis text NOT NULL,
+    objasnienie text NOT NULL,
+    komentarz text NOT NULL,
+    zaproszenie text NOT NULL
+);
+
+
+ALTER TABLE public.miejsca_miejscapage OWNER TO beret;
+
+--
+-- Name: misja_misjapage; Type: TABLE; Schema: public; Owner: beret
+--
+
+CREATE TABLE public.misja_misjapage (
+    page_ptr_id integer NOT NULL,
+    opis text NOT NULL,
+    objasnienie text NOT NULL,
+    komentarz_1 text NOT NULL,
+    komentarz_2 text NOT NULL,
+    komentarz_3 text NOT NULL,
+    podsumowanie text NOT NULL
+);
+
+
+ALTER TABLE public.misja_misjapage OWNER TO beret;
+
+--
+-- Name: rwz_rwzpage; Type: TABLE; Schema: public; Owner: beret
+--
+
+CREATE TABLE public.rwz_rwzpage (
+    page_ptr_id integer NOT NULL,
+    opis text NOT NULL,
+    objasnienie text NOT NULL,
+    komentarz text NOT NULL
+);
+
+
+ALTER TABLE public.rwz_rwzpage OWNER TO beret;
 
 --
 -- Name: taggit_tag; Type: TABLE; Schema: public; Owner: beret
@@ -467,6 +512,39 @@ ALTER TABLE public.taggit_taggeditem_id_seq OWNER TO beret;
 --
 
 ALTER SEQUENCE public.taggit_taggeditem_id_seq OWNED BY public.taggit_taggeditem.id;
+
+
+--
+-- Name: wagtailadmin_admin; Type: TABLE; Schema: public; Owner: beret
+--
+
+CREATE TABLE public.wagtailadmin_admin (
+    id integer NOT NULL
+);
+
+
+ALTER TABLE public.wagtailadmin_admin OWNER TO beret;
+
+--
+-- Name: wagtailadmin_admin_id_seq; Type: SEQUENCE; Schema: public; Owner: beret
+--
+
+CREATE SEQUENCE public.wagtailadmin_admin_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.wagtailadmin_admin_id_seq OWNER TO beret;
+
+--
+-- Name: wagtailadmin_admin_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: beret
+--
+
+ALTER SEQUENCE public.wagtailadmin_admin_id_seq OWNED BY public.wagtailadmin_admin.id;
 
 
 --
@@ -1226,22 +1304,58 @@ ALTER SEQUENCE public.wagtaildocs_document_id_seq OWNED BY public.wagtaildocs_do
 
 
 --
+-- Name: wagtaildocs_uploadeddocument; Type: TABLE; Schema: public; Owner: beret
+--
+
+CREATE TABLE public.wagtaildocs_uploadeddocument (
+    id integer NOT NULL,
+    file character varying(200) NOT NULL,
+    uploaded_by_user_id integer
+);
+
+
+ALTER TABLE public.wagtaildocs_uploadeddocument OWNER TO beret;
+
+--
+-- Name: wagtaildocs_uploadeddocument_id_seq; Type: SEQUENCE; Schema: public; Owner: beret
+--
+
+CREATE SEQUENCE public.wagtaildocs_uploadeddocument_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.wagtaildocs_uploadeddocument_id_seq OWNER TO beret;
+
+--
+-- Name: wagtaildocs_uploadeddocument_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: beret
+--
+
+ALTER SEQUENCE public.wagtaildocs_uploadeddocument_id_seq OWNED BY public.wagtaildocs_uploadeddocument.id;
+
+
+--
 -- Name: wagtailembeds_embed; Type: TABLE; Schema: public; Owner: beret
 --
 
 CREATE TABLE public.wagtailembeds_embed (
     id integer NOT NULL,
-    url character varying(200) NOT NULL,
+    url text NOT NULL,
     max_width smallint,
     type character varying(10) NOT NULL,
     html text NOT NULL,
     title text NOT NULL,
     author_name text NOT NULL,
     provider_name text NOT NULL,
-    thumbnail_url character varying(255),
+    thumbnail_url text NOT NULL,
     width integer,
     height integer,
-    last_updated timestamp with time zone NOT NULL
+    last_updated timestamp with time zone NOT NULL,
+    hash character varying(32) NOT NULL
 );
 
 
@@ -1616,6 +1730,23 @@ ALTER SEQUENCE public.wagtailusers_userprofile_id_seq OWNED BY public.wagtailuse
 
 
 --
+-- Name: warsztaty_warsztatypage; Type: TABLE; Schema: public; Owner: beret
+--
+
+CREATE TABLE public.warsztaty_warsztatypage (
+    page_ptr_id integer NOT NULL,
+    beret text NOT NULL,
+    comment text NOT NULL,
+    milicki text NOT NULL,
+    monika text NOT NULL,
+    opis text NOT NULL,
+    zaproszenie text NOT NULL
+);
+
+
+ALTER TABLE public.warsztaty_warsztatypage OWNER TO beret;
+
+--
 -- Name: auth_group id; Type: DEFAULT; Schema: public; Owner: beret
 --
 
@@ -1690,6 +1821,13 @@ ALTER TABLE ONLY public.taggit_tag ALTER COLUMN id SET DEFAULT nextval('public.t
 --
 
 ALTER TABLE ONLY public.taggit_taggeditem ALTER COLUMN id SET DEFAULT nextval('public.taggit_taggeditem_id_seq'::regclass);
+
+
+--
+-- Name: wagtailadmin_admin id; Type: DEFAULT; Schema: public; Owner: beret
+--
+
+ALTER TABLE ONLY public.wagtailadmin_admin ALTER COLUMN id SET DEFAULT nextval('public.wagtailadmin_admin_id_seq'::regclass);
 
 
 --
@@ -1826,6 +1964,13 @@ ALTER TABLE ONLY public.wagtaildocs_document ALTER COLUMN id SET DEFAULT nextval
 
 
 --
+-- Name: wagtaildocs_uploadeddocument id; Type: DEFAULT; Schema: public; Owner: beret
+--
+
+ALTER TABLE ONLY public.wagtaildocs_uploadeddocument ALTER COLUMN id SET DEFAULT nextval('public.wagtaildocs_uploadeddocument_id_seq'::regclass);
+
+
+--
 -- Name: wagtailembeds_embed id; Type: DEFAULT; Schema: public; Owner: beret
 --
 
@@ -1924,6 +2069,10 @@ COPY public.auth_group_permissions (id, group_id, permission_id) FROM stdin;
 12	2	5
 13	2	6
 14	2	7
+15	1	150
+16	2	150
+17	1	151
+18	2	151
 \.
 
 
@@ -2081,6 +2230,32 @@ COPY public.auth_permission (id, name, content_type_id, codename) FROM stdin;
 147	Can change session	38	change_session
 148	Can delete session	38	delete_session
 149	Can view session	38	view_session
+150	Can choose document	5	choose_document
+151	Can choose image	6	choose_image
+152	Can add uploaded document	39	add_uploadeddocument
+153	Can change uploaded document	39	change_uploadeddocument
+154	Can delete uploaded document	39	delete_uploadeddocument
+155	Can view uploaded document	39	view_uploadeddocument
+156	Can add contact page	40	add_contactpage
+157	Can change contact page	40	change_contactpage
+158	Can delete contact page	40	delete_contactpage
+159	Can view contact page	40	view_contactpage
+160	Can add warsztaty page	41	add_warsztatypage
+161	Can change warsztaty page	41	change_warsztatypage
+162	Can delete warsztaty page	41	delete_warsztatypage
+163	Can view warsztaty page	41	view_warsztatypage
+164	Can add misja page	42	add_misjapage
+165	Can change misja page	42	change_misjapage
+166	Can delete misja page	42	delete_misjapage
+167	Can view misja page	42	view_misjapage
+168	Can add miejsca page	43	add_miejscapage
+169	Can change miejsca page	43	change_miejscapage
+170	Can delete miejsca page	43	delete_miejscapage
+171	Can view miejsca page	43	view_miejscapage
+172	Can add rwz page	44	add_rwzpage
+173	Can change rwz page	44	change_rwzpage
+174	Can delete rwz page	44	delete_rwzpage
+175	Can view rwz page	44	view_rwzpage
 \.
 
 
@@ -2089,8 +2264,7 @@ COPY public.auth_permission (id, name, content_type_id, codename) FROM stdin;
 --
 
 COPY public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) FROM stdin;
-1	pbkdf2_sha256$216000$uy2Eay3QXGvo$6IpiSB4xcRviygcFFYkvKlL1BVE6zWig1zuPqw6yy8Q=	2021-02-15 00:00:43.171485+00	t	beret			beret@hipisi.org.pl	t	t	2021-02-07 04:07:43.021502+00
-3	pbkdf2_sha256$216000$0rl956Vutt4t$KzhW9COMdLWLGtfcqnhbjeE484kC5Xq0IBwobPszo9U=	2021-02-15 00:10:23.981241+00	t	kuba	Jakub	Ferenczak	unite@wp.pl	t	t	2021-02-15 00:05:20.374316+00
+1	pbkdf2_sha256$216000$uy2Eay3QXGvo$6IpiSB4xcRviygcFFYkvKlL1BVE6zWig1zuPqw6yy8Q=	2021-02-07 04:07:51.814448+00	t	beret			beret@hipisi.org.pl	t	t	2021-02-07 04:07:43.021502+00
 \.
 
 
@@ -2107,6 +2281,14 @@ COPY public.auth_user_groups (id, user_id, group_id) FROM stdin;
 --
 
 COPY public.auth_user_user_permissions (id, user_id, permission_id) FROM stdin;
+\.
+
+
+--
+-- Data for Name: contact_contactpage; Type: TABLE DATA; Schema: public; Owner: beret
+--
+
+COPY public.contact_contactpage (page_ptr_id) FROM stdin;
 \.
 
 
@@ -2161,6 +2343,12 @@ COPY public.django_content_type (id, app_label, model) FROM stdin;
 36	auth	user
 37	contenttypes	contenttype
 38	sessions	session
+39	wagtaildocs	uploadeddocument
+40	contact	contactpage
+41	warsztaty	warsztatypage
+42	misja	misjapage
+43	miejsca	miejscapage
+44	rwz	rwzpage
 \.
 
 
@@ -2240,6 +2428,7 @@ COPY public.django_migrations (id, app, name, applied) FROM stdin;
 69	wagtailcore	0051_taskstate_comment	2021-01-27 19:50:04.907362+00
 70	wagtailcore	0052_pagelogentry	2021-01-27 19:50:04.932573+00
 71	home	0001_initial	2021-01-27 19:50:04.954143+00
+72	home	0002_create_homepage	2021-01-27 19:50:04.980937+00
 73	wagtailcore	0053_locale_model	2021-01-27 19:50:04.990106+00
 74	wagtailcore	0054_initial_locale	2021-01-27 19:50:05.007015+00
 75	wagtailcore	0055_page_locale_fields	2021-01-27 19:50:05.052924+00
@@ -2247,6 +2436,7 @@ COPY public.django_migrations (id, app, name, applied) FROM stdin;
 77	wagtailcore	0057_page_locale_fields_notnull	2021-01-27 19:50:05.117326+00
 78	wagtailcore	0058_page_alias_of	2021-01-27 19:50:05.135813+00
 79	wagtailcore	0059_apply_collection_ordering	2021-01-27 19:50:05.191872+00
+80	home	0003_auto_20210101_2116	2021-01-27 19:50:05.228912+00
 81	sessions	0001_initial	2021-01-27 19:50:05.246517+00
 82	taggit	0001_initial	2021-01-27 19:50:05.278708+00
 83	taggit	0002_auto_20150616_2121	2021-01-27 19:50:05.291807+00
@@ -2315,6 +2505,28 @@ COPY public.django_migrations (id, app, name, applied) FROM stdin;
 146	wagtailusers	0009_userprofile_verbose_name_plural	2021-01-27 19:50:06.5247+00
 147	wagtailimages	0001_squashed_0021	2021-01-27 19:50:06.533017+00
 148	wagtailcore	0001_squashed_0016_change_page_url_path_to_text_field	2021-01-27 19:50:06.537028+00
+149	home	0004_auto_20210207_1502	2021-02-07 14:02:55.186498+00
+150	home	0005_homepage_quote_author	2021-02-07 14:08:12.439552+00
+151	home	0006_auto_20210207_1512	2021-02-07 14:12:40.896908+00
+152	home	0007_auto_20210207_1516	2021-02-07 14:16:11.021542+00
+153	home	0008_auto_20210214_2126	2021-02-14 20:26:34.702245+00
+154	wagtailadmin	0002_admin	2021-02-19 00:47:15.75426+00
+155	wagtailadmin	0003_admin_managed	2021-02-19 00:47:15.783249+00
+156	wagtailcore	0060_fix_workflow_unique_constraint	2021-02-19 00:47:15.816551+00
+157	wagtaildocs	0011_add_choose_permissions	2021-02-19 00:47:15.871178+00
+158	wagtaildocs	0012_uploadeddocument	2021-02-19 00:47:15.887964+00
+159	wagtailembeds	0006_add_embed_hash	2021-02-19 00:47:15.895892+00
+160	wagtailembeds	0007_populate_hash	2021-02-19 00:47:15.913949+00
+161	wagtailembeds	0008_allow_long_urls	2021-02-19 00:47:15.932825+00
+162	wagtailimages	0023_add_choose_permissions	2021-02-19 00:47:15.981502+00
+163	contact	0001_initial	2021-02-20 23:26:06.938558+00
+164	warsztaty	0001_initial	2021-02-20 23:26:06.96643+00
+165	warsztaty	0002_auto_20210221_0101	2021-02-21 00:01:48.74069+00
+166	home	0002_delete_arteunitemock	2021-02-21 00:16:59.142839+00
+167	warsztaty	0003_auto_20210221_0116	2021-02-21 00:16:59.170364+00
+168	misja	0001_initial	2021-02-21 01:03:00.663632+00
+169	miejsca	0001_initial	2021-02-21 01:13:21.707218+00
+170	rwz	0001_initial	2021-02-21 01:34:35.697516+00
 \.
 
 
@@ -2323,17 +2535,7 @@ COPY public.django_migrations (id, app, name, applied) FROM stdin;
 --
 
 COPY public.django_session (session_key, session_data, expire_date) FROM stdin;
-39jr3d1eofuryngkrq9yseu8qqfoqt5m	.eJztWmtv3MYV_S8G1l8mWUirdwB9kGS3jhPLbpzASIpCGHJGu8PXsOTQNKfof--5c4ePlTeNP7UwWkCyd8nh8D7PPfeO_vHsQXZu99C1unkw6tl3z46ffbO8lsg01xXdUJmstnad2so1JlnTknW8267fWKWL27h2b4OdbHd4Wp8mx8nxeXqRXKSPp-dXyXmi06NEJ8dnx0ebY3l0dnWqLvXlVXKM-xt5mZyc6LPHU3V69Xj6mD5i015unTTFt3WjPxrdf_vsu78-S9vmsTRKFbqXjXYW77_-Xv-Q_rrp6-z-9fDu0-33r3bZxav6x9fvP7qbc_2Xrb-_OUne3vXN7bvqV-Nf3WQXP745u9-1L96ev_rtxfnzSn9y18-dcYW-fmVL_byw1fahkqW-Xl3crjabpLBp3uLD6uRmdXbLF3M9xCv4fNIebejb5g7_Ouw33XrvLET1Q-t1ZbSopGi8Tr3oellURuJH_GZ0aURbWyX61d3Z6nIj28rSp6vb1AhTqaE3qsN6neENQhVS9G29ujtZ3Z4UlXVC59a2Utl-SHfrWY6h1pMcXdW6odBquqt07XZ8-4ivmKowlX5Py36C7_VC47MXvERXMNPwe3eVdDJehYkuXtDP_pNvZP1kwfO_d9bp63sJA4nUy3aAjRrfpYZNMZDGuYXtUj8aZXV3urq8EK3rbUNmleLRFNbbR2PCasemaaQojYwWTQaR7mQjc6cbsS1sAnMOwoiuMr1uWvpGz6Zx_WR-2JRWedXI3sgsvPosHdYsdwh821y_0lUz5OJ9bgtT2r7NzXMtG-TETkt1_ZP1PYuUiV7kRjddlXdwrNPbRqaZEX568VAK-nB7N6QIC4oXDo9Mtw7fXNdAVJZClJaXFqaf5I23ahjGNX2Ir1zyMqW3VmyxRXi56IfK5FIk2tfx6UarylgIo3tbdCTXJIqMgedojyCL03xzEgqSR9VI8L0trm5hO2XLOahTH-3cG53LNVvrS9OtUEfVxeF0u9vBbIVJBn5TGZzKgmqEAN6mPC0QFnK3HjLXjc10jqeQU0jTdNgLIY-w8V10O7uCPl9diUzmdpmGg4CCkxt1JopO-XzSeC3eyJJimzJfIdatcgQMklGBTYinGl2EiBjfo4IEC2ORcWUQfnR1ISvt-MtawAAa76ltLr3kRFmYQNDbausQHUmX8cIWrokro4JYT_kCWbE8G4OAl6xXZ3cV_YrXiAI9mllUto_ytBxOsMGcsVNc9sIhB9MgRd86GSJ0Le7ZF6kuoF0IL18aHfBRzxHkFrjHr0i9bslqKRCyMD5YzohaVt2UqekOL61MOVm2tpQcnhxfWz-kGfmC3lbR2ga5GoX17MtTMsSck5MBPghbyyY1HWKpU_CB8LI2wK9kBB3aD94JWVziHpQGikhI6GUecUkFFW2zxf8svwWwNV1OEUHPW29siZ3IK2PCk-MC-EWnLEwUhHJDjG_IhJrgZabp8V73EToQAPuwoHRp80Y6LK7oex11B8aSvA6o0NWaZSaBC72leA3GeA3YgPO8cKRwfCF7qWdn9gNSrjSIkaDtoSpXN0MvXaxwDjbbUqJC421cLBCRFob00rQOu0TNOQ1HY3r5BFlgBfVZ_nxtJRJ50nAl-aEZgosItwC0DtnSix1QF4G4M8B0-H626R8nCxk7eIiyEbxkV-lQOlBwyVNL5FjGXjmZf8S7HLZ1Y45P3ohQST5wlN52hJsSBZS0-lLEv8ySpj-M-G9rUn9Md9Ga6aUoURm0U6TzY5QTMNPj656dlnVfLlIJ0UrMqrJgEYhufEp1A1pIEJPIKpcMlcARQnSzB_jRPArJLEvr5RjFaggp8_Mcs7ye0gIJFFLP9lZ1tHPFOA95A8YTaiYBuLxuQEuovoveZoQuf1QtgCZjhbg3rU_9aC8ik3nDYeLgRd9YhoAAGIMp5ZbzlkTDL5JvxAgoAvujZuYdf4SJCp0hhJhkkJ0MECGSCwt-ato8bDyHoKSSQEG5oysB9lEURQ-rIiyj_UDSUkRpH0pCMOC9jMi4rA97DIPLomwipOwVPa90OqhRq07pSCM_9wkJV3GuUWEJVZVWzlHSPS2vSs5BOL4nhoOFc2BSfniuKR0LyGWpH8pIXtCGcMWwZIeMRPVywk74MFiDmbOXAJwI6BFlJyFCgieyIUDNBBgrgCb4MDAdMKJh5IJ-yURQcsLzBCSxcFxdwYjMUuQCQQJPCA9HwWWwLZPGgh_Mg5KySCjAFUcfixvsCZeT-oh8EgQplvASFdbc0P3clIgvCuqvDb8fwQE0A_hbRb3NDFdL_KT8dkQMGEVniJppHKrdCKFk8omuwXZDD75AFDMjfBuB42BuMLbstRKPiPA0mwJGhcTwY4j2JlK6WNXXq5O7pFlt_rQ6eRlkCJ72MuJIX1muy-84B0fJwSMobRXI4pZ8DE0oKUF9JK_fontwe_x7mOuOSEa2gyTK5ghCJh0gFPE-aWq2iHAyF3cFBPKGv4-gGSh4ERuaqRIo-1mbEjz5pUXronH5p8NF6x1QjtoN0UgPVCAANMC4DASs57I7ql3JSWy7wBUbO5lokZ5CAXhBBOy2GbaIDwLezeV7vKg2OhLZzRGNKa6iP0YEfxc6ICd-jvnuqef9IdaLLa9Ziw-OgGLq-lANEatUIwszNQGTfB4f9UT6D3cE4sPNexLxA1AJDbMWNzm0B-S9P9xAsNx-ERtQMY0cY6_qzr6kpkz8-eU9vefPoekXL1P70RSF3Gpxr4lE59h5LV6TPQ4JGvf0sYIj-RYKY3do0Yl26u_BAUb6T139hKHRFGgvJqoVqhknKpV99kJHVR9Xmqm_a3MZMXRqPd4mOqUA5h4AchBLjtOg2hawpvipg3X-E9MmiPMGO4NnrF5uVpdHq6uXH2woIIxO8eILgf5Cj_WB-hcJKZ1udPUk4UO56qL_iJLIMKgBukSLgOXjykImzpg95_Gl2OhNbQ8BTB1DlNiaEaGhaDldZvSarSESNEVwBrVBfZjYVNSjKYvruJtzDxZX7wHgUgPUtLEfolT3I2wTVLcsGmF6XLPko5_NEUa0B52C2wk-6jBdXHSclmgYZ_zXVil7RI58CPaRXwqzNkmzj4dhNgbmMh7_H4b_lTAESvwvEQWBBg_BFZwbOuphUZO4bnA0Ih5VTqOPiRE6-3TSMxnLjMU3PDMVu6lSPKIgE7E_xOlootiOX1BleLySLWd46-AmuX9RWNCHvIttL9wQm4xI0yPNZP8NTCy5nr2wJU2Z31B1Tylqf7BtieqpY60NPaLOuSvQB5RcVCKaun1dQNY6tLvFF2PYbneBtvAwVUTgq5FY9d6MhELHAV8puS0d-gPj3mUvujcw3Kvo88Tk34AQbRumD9xID3MfQuOH0clzPk7nGNRx0_SbhohTZk48knJjmoWGmcPqbrO6OcoIl4GlLe-XLAnxXvs47qgClECJbGp14_Amjis8t_GdQFBxu-9HcEzxRVe62fIBUsCzp5vRHKIfaGiVeiJHW5rTDkW3OCNZc7DrMYd5TEBdU0jthfEBlS43PNRdnjWU4WwiWZwTTJCIiHKke7EYRssn50NGaXmofnCR6S1o4-_4ambu0FmN0_OQqgdSk_Ubg4yBXVR74Bh1DuBYg9mqoUoDLuzPWFLqegu5mFHYqCqEkm2tw4wz6eJAQRBBWNbFw7OfEa-jEDT1KBzN7tBgRHCEWIiOtivrNLOV8QGsFiOP_UlLeHdrE-LccTaWWuIO5AAa0ajlrIXKMk1mF4dDX93MmRqjdmfrL2ZhXXl8fhjBfhOET3TKuTxcReSQUZkbPTklv2mcFr9UBv_6xMQoZTw40BnanjuVlM_-xHz4Jz7Ilk5lGsvxzTCxaNG6OCkJp0QSPZeDrWJXI97yocx-i5tFzMCDP3YJ37g8TTvxmnqwEAP9Vnw_6Gorwc0ClFSyy-O9EMngkR7FIR2y0LCX0gkAeRuNw2eWvajtPnrAMl04ZKlynvCVYovIiPE8GkNW80b4MkzKxJaxJNL7-cFxtA55I86zGSFVqL4iN0XeiZS4TR8OeWQ29t3L0dTnSDGZC14ARwgsemHrkY5O86r3oW7qkRUoYh8NI3vL7BPGDi3veCaLTLOVm2esXlLM6IYO5PZGyzX12yN155Mr8QvgbnbuEtR6Ps1KzTxfuL0jyA5_pEAlMlhzLkqTpuHYNMUynY8ymWlbPjq3AcahsgCxla4CObMlUjEcWiyxFZVgKplhdjqy0-koVryIh_JeTuhFLm51o7gDeVJukACSBy1h6OCHz6JswRlK6joMxwAenGZU-4fkcsG9oc_45xnzSczEUBeQGCvMVwaLbdFtr3f0R0Kttg_8N0P4SMdvD0q3aWNqZ2x1_XxrHwrzUT9Id_1cf6pNEz4---b4_Pjk5PTo8myzPt9szo4v_vbPfwE1tMYD:1lBPee:U3Mj4FJwkLalH3o382gvbA9VdK7lhIf1gfLONgS9nU0	2021-02-28 22:14:12.654943+00
-nz44xd7emwpe2mjh76bjgdmausscn2ly	.eJxVjEEOwiAQRe_C2hCmBQou3fcMZAYGqRqalHZlvLtt0oVu_3vvv0XAbS1ha7yEKYmrAHH53Qjjk-sB0gPrfZZxrusykTwUedImxznx63a6fwcFW9lr1gQENg40xKytJ0scFTGBAdUBKuN1cuw8wc47dNT3bLJO2medYxafL_0tOLw:1lBRJj:X1PazR9t5HRp4A4J_WXuZQV8anCFRbOTfYaIN5SOWDs	2021-03-01 00:00:43.184366+00
-x4jr0exi2vr7i8e7mtonf72rc7ol8iy0	.eJztWmtv3LgV_S8GJl-4O7DHz1nAH2wn3azzRJyF2y0KgxLpGepFVY8oYtH_3nP5ksae7eZTi6BFbEcjUeTlfZx77uX84-CB9932oW9l86DEwU8Hxwc_zO8lPM1lRQ9ExquNXqa66hqVLGnI0j9tl--0kMW1H7szwZa3W7x9fnG4wo94XF-Ix7N1ytPz1XlydnJ4dHGUyuPTNJGPayEeE8mPZLqSj8cXyeP67GSVHuLf4ykmHfim46r4sW7kFyWHHw9--utB2jaPpRKikANvZKex_uWne92ui1GdnCS_8puz7S9t37z9PPQXvx0Or_Wfj45f_-Xzqvl6e3_VnB7mHz_d_jze8swkb99sVxfnb1--qOTX7vJFp7pCXr7WpXxR6GrzUPFSXi7OrxerVVLoNG9xsTi-Wpxeu5u5HP2d1eprtklK-rS6wd8O88VHd52GqGZsjayUZBVnjZGpYf3Ai0px_LDflCwVa2st2LC4OV1crHhbabpaX6eKqUqMgxI9xssMKzBRcDa09eLmeHF9XFS6YzLXuuVCD2O6XU5yjLWMcvRV242FFPGpkHW3dY8P3R1VFaqSdzTsE2wvZzs-femGyApqGn_vqeAd93ehovOX9LP75jtePxnw4u-97uTlew4FsdTwdoSOGtOnyqlipB3nGrpLTVDK4uZkcXHO2m7QDamVs0dVaKMflbKjO6eahrNSca_RZGTpljc872TDNoVOoM6RKdZXapBNS5_o3dSPj-qHTmmUEQ0fFM_s0qfpuHRyW8fXzeVrWTVjzu5yXahSD22uXkjeICa2kovLT9oMTqSMDSxXsumrvIdhO7lpeJopZuLCY8no4vpmTOEW5C_OPTLZdvjU9Q1EdVKwUruhhRqivP5RDcV0zWD9K-dumJAbzTaYwi7OhrFSOWeJNLV_u5GiUhrCyEEXPckVReHe8Tqaw8rSSfcwCgXJ_dZI8J0p1tfQndDl5NSp8XoelMz50mnrW8Pt75uLs6_7w-1mC7UVKhndSqU1qhNUwgWwmjA0gGnI3RrIXDc6kzneQkwhTNNxx4UM3Mb03uzOFHS9XrOM53oehiPDBqMZZcaKXpg87njJ3vGSfJsiX8DXtegIGLhDBadCvNXIwnpEWEdYCWbKIuVyK3wwdcEr2bkPSwYFSKxT65wb7gJlpgJGq9W6g3ckfeYGtjCNH-k3iPEUL5AVw7PgBG7IcnF6U9Evu4UXyKBmVunBy9M6d4IOpoiNfjmwDjGYWimGtuPWQ5fsvbNFKgvszrqXKZW0-CgnD-pmuOeWSI1sSWspELJQxmpOsZpXfYzUdItFK1VGzdaagsOQ4WttxjQjW9BqFY1tEKteWONseUKKmGIyKuCe6Zo3qerhS72ADZjhtQJ-JQF0aD5Yx0ZxiWfYNFCEQ0LDc49Lwm5RNxv87-TXALamz8kj6H1tlC4xE1klBDwZzoKfN8pMRVaobvT-DZmQEwzPJL0-yMFDBxxgFxaELHXe8A6DK_pc-70DY0neDqjQ19LJTAIXckP-apVxC9iA8QzraMN-QWelwRlzGBFypYKP2N3uy3J1Mw688xmOFxIvipEGd7ykWxuKWyhg499lcFANvRqu2g7jvCJcVAbdGv4EaKAU8SycvreMibBpXGJ504zWYgRjwN0OwTOwLUAYfrlVgHi4wqTiP44dUrQ1GAUnaMq2kjaTIP-S4eZAMnfFMqo_wF8O3XYh5KM1PHKSDTqKdh3Qp0Q-pV19awI4OTRn3f4E8KGm7YfoZ62KiyJjZeRVtOdHLydQZ8DHHT3NaQCfRRacl4hWpUEq4Oy4SmUDlkiIk_Aq5w45ASsE8GoH_716BGKbl9rw4MVitBH0efJZN54cH_FkI1EPWvQ0c-VgH_JayCcQTSyOGdmApVC6Z4POCGz-KHkAXELCeK9ak5qgL-KWeePcpIMVTaMdIlj8GFXJNy6MSTT8IvgCZGAj0D9SaN67S6iokBlcyHEO0pMCQHiuoUFXVZvbiScX5JQhyCm3dMdmAeRINkCrcEuvP3C2FF462AxhFfiee6Ccp4sdwuGyJG88wuzkQCNkOoqwq15Izyqf24SEq1ysUZ6xSZZGTl7SP822gk9OGNbx7qBhHKjUvTylmN4J6LLUMJaey6AqcQlEkx4yEtXwCKWwodWGI9KGA3A8vnvQjULYAE94Q4CaMRBYAI21oSU-IEhjoIZmTkyQgez7BCQ-j6zXUKIjLXyGIJY22Je94Nzq1nHIwr2Y9w7nE3Jw4bzPiWv1CZPT9uH5JAhCLHFDhB1zRc9zVcK_yKm_N_x-BCWQDsA_CCp1Jria42dqk18eUHSCqInVIdsFCCWVR_YG3Y0D6AMxzozwLQDH3thw2LJTWTzCw9MsOoywgWGCiw7KMzyf5JeL45ukWaz-tDh-ZWWwljbc48hQaZeXP7oYDJKDVlDYCnDHDdkYO6GgBBPibvwGxUS3Q8fHKe-wJJAfBFE2eRAiaQ-_8M9pp2oDDyd1uSKBQF65zwE0LSMvfH0TM4HQz6oWa8lvTVqjvmiH_UnrI1COqg_WcANUIABUwLgMfGxwaTdsu-JRbD3DFe0LG6-RgVwBeEF87LoZN_APAt7VxR0WqpX0vHZ1eAhp1t4eAcE_2oKoY599vBsqgd_4fLFxY5bsviOgiEUgsiF8lXJkoWJNEOUzuJSxBthfILD7qzsS8R6ohPpZsqscuwfk3e2vJ5zcZuYb2GLqOcZO1p1sSTUa-_nVe1rnZ9sDYK9S_UUVBd9I9l4Sp84x85Ldkj72CernND6DI_hmG8bs2EXP2ljugwOEaoCK_IihXhWoNiLVstnMBSqlfWeFnrI-7jSx3Gtz7jE0ViIfEplaqmxLAshBLNk3h2pdQJvsUw_t_CeaTxDnHWYGz1i8Wi0uDhfrV_faJhCHTv7mS4ZyQ4b8QOUMh5SdbGT1JOBtuuq9_YiScNu3Abp4jYDl485MJhcxO8Zzt3zdF6sgApjauyixNcVsQdG6cJnQa9IGS1AjwRhUFQ22gVNRySY07uNp7koyP3oHAOc7QE4L5RGFugmwTVDdOtEI0_2YOR991lYIaA86BbMTfNS22TgrQDXRMBfx31umHOA5_MHqh38rzK6_JBu-H2a9Y8798f9u-F9xQ6DE_xJRYCjw4FzWuLaiHmc5yeUN543wR5FTJyQywk4_bfxEZamQfO07MdnFTPGIhEzEfh-nowZjGz4gy7j2SjZv6S2tmfjuTaZBH_Lel70wgy8yPE33NNPZb3TE0uWzl7qkpvM7yu4pee0b3ZbIntLnWlsjyjx0f55vcpaJqAn3fQFZ26HcLb4ZwwqxGle_g2Gu2CTubR0ktgBt97rLlesUzhvYpW14J7PmcwwsyNXhLiX1WH7yJ4cOSki-D4UcVA0a5IOW8GadIrCc8b-KZyK0ZK3B9xjYeXoIWgcPrNoJMb9nG2K1th3C1HrXbqWeUu1U8NjNssWu9ruFXLytpW2WJb2vTBllmjnA7m8ihMD3clD5XHTUBAJT9VEGycCF276s00xXylivn9XOuyW7XbvVCZE332RJNSUhsgHV-mJetBO-U4tvduhQ2iD9CDQUQduDUWE16ZvAJXe9inHYcyQwb1DsNJV3aN7URvs3mYmmtS0p110Zp-KU_46LeK-jNgydkFCjOcJ1LC4IMGO_3DaiFjerxdVhRskaCbZ18yXzKmmnpxBmFDa_YBNZ7H_4jp7vYRnX2-kZkMb1gEw_CwxZyWbjDhltkns6GTWnhpE6mTBtYWckQOpnwfW9IRdVRO1W198KXer8sE_3Q9dvjHyQTjvnh6xwQdKzI0VPTsuvmk6yXyuFvyZR3muczfeUhHpwJUrqzgDZdAjI7nlLpzONdp7uXGFWm_W-RWJPiziKrQ668uUM--AOZ3Zr28z7BV582yfuwcVJ2rNbKr5srAwb9ssoqw0HKbPuUvE-D4E2VrmHng3M6sEj7IRXRMCsigCClT_9GVitd7EfSurhsxbG_BSQs-DpmNnav-QdQ_jHuUa_IV8vlsR4nx8iew2RRXwz20WCsKmX_ehtRbSzoZNH2zYs8p6lRHYGewjEs1CIz3tVz0E_qhHWAWmwtHpmg8BPYwPrziZSGWiCIDrSuKhuHR2FEWwNHM5sgZi66qamq-HkS7KhA7udXnNNBXjg8u5ki_2KzDUZfY6agzvtStXUcLi-oexrv8RA8Gg1PAFS3Kk9Vk0xTOZBJhWndUfr2mZkbJmB6fKuAlvTJULUnmLM0yQgNsKlbaYGumqPatkH4Zj9PHbMxDxtsIAg9IIWK-eHJbA1oiwe-AVBQzrxDXLkukZaN55DHJJpPj9oouYPZTg1HerynUNd7KqQNWZesl-Q3kL6guQTtM872n02a2cPc8rLI8OlvdEhU8TmZ5t0woRcxxt_RLHvSxXzzQXLKHul3Kmx5ULOZV76L0kYHrM-hVkrG-FKwCdMDUDEXafLdn3M-CzEZ_m5pLJPuTjEi7FJuPulBT4rfuA_4esyk3WjvmYp3pOz7yw9tUW_udzSl7ZaqR_cd7hwSeefD0K2aaPqTunq8sVGPxTqi3zg3eUL-bVWjb08-OHo7Oj49PT8dH24PDo5PVmd_e2f_wKTTEIY:1lCK2Q:OqfjAJb6J0pOi4mjoiZqUNSs6JRlehPFG0zRD9Ux4MM	2021-03-03 10:26:30.165837+00
-\.
-
-
---
--- Data for Name: home_arteunitemock; Type: TABLE DATA; Schema: public; Owner: beret
---
-
-COPY public.home_arteunitemock (page_ptr_id, intro) FROM stdin;
+39jr3d1eofuryngkrq9yseu8qqfoqt5m	.eJzVWNtu4zgS_ZcAzgsnhm9J7AHyECfdu9M9Pcj0bbC9WASUWLGpC-mRyLClxf77VpGULF8amMddIEgkkioWq845Vcy_L565NdtnW0P1LMXFzxfTi5-GYwlPc1A0ITKuNnqcamUqmYxpyTjO1uMPWkCxjmsPDGx5vcWvYZFMk-lNepvcpi-Lm1Vyk0A6SSCZXk8nsymfXK8WYgnLVTLF-RlfJvM5XL8sxGL1snhJX9Co4xvDZXG1q-BVgru6-PmfF2ldvZRSiAIcr8Bo3P_uS1KU6vbl8esvk3df-cOb79s2-eV2_WFRv_5juXh9-vV9Iu4_F-_n7qZZfL1__DNTT7_99pi_uf_dvnuSby8VfDd3l0aaAu4-2nTL_tCFgox9k1DKS72T9d3odj2azZJCp3mND6P5_eh6HQZzaOLIbPa6a5d_0tvsAX8btNtPnRhmGdSGSSXTjJvGjR4Wo-U1q3d69HA9Ws4gbVU3ltud1N2b4syJitOq9QNX0jLHwkuTSkADFXei1arB_SrdOhm-a_0XywWjeT8pma42aKDlaZP5EcdSKCwbvZmNlpPR6o11vFASl_DgcjfxSG4K5oKnvFbe59U6lWi9cdzgIcfsGy8gOoZOl-S4cbpqgXyW3jed4ZMyoNJMK9yLnDiIwN6wk5DVucQFo9nStG7MINdO6hpyjDa96JqL0WxFb47lZvQwH63nFZkUkDZtBkxo06RtiEcKzNVtUxtvE48DWakdVxjBGGhX74INjAHQrrlWNaja1nEXebxP2dBwYUUrgZ52upZc8LJhVVjl0DzFn7OW90OaOY3kiKjQFW9ZLSHBPRV3Lc-gHLPPFLgGDTlmmjKkSdc6aUI6gRkM-ItVgqd4zsImrDZ4Gvympnjz8R6UzQ56UG6BC6iuMC39vICd2YYFkzAiVSEVfDJNAR9REmBAgOvHsAQUsqf50azghsdRZMztI_0cfvmB744WXOokQ2BJdB7-KvtQLqrb8-z7krbINiVzjDEjKlpW6gBOYEnjM37L8sgqwX1wOeWwTzAnxNrSpwWDyiKhZp0ZYolk7YaLlmMCyeRqxVqmZCnH7JT-BCovAT0Lswi8MLerMIGIpEhuLuhTcFIQW4hobaN6hu2JMg7mve8HIMt4rtlTgQg3fhLfcSfDCftM6Q1HnxCwBgmK_vCwflNZZQ7C0JwLXNo20fngxjlpiPNoS8mNaPwZyYBfF8-chKgRf9j-cLxbJDQj-vqoox7kHImhkXWRckcxIbrgFyHaSCyRkzZFP1NmNPnSH2ZIUhkthG_iGSnrMUEvPCch6RQZeZeH5GHCJStl3b0YyzbeM0o0hEiUzXjM-OEIwyIDuVXce4o5iEBEwNKQB1wWk-c1xo9sNHvUJWnpBxLHFAsDe6_rElUHxuydzx83VgWFxLicOaFUokFMWRJ6_OgLWcZU5GaPz9E10cmyXG9iMsOIF1qS0LQ5Oo2NAtZhMdgRBffWhU4qZOFAXhtUuHVMfZee3tUGAxAEsgynPBb4sit_qJQ-OLUh0Wz2JNwfO1rq3PuD5JNyCUy3iqfI3ACLDuF4PihyQqOECimsy0Gp062mrfb1hAgXMYIiQGVuz215JCYo7KVFre6dHMQj4irU3NgDxL_I1Z3uapjJKfmKjJGjzNBhQhHz7KVI66FhiDwr9Sba6ymM3AESK8ryQAeipRM-h68QZZRZo4fsEFVvXVBtKwYa0OtOzcuuzB4s6EViECqseaCoL6jDUMKgQFFVFL62p0LfA3lFw8S4hlHFtuWOugvZlvYHVdCqmoqb-J-rgbkucQ4x9VcrILbLq-Z8BcRubK_Q64dcxjI4rEm-qaEyCUNQDwPfKV_juzmoqDyzJ11gZ4Yg9M0s4i-Ahf0dFJaLT7hLydMtVGTed4Adxx2bTSYTVuHDWkLdIv-wgdmyt6GRicR4KiIN8PkTV3YcDZPaZ5Buu-0QbNETx6ar1RTtHmv-zjdEsb2MekJt4RA8LRW9Xd96481G4j2o688_atRzPP7n4BAWPlIRw0vflrW8pha8tTkvsOIo2WkWhQtspXe-iQX2bVPpEqu7j99HDFyiHXuLWl80B-BHXRJdkdQDregO6NB5RCYaoQ6xwVSSOxjV6RmtP4oyFYsy3grwHMiajNNtIdTafi_TF8Oo71JTc4Rp9oHi-1BoZNz7KgRqcyJ31LR6YRluoqnNPe2k4Fg4bVenC-nkXnKzrsWmT9pwq_JyNZC8LGjejhIH_v1MczJmj208MOLHQGkDOBc-xn-reBKjiXCxgp8kBIUfqMhVHv1eUD8NG3Bg95UB9kVJA0cJpn2mMwKroRa_t033vJOS8AMdZokVDdZ5ttF0M-OVx-X5xDBftSJnjkKPt0bfDq4bgZbars7E4uC7LORHx0ZB3ValhXYQa8ZW4mVZO4I4jlReYA7Rza4ihfgxhZA_WBT2LBKDhGDwkDyOGp1CptTEW9zP9efgnWRw32V0Ld-vweHjM1JFqTTWTgz8FFvzE6Kc2zrc51wTllC17a_uzXlIQFJ1WJDMhu5BxgGP0pM7AcYhXkkRFtj3IHA03e0sdhkDRsCwccXTWGxdol2kmXfL7gX89OaBvrt2U8QkWkIa5Ro2-zbBDhaES9jgiiwpgEr2F2sZ8ZHr7nr8QDeCgv7FIRQ1A334V2tqM__PynBd2M0d5e_K-TBeeaW5rEE_h38a4SNSbvssoE4ruTOYtbvLjX4u5Cs8c3N3Cd93svKPFz9Nb6bz5e10vliM5_PJcjn713_-Cz7yNAE:1lDdey:5S2euqCwGnqVGi1QpGfQG_Dn08C4szOgJP3G07a0rkM	2021-03-07 01:35:44.383123+00
 \.
 
 
@@ -2342,7 +2544,34 @@ COPY public.home_arteunitemock (page_ptr_id, intro) FROM stdin;
 --
 
 COPY public.home_homepage (page_ptr_id, earth, earth_head, flame, flame_head, long_name, quote, star, star_head, quote_author, stodola, wolna_ziemia, workshop) FROM stdin;
-3	<p>Chcielibyśmy, żeby wiedzieli o naszym projekcie wszyscy, którzy czują Ziemię jako wspólny dom całej ludzkości. Mamy na uwadze odtwarzanie naturalnej relacji między człowiekiem a naszą planetą. Chcemy pokazać, że nie potrzebujemy posiadać Ziemi, aby na niej żyć.<br/><br/> Jesteśmy nową społecznością w trakcie powstawania. Naszym celem jest zmienianie świata współczesnej cywilizacji i panujących w nim relacji poprzez propozycje odmiennych rozwiązań na życie.<br/><br/>W oparciu o udane zapisy białych plam na mapie prawa i zakładanie organizacji o strukturach poziomych, możemy tworzyć świat oparty o nasze zwyczaje, wewnątrz każdego demokratycznego państwa i to zupełnie legalne.<br/>Jednym z tych zwyczajów jest wyeliminowanie własności prywatnej, ale jedynie tam, gdzie mogła by ona zaistnieć jako władza człowieka nad człowiekiem.</p>	Rozwój w kierunku integracji z całym życiem na Ziemi jest naturalną możliwością przetrwania każdego gatunku i wynika bezpośrednio z ewolucji życia, dlatego jest też naturalnym kierunkiem ewolucji świadomości człowieka.	<p>Pierwszy raz o tej inicjatywie, można było się dowiedzieć w Zielonych Brygadach (Sierpień 2002), jako &quot;Projekt Tęczowy Krąg&quot;. Wtedy też kontaktowaliśmy się z siecią społeczności WAS (Wiejskie Aktywne Społeczności), z których część należy do GEN (Global Ecovillage Network). Jako społeczność zgłosiliśmy do WASu swój udział z chęcią rozpowszechnienia naszego projektu na szerszą skalę.<br/><br/>Obecnie tworzymy ogólnopolski Ruch na rzecz uwalniania Ziemi spod własności indywidualnej, dla wspólnot ekoosadowych.<br/>Mianem „Wolnej Ziemi” określamy taki teren, który jest użytkowany i zarządzany wspólnie, społecznie, przez pewną grupę ludzi na zasadach równości i braterstwa w intencji dobra i korzyści zarówno użytkowników tej ziemi, jej sąsiadów, całej ludzkości, przyrody oraz przyszłych pokoleń.</p>	Odrzucając całkowicie taką wartość, jak posiadanie Ziemi, przywracamy jej w naszej świadomości, naturalną funkcję jednego z żywiołów.<br/>Ziemia, zarówno jako Planeta, jak i ta pod nogami postrzegana jako grunt, który może być czyjąś własnością, nigdy nie była i nie będzie należała do człowieka.	<p>Stowarzyszenie na rzecz uwalniania Ziemi spod własności indywidualnej, dla wspólnot ekoosadowych.</p>	Nasze czasy narzuciły, konieczność stworzenia filozofii, która miałaby charakter globalny i uniwersalny, całościowy i uzdrawiający.	<p>Opierając się na tej jednej fałszywej wartości, cała światowa ekonomia z koncernami i bankami, prowadzi ludzkość do samozagłady.<br/>To właśnie z tego powodu, na naszej planecie bez przerwy trwa wojna między człowiekiem a naturą. Niszcząc dla krótkowzrocznego, wyimaginowanego egoistycznego &quot;zysku&quot; kolejne gatunki i ich środowisko, cywilizacja w tej chwili zmierza wprost do samounicestwienia.<br/>Na poziomie świadomości planetarnej, potrzebujemy zdecydowanego uderzenia właśnie w ten punkt i pokazania światu, że nie da się decydować o czyimś życiu, poprzez wymyślone prawo do jego zawłaszczenia.Nasze zaangażowanie się jest bardziej autentyczne, kiedy wynika z naturalnej chęci wewnętrznej realizacji, a nie z naśladowania, lęku, albo podążania za przewodnikami bądź za kimkolwiek.</p>	Krytycznym punktem w hierarchii wartości współczesnej cywilizacji, jest powszechne przekonanie, że możemy mieć całkowitą władzę nad tym co posiadamy.	Henryk Skolimowski	<p> Ma łączyć wszystkich, którzy mieli by na uwadze, jak istotna dla życia na Ziemi jest idea równości ludzi wobec miejsca w którym się znajdują. Jak również to, że Ziemia nie należąca do pojedynczego właściciela, jest bardzo istotnym aspektem budowania wolności i świadomości będącej alternatywą do konsumpcjonizmu i chęci zawłaszczania sobie tego, co tak na prawdę jest dobrem wspólnym.<br/>Przedsięwzięcie nasze ma pokazywać, że da się tworzyć wspólnotę na zasadach równości, bez potrzeby posiadania miejsca w którym żyjemy. Ma to być też przykład, w jaki sposób można dążyć do jak najbardziej ekonomicznego z punktu widzenia zużycia energii, oraz jak najbardziej samowystarczalnego stylu życia.</p>	<p>Mianem Wolnej Ziemi określamy taki teren, który jest użytkowany i zarządzany wspólnie, społecznie, przez pewną grupę ludzi na zasadach równości i braterstwa w intencji dobra i korzyści zarówno użytkowników tej ziemi, jej sąsiadów, całej ludzkości, przyrody oraz przyszłych pokoleń.<br/>Ziemia, zarówno jako Planeta, jak i ta pod nogami postrzegana jako grunt, który może być czyjąś własnością, nigdy nie była i nie będzie należała do człowieka. To my ludzie przynależymy do Ziemi i odkrywając to, możemy również odkryć naszą faktyczną funkcję i misję tu gdzie jesteśmy..<br/>a jesteśmy opiekunami i strażnikami naszej Planety, naszego Domu i Miejsca w Kosmosie. Jako gatunek, ale również indywidualnie.</p>	<p>Z okazji założenia przez Stowarzyszenie Arte Unite zbiórki społecznościowej, chcieli byśmy Was zaprosić do udziału w naszych warsztatach.<br/> Organizowaliśmy już w Lublińcu Jogę wg Iyengara oraz naukę tynkowania gliną ścian słomianych, w połączeniu z budową izolacyjnych mat ze słomy.<br/> Obecnie mamy możliwość przeprowadzenia zdalnie - przez internet, kilku ciekawych zajęć, jak również już zaplanowanych warsztatów w naszej Stodole, ale dopiero jak skończymy ją remontować za zbierane w tej chwili pieniądze.<br/> Uznaliśmy, że w tych ciężkich czasach nie można już na nic czekać i że jest to dla nas ostatni moment na to, żeby być albo nie być. Od tej zbiórki zależy, czy uda nam się nadal spełniać nasze marzenia o kreowaniu życia wokół siebie i zmieniania świata na lepsze. Im więcej osób zaangażuje się w naszą akcję, tym bardziej uda nam się zmienić warunki i możliwości życia dla nas i dla innych ludzi.<br/> Dlatego zachęcamy serdecznie wszystkich, do aktywnego przyłączenia się materialnie do inicjatywy, która może stać się naszą wspólną.</p>
+3	<p>Chcielibyśmy, żeby wiedzieli o naszym projekcie wszyscy, którzy czują Ziemię jako wspólny dom całej ludzkości. Mamy na uwadze odtwarzanie naturalnej relacji między człowiekiem a naszą planetą. Chcemy pokazać, że nie potrzebujemy posiadać Ziemi, aby na niej żyć.<br/><br/> Jesteśmy nową społecznością w trakcie powstawania. Naszym celem jest zmienianie świata współczesnej cywilizacji i panujących w nim relacji poprzez propozycje odmiennych rozwiązań na życie.<br/><br/>W oparciu o udane zapisy białych plam na mapie prawa i zakładanie organizacji o strukturach poziomych, możemy tworzyć świat oparty o nasze zwyczaje, wewnątrz każdego demokratycznego państwa i to zupełnie legalne.<br/>Jednym z tych zwyczajów jest wyeliminowanie własności prywatnej, tam gdzie mogła by ona zaistnieć jako władza człowieka nad człowiekiem.</p>	Rozwój w kierunku integracji z całym życiem na Ziemi jest naturalną możliwością przetrwania każdego gatunku i wynika bezpośrednio z ewolucji życia, dlatego jest też naturalnym kierunkiem ewolucji świadomości człowieka.	<p>Pierwszy raz o tej inicjatywie, można było się dowiedzieć w Zielonych Brygadach (Sierpień 2002), jako &quot;Projekt Tęczowy Krąg&quot;. Wtedy też kontaktowaliśmy się z siecią społeczności WAS (Wiejskie Aktywne Społeczności), z których część należy do GEN (Global Ecovillage Network). Jako społeczność zgłosiliśmy do WASu swój udział z chęcią rozpowszechnienia naszego projektu na szerszą skalę.<br/><br/>Obecnie tworzymy ogólnopolski Ruch na rzecz uwalniania Ziemi spod własności indywidualnej, dla wspólnot ekoosadowych.<br/>Mianem „Wolnej Ziemi” określamy taki teren, który jest użytkowany i zarządzany wspólnie, społecznie, przez pewną grupę ludzi na zasadach równości i braterstwa w intencji dobra i korzyści zarówno użytkowników tej ziemi, jej sąsiadów, całej ludzkości, przyrody oraz przyszłych pokoleń.</p>	Odrzucając całkowicie taką wartość, jak posiadanie Ziemi, przywracamy jej w naszej świadomości, naturalną funkcję jednego z żywiołów.<br/>Ziemia, zarówno jako Planeta, jak i ta pod nogami postrzegana jako grunt, który może być czyjąś własnością, nigdy nie była i nie będzie należała do człowieka.	<p>Stowarzyszenie na rzecz uwalniania Ziemi spod własności indywidualnej, dla wspólnot ekoosadowych.</p>	Nasze czasy narzuciły, konieczność stworzenia filozofii, która miałaby charakter globalny i uniwersalny, całościowy i uzdrawiający.	<p>Opierając się na tej jednej fałszywej wartości, cała światowa ekonomia z koncernami i bankami, prowadzi ludzkość do samozagłady.<br/>To właśnie z tego powodu, na naszej planecie bez przerwy trwa wojna między człowiekiem a naturą. Niszcząc dla krótkowzrocznego, wyimaginowanego egoistycznego &quot;zysku&quot; kolejne gatunki i ich środowisko, cywilizacja w tej chwili zmierza wprost do samounicestwienia.<br/>Na poziomie świadomości planetarnej, potrzebujemy zdecydowanego uderzenia właśnie w ten punkt i pokazania światu, że nie da się decydować o czyimś życiu, poprzez wymyślone prawo do jego zawłaszczenia.Nasze zaangażowanie się jest bardziej autentyczne, kiedy wynika z naturalnej chęci wewnętrznej realizacji, a nie z naśladowania, lęku, albo podążania za przewodnikami bądź za kimkolwiek.</p>	Krytycznym punktem w hierarchii wartości współczesnej cywilizacji, jest powszechne przekonanie, że możemy mieć całkowitą władzę nad tym co posiadamy.	Henryk Skolimowski	<p>Przedsięwzięcie nasze ma pokazywać, że da się tworzyć wspólnotę na zasadach równości, bez potrzeby posiadania miejsca w którym żyjemy. Ma to być też przykład, w jaki sposób można dążyć do jak najbardziej ekonomicznego z punktu widzenia zużycia energii, oraz jak najbardziej samowystarczalnego stylu życia.Miejsce to, ma łączyć wszystkich, którzy mieli by na uwadze, jak istotna dla życia na Ziemi jest idea równości ludzi wobec miejsca w którym się znajdują. Jak również to, że Ziemia nie należąca do pojedynczego właściciela jest bardzo istotnym aspektem budowania wolności i świadomości będącej alternatywą do konsumpcjonizmu i chęci zawłaszczania sobie tego, co tak na prawdę jest dobrem wspólnym.</p>	<p>Mianem Wolnej Ziemi określamy taki teren, który jest użytkowany i zarządzany wspólnie, społecznie, przez pewną grupę ludzi na zasadach równości i braterstwa w intencji dobra i korzyści zarówno użytkowników tej ziemi, jej sąsiadów, całej ludzkości, przyrody oraz przyszłych pokoleń.<br/>Ziemia, zarówno jako Planeta, jak i ta pod nogami postrzegana jako grunt, który może być czyjąś własnością, nigdy nie była i nie będzie należała do człowieka. To my ludzie przynależymy do Ziemi i odkrywając to, możemy również odkryć naszą faktyczną funkcję i misję tu gdzie jesteśmy..<br/>a jesteśmy opiekunami i strażnikami naszej Planety, naszego Domu i Miejsca w Kosmosie. Jako gatunek, ale również indywidualnie.</p>	<p>Z okazji założenia przez Stowarzyszenie Arte Unite zbiórki społecznościowej, chcieli byśmy Was zaprosić do udziału w naszych warsztatach.<br/> Organizowaliśmy już w Lublińcu Jogę wg Iyengara oraz naukę budowy izolacyjnych mat ze słomy, w połączeniu z tynkowaniem gliną ścian słomianych.<br/> Obecnie mamy możliwość przeprowadzenia zdalnie kilku ciekawych zajęć, jak również już zaplanowanych warsztatów w naszej Stodole, ale dopiero jak skończymy ją remontować za zbierane w tej chwili pieniądze.<br/> Uznaliśmy, że w tych ciężkich czasach nie można już na nic czekać i że jest to dla nas ostatni moment na to, żeby być albo nie być.<br/> Dlatego zachęcamy serdecznie wszystkich, do aktywnego przyłączenia się materialnie do inicjatywy, która może stać się naszą wspólną.</p>
+\.
+
+
+--
+-- Data for Name: miejsca_miejscapage; Type: TABLE DATA; Schema: public; Owner: beret
+--
+
+COPY public.miejsca_miejscapage (page_ptr_id, opis, objasnienie, komentarz, zaproszenie) FROM stdin;
+8	<h2>Miejsce to, ma łączyć wszystkich, którzy mieli by na uwadze, jak istotna dla życia na Ziemi jest idea równości ludzi wobec miejsca w którym się znajdują. Jak również to, że Ziemia nie należąca do pojedynczego właściciela jest bardzo istotnym aspektem budowania wolności i świadomości będącej alternatywą do konsumpcjonizmu i chęci zawłaszczania sobie tego, co tak na prawdę jest dobrem wspólnym.</h2>	<p>Stodoła Wymyślacz jest na obrzeżach Lublińca, blisko trasy nr 11 łączącej Katowice z Poznaniem. Nasze miasteczko leży 30 km na zachód od Częstochowy. Oddzielone jest od aglomeracji śląskiej dużym kompleksem lasów, który rozpoczyna się kilkaset metrów od naszego budynku. Przedsięwzięcie nasze ma pokazywać, że da się tworzyć wspólnotę na zasadach równości, bez potrzeby posiadania miejsca w którym żyjemy. Ma to być też przykład, w jaki sposób można dążyć do jak najbardziej ekonomicznego z punktu widzenia zużycia energii, oraz jak najbardziej samowystarczalnego stylu życia.</p>		<h2>Zasady/Zwyczaje (zaproszenie)</h2><p>Żeby uniknąć “przypadkowości” ludzi biorących udział w naszym projekcie, jesteśmy w mocy zaprosić wszystkich, którzy nie utożsamiają się z żadnymi dogmatami, nie potrzebują przywódców i chcą z nami współtworzyć rodzinę opartą na plemiennym kręgu. Mamy na uwadze stwarzanie między nami relacji, w której uczymy się nawzajem nie dla samej wiedzy, a dla harmonii ze sobą i z całym życiem. Na tym poziomie różnice między nami stają się inspiracją do łączenia różnorodności w funkcjonalny zespół, wtedy każdy staje się jednakowo potrzebny. Kiedy rywalizacja zmienia się we współpracę, nikt nie podąża już sam naprzeciw przeszkodom i problemom - łatwiej jest pokonywać je razem. U nas nikt nie jest u kogoś, wszyscy jesteśmy u siebie. Organizacja pozarządowa, gdzie zarząd jest wyłącznie władzą wykonawczą jednogłośnych decyzji daje nam taką możliwość również na poziomie prawnym. Będąc równymi wobec miejsca, w którym żyjemy, stajemy się równi wobec siebie. Dzięki temu każdy, kto pojawia się u nas, może mieć poczucie, że uczestniczy w tym na równi ze wszystkimi. Nie mamy potrzeby przeciwstawiania się jakiejkolwiek władzy, ale też nie mamy potrzeby jej tworzyć między sobą, ani uczestniczyć w przekazywaniu sobie tej zbędnej dla wolności tradycji. Wspólnie nie utożsamiamy się z żadną religią, ani jej nie tworzymy. Jest to koniecznym warunkiem na ścieżce życia którą idziemy, w taki sposób chcemy zachować możliwość kontynuacji tego kim jesteśmy jako ludzie tutaj na Ziemi. Naszą odpowiedzią jest utworzenie kręgu, w którym mogą uczestniczyć wyznawcy wielu religii, jednak żadnej z nich nie stawiamy w centrum. Zdajemy sobie sprawę, że wiara jest częścią anatomii naszych uczuć i nadaje moc tworzenia wszystkiemu co jesteśmy w stanie uznać za prawdziwe. Kiedy nie jest w sprzeczności z naszym rozumieniem faktycznie staje się coraz bardziej skuteczna w kreowaniu rzeczywistości. Żeby to widzieć, nie potrzebujemy żadnych “pośredników” pomiędzy człowiekiem a Tym wszystkim czego manifestacją jesteśmy. To my należymy do tej Planety. Jesteśmy jej opiekunami i strażnikami.</p>
+\.
+
+
+--
+-- Data for Name: misja_misjapage; Type: TABLE DATA; Schema: public; Owner: beret
+--
+
+COPY public.misja_misjapage (page_ptr_id, opis, objasnienie, komentarz_1, komentarz_2, komentarz_3, podsumowanie) FROM stdin;
+7	<h2>Rozwój w kierunku integracji z całym życiem na Ziemi jest naturalną możliwością przetrwania każdego gatunku i wynika bezpośrednio z ewolucji życia, dlatego jest też naturalnym kierunkiem ewolucji świadomości człowieka. Chcielibyśmy, żeby wiedzieli o naszym projekcie wszyscy, którzy czują Ziemię jako wspólny dom całej ludzkości. Mamy na uwadze odtwarzanie naturalnej relacji między człowiekiem a naszą planetą. Chcemy pokazać, że nie potrzebujemy posiadać Ziemi, aby na niej żyć.</h2>	<p>Jesteśmy nową społecznością w trakcie powstawania. Naszym celem jest zmienianie świata współczesnej cywilizacji i panujących w nim relacji poprzez propozycje odmiennych rozwiązań na życie. W oparciu o udane zapisy białych plam na mapie prawa i zakładanie organizacji o strukturach poziomych, możemy tworzyć świat oparty o nasze zwyczaje, wewnątrz każdego demokratycznego państwa i to zupełnie legalne. Jednym z tych zwyczajów jest wyeliminowanie własności prywatnej, tam gdzie mogła by ona zaistnieć jako władza człowieka nad człowiekiem. Umożliwi nam to posiadanie ziemi jako wspólnej i niepodzielnej własności. Krytycznym punktem w hierarchii wartości współczesnej cywilizacji, jest powszechne przekonanie, że możemy mieć całkowitą władzę nad tym co posiadamy. To właśnie z tego powodu, na naszej planecie bez przerwy trwa wojna między człowiekiem a naturą. Niszcząc kolejne gatunki i ich środowisko, cywilizacja w tej chwili zmierza wprost do samounicestwienia. Świat konsumpcji doprowadził nawet do sytuacji, gdzie możemy konsumować czas i życie innych ludzi wyznaczając za nie cenę. Demokracja daje równe prawa również głupocie, jeśli tylko da się ją sprzedać. Kiedy od dziecka motywację wyznaczają dwa bieguny: kara i nagroda, zysk i strata, kupno i sprzedaż tworzymy świat rywalizacji i kariery, ludzi coraz bardziej sobie obcych i podatnych na władzę. Jest to upadek poniżej normalności, a prawda o tym może wystraszyć. Dlatego boimy się jej i ukrywamy swoją naturę wciąż nie mogąc jej odkryć. Nie mamy potrzeby przeciwstawiania się jakiejkolwiek władzy, ale też nie mamy potrzeby jej tworzyć, ani uczestniczyć w przekazywaniu sobie tej zbędnej dla wolności tradycji. Kiedy przemieniamy stare systemy wartościowania w nowe, nie potrzebujemy już buntu. Nasze działania wywodzą się z ekofilozofii i głębokiej ekologii oraz kultur plemiennych, gdzie Ziemia nigdy nie była własnością człowieka. To my należymy do tej Planety. Jesteśmy jej opiekunami i strażnikami. Będąc równymi wobec miejsca, w którym żyjemy, stajemy się w sposób naturalny równi wobec siebie. Dzięki temu każdy, kto pojawia się u nas, może mieć poczucie, że uczestniczy w tym na równi ze wszystkimi. Na tym poziomie różnice miedzy nami stają się inspiracją do łączenia różnorodności w funkcjonalny zespół, wtedy każdy staje się jednakowo potrzebny.</p>	<p>W oparciu o udane zapisy białych plam na mapie prawa i zakładanie organizacji o strukturach poziomych, możemy tworzyć świat oparty o nasze zwyczaje, wewnątrz każdego demokratycznego państwa i to zupełnie legalne. Jednym z tych zwyczajów jest wyeliminowanie własności prywatnej, tam gdzie mogła by ona zaistnieć jako władza człowieka nad człowiekiem. Zakładając, że dane miejsce ma właściciela, to właśnie owy właściciel może zawsze zdecydować ostatecznie i to jego decyzje są egzekwowane przez oficjalne i funkcjonujące we współczesnym społeczeństwie prawo. W związku z tym, wszyscy inni ludzie znajdujący się w tym właśnie miejscu, niestety podlegają decyzją jednej osoby: właściciela. Ta sama władza, jest przekazywana z pokolenia na pokolenie za pomocą tak prostego narzędzia jak dziedziczenie majątku -czyli posiadania terytorium. Jedną z głównych przyczyn powstania Ruchu Wolnej Ziemi jest przerwanie łańcucha dziedziczenia i przekazywania sobie władzy i tym samym napędzania w ten sposób konsumpcjonizmu.</p>	<p>U nas nikt nie jest &quot;u kogoś&quot;, wszyscy jesteśmy u siebie. Ziemia jest dla nas dobrem wspólnym. Będąc równymi wobec miejsca, w którym żyjemy, stajemy się równi wobec siebie. W praktyce oznacza to, że wszelkie nieruchomości pozostające w zarządzaniu organizacji, która zajmuje się wspólną Ziemią są od początku i na zawsze traktowane jako dobro wspólne i nie mogą być przez nikogo postrzegane jako własność. Jest to naszą drogą do wolności, jak i samą wolnością, która eliminuje z naszego życia konsumpcjonizm jako wartość. Jakakolwiek forma posiadania Ziemi, oparta o struktury władzy człowieka nad człowiekiem, lub jednych ludzi nad drugimi, z naszego punktu widzenia eliminuje ideę przestrzeni, gdzie każdy może być równy, zarówno wobec miejsca w którym żyje, jak i wobec innych ludzi.</p>	<p>Ziemia, zarówno jako Planeta, jak i ta pod nogami postrzegana jako grunt, który może być czyjąś własnością, nigdy nie była i nie będzie należała do człowieka. To my ludzie przynależymy do Ziemi i odkrywając to, możemy również odkryć naszą faktyczną funkcję i misję tu gdzie jesteśmy.. a jesteśmy opiekunami i strażnikami naszej Planety, naszego Domu i Miejsca w Kosmosie. Jako gatunek, ale również indywidualnie. Jesteśmy dziećmi tej Planety i możemy bawić się w co chcemy i z kim chcemy, a kto chce może bawić się z nami. Dlatego żeby uniknąć przypadkowości ludzi biorących udział we wspólnym przeżywaniu, jesteśmy w mocy zaprosić wszystkich, którzy nie utożsamiają się z żadnymi dogmatami, nie potrzebują przywódców i chcą wziąć udział w tworzeniu rodziny opartej na plemiennym kręgu. Kiedy rywalizacja zmienia się we współpracę, nikt nie podąża już sam na przeciw przeszkodom i problemom, łatwiej jest pokonywać je razem. Nie można już zmienić przeszłości, jednak po tylu latach eko i ludobójstwa, nadszedł już czas, by zacząć spełniać marzenia. Pierwszy raz o tej inicjatywie, można było się dowiedzieć w Zielonych Brygadach (Sierpień 2002), jako &quot;Projekt Tęczowy Krąg&quot;. Wtedy też kontaktowaliśmy się z siecią społeczności WAS (Wiejskie Aktywne Społeczności), z których część należy do GEN (Global Ecovillage Network). Jako społeczność zgłosiliśmy do WASu swój udział z chęcią rozpowszechnienia naszego projektu na szerszą skalę.</p>	<p>Tworzymy ogólnopolski Ruch na rzecz uwalniania Ziemi spod własności indywidualnej, dla wspólnot ekoosadowych. Ruch Wolnej Ziemi jest inicjatywą społeczną skupioną na wdrażaniu w życie sprawdzonych rozwiązań prawnych i organizacyjnych w celu „uwalniania Ziemi” spod własności prywatnej. Zależy nam na tworzeniu i rozwoju intencjonalnych społeczności wiejskich (tzw. ekowiosek, ekoosad), w których decyzje dotyczące wszystkich podejmowane są wspólnie (konsensus), i w których my, ludzie, posiadamy równe prawa zarówno wobec Ziemi oraz siebie nawzajem. Tworzymy w tym celu osoby prawne tj. fundacje lub stowarzyszenia. Uczestnikiem Ruchu może być każda osoba, która rozumie nasze założenia i zgadza się z nimi. Ruch Wolnej Ziemi nie jest organizacją i nie prowadzi żadnej ewidencji przynależności. Mianem „Wolnej Ziemi” określamy taki teren, który jest użytkowany i zarządzany wspólnie, społecznie, przez pewną grupę ludzi na zasadach równości i braterstwa w intencji dobra i korzyści zarówno użytkowników tej ziemi, jej sąsiadów, całej ludzkości, przyrody oraz przyszłych pokoleń. Jednym z głównych założeń jest wspólne decydowanie w sprawach, które dotyczą Ruchu. Pozwala to miejscom w których żyjemy, jak również nam wszystkim na rozwój i ewoluowanie zgodnie z jednogłośnie ustalanym kierunkiem. Decyzje takie, mogą zapadać jedynie w kontakcie osobistym w kręgu. Jedną z organizacji, które założyliśmy, jest Związek Wolnej Ziemi. Oto jego podstawowe założenia : . My, ludzie tworzący Związek Wolnej Ziemi, uznajemy się za opiekunów i strażników Ziemi, a w szczególności terenów, na których żyjemy. Dążymy do rozwoju świadomości poprzez odtworzenie naturalnej relacji człowieka z naszą Planetą. Przyjmujemy, że będąc równymi wobec Ziemi, na której żyjemy, jesteśmy również równi wobec siebie i całej Przyrody. Oświadczamy, że Ziemia i całe życie na Ziemi stanowią dla nas największą wartość przez sam fakt swego istnienia. Uznajemy, że naszym zadaniem jest ochrona Ziemi, naszego Domu i Miejsca w Kosmosie. Uznajemy, że to my, ludzie, należymy do Ziemi, a nie odwrotnie. Uznajemy, że Ziemia ma takie samo prawo do istnienia i uszanowania jej bytu, jakie mają wszyscy ludzie. Pragniemy tworzyć wspólnoty, w których będziemy razem żyli, współpracowali ze sobą i uczyli się od siebie dla dobra nas samych i całego Życia. Pragniemy, aby wszyscy ludzie żyli w harmonii ze sobą i z całą Przyrodą, szanując i chroniąc Ziemię. Wszystkie decyzje podejmujemy przez consensus (jednogłośnie), czyli sposoby życia, ochrony ziemi i dalsze działania na terenie fundacji podlegają decyzji kręgu. Dzięki temu każdy, kto pojawi się u nas, będzie mógł mieć poczucie, że ziemia jest naszym wspólnym domem i razem możemy w tym uczestniczyć.</p>
+\.
+
+
+--
+-- Data for Name: rwz_rwzpage; Type: TABLE DATA; Schema: public; Owner: beret
+--
+
+COPY public.rwz_rwzpage (page_ptr_id, opis, objasnienie, komentarz) FROM stdin;
+9	<h2>Ruch Wolnej Ziemi jest inicjatywą społeczną skupioną na wdrażaniu w życie sprawdzonych rozwiązań prawnych i organizacyjnych w celu „uwalniania Ziemi” spod własności prywatnej. Zależy nam na tworzeniu i rozwoju intencjonalnych społeczności wiejskich (tzw. ekowiosek, ekoosad), w których decyzje dotyczące wszystkich podejmowane są wspólnie (konsensus), i w których my, ludzie, posiadamy równe prawa zarówno wobec Ziemi oraz siebie nawzajem. Tworzymy w tym celu osoby prawne tj. fundacje lub stowarzyszenia.</h2>	<p>Uczestnikiem Ruchu może być każda osoba, która rozumie nasze założenia i zgadza się z nimi. Ruch Wolnej Ziemi nie jest organizacją i nie prowadzi żadnej ewidencji przynależności. Ziemia, zarówno jako Planeta, jak i ta pod nogami postrzegana jako grunt, który może być czyjąś własnością, nigdy nie była i nie będzie należała do człowieka. To my ludzie przynależymy do Ziemi i odkrywając to, możemy również odkryć naszą faktyczną funkcję i misję tu gdzie jesteśmy.. a jesteśmy opiekunami i strażnikami naszej Planety, naszego Domu i Miejsca w Kosmosie. Jako gatunek, ale również indywidualnie. U nas nikt nie jest &quot;u kogoś&quot;, wszyscy jesteśmy u siebie. Ziemia jest dla nas dobrem wspólnym. Będąc równymi wobec miejsca, w którym żyjemy, stajemy się równi wobec siebie. W praktyce oznacza to, że wszelkie nieruchomości pozostające w zarządzaniu organizacji, która zajmuje się wspólną Ziemią są od początku i na zawsze traktowane jako dobro wspólne i nie mogą być przez nikogo postrzegane jako własność. Jest to naszą drogą do wolności, jak i samą wolnością, która w ten sposób eliminuje z naszego życia podstawy konsumpcjonizmu.</p>	<p>Zalążki Ruchu Wolnej Ziemi, istniejące w sposób faktyczny na terenie Polski zainicjował Henry Schumacher, tworząc w 2000 r w Bieszczadach Fundację Plemię Sanu. Henry przyjechał do Polski w 1991 r odkrywając przyszłe miejsce do życia z grupą skautingową Rodziny Tęczy. W tamtym czasie szukali oni miejsca na europejskie Zgromadzenie Rainbow Family, które odbyło się w 1991 r w dolinie Tworylne. W 2001 również w Bieszczadach w Komańczy pojawiła się też ośmioosobowa grupa Tęczowy Krąg, która za cel postawiła sobie założenie organizacji, umożliwiającej posiadanie ziemi jako wspólnej i niepodzielnej własności. Dzięki temu w 2004 r w Grabówce udało się zarejestrować Stowarzyszenie Arte Unite, które w 2012 r otrzymało na wspólną własność budynek gospodarczy. Tęczowy Krąg został założony pod Bydgoszczą przez ludzi z międzynarodowego posthipisowskiego ruchu Rainbow Family - Rodzina Tęczy. W tym samym czasie dzięki Arturowi Milickiemu powstała Fundacja dla Ziemi i Ludzi założona w roku 2011. Również dzięki Arturowi, powyższe inicjatywy udało się zebrać i uruchomić jako Ruch Wolnej Ziemi. Wszystkie wymienione tutaj organizacje, można uznać za inicjujące Ruch Wolnej Ziemi ze względu na szczególne uwzględnienie podejmowania w nich decyzji przez kosensus, czyli jednogłośnie.</p>
 \.
 
 
@@ -2359,6 +2588,14 @@ COPY public.taggit_tag (id, name, slug) FROM stdin;
 --
 
 COPY public.taggit_taggeditem (id, object_id, content_type_id, tag_id) FROM stdin;
+\.
+
+
+--
+-- Data for Name: wagtailadmin_admin; Type: TABLE DATA; Schema: public; Owner: beret
+--
+
+COPY public.wagtailadmin_admin (id) FROM stdin;
 \.
 
 
@@ -2418,6 +2655,10 @@ COPY public.wagtailcore_groupcollectionpermission (id, collection_id, group_id, 
 6	1	2	5
 7	1	1	6
 8	1	2	6
+9	1	1	150
+10	1	2	150
+11	1	1	151
+12	1	2	151
 \.
 
 
@@ -2450,8 +2691,12 @@ COPY public.wagtailcore_locale (id, language_code) FROM stdin;
 --
 
 COPY public.wagtailcore_page (id, path, depth, numchild, title, slug, live, has_unpublished_changes, url_path, seo_title, show_in_menus, search_description, go_live_at, expire_at, expired, content_type_id, owner_id, locked, latest_revision_created_at, first_published_at, live_revision_id, last_published_at, draft_title, locked_at, locked_by_id, translation_key, locale_id, alias_of_id) FROM stdin;
+9	000100010004	3	0	Ruch Wolnej Ziemi	ruch-wolnej-ziemi	t	f	/home/ruch-wolnej-ziemi/		f		\N	\N	f	44	1	f	2021-02-21 01:35:56.701499+00	2021-02-21 01:35:56.738346+00	14	2021-02-21 01:35:56.738346+00	Ruch Wolnej Ziemi	\N	\N	9f495cdd-69e2-4634-a111-b3c6ffc99ed9	1	\N
 1	0001	1	1	Root	root	t	f	/		f		\N	\N	f	1	\N	f	\N	\N	\N	\N	Root	\N	\N	b59f2bc8-f317-471b-8a04-85d9403b5bc2	1	\N
-3	00010001	2	0	Home	home	t	f	/home/		f		\N	\N	f	3	\N	f	2021-02-15 23:04:42.443259+00	2021-02-07 06:38:02.740781+00	11	2021-02-15 23:04:42.532578+00	Home	\N	\N	4d760b9f-f4c3-407a-92e4-17f32be77507	1	\N
+6	000100010001	3	0	Warsztaty	warsztaty	t	f	/home/warsztaty/		f		\N	\N	f	41	1	f	2021-02-21 00:20:43.778304+00	2021-02-21 00:20:43.836522+00	11	2021-02-21 00:20:43.836522+00	Warsztaty	\N	\N	af663334-acac-4c96-9aa7-48db95a271d6	1	\N
+7	000100010002	3	0	Misja	misja	t	f	/home/misja/		f		\N	\N	f	42	1	f	2021-02-21 01:05:29.671106+00	2021-02-21 01:05:29.731187+00	12	2021-02-21 01:05:29.731187+00	Misja	\N	\N	ad7d4a29-49cc-4bbc-9cd5-a8fbeaaa3b04	1	\N
+8	000100010003	3	0	Stodoła Wymyślacz	stodoła-wymyślacz	t	f	/home/stodoła-wymyślacz/		f		\N	\N	f	43	1	f	2021-02-21 01:30:25.103087+00	2021-02-21 01:30:25.139524+00	13	2021-02-21 01:30:25.139524+00	Stodoła Wymyślacz	\N	\N	9337acdf-56ac-42a5-aacb-5ea59c83aa6f	1	\N
+3	00010001	2	4	Home	home	t	f	/home/		f		\N	\N	f	3	\N	f	2021-02-14 22:14:00.145636+00	2021-02-07 06:38:02.740781+00	8	2021-02-14 22:14:00.204912+00	Home	\N	\N	4d760b9f-f4c3-407a-92e4-17f32be77507	1	\N
 \.
 
 
@@ -2474,12 +2719,20 @@ COPY public.wagtailcore_pagelogentry (id, label, action, data_json, "timestamp",
 12	Home	wagtail.publish	null	2021-02-14 22:05:22.885945+00	t	f	3	3	7	1
 13	Home	wagtail.edit	""	2021-02-14 22:14:00.173831+00	t	f	3	3	8	1
 14	Home	wagtail.publish	null	2021-02-14 22:14:00.30185+00	t	f	3	3	8	1
-15	Home	wagtail.edit	""	2021-02-15 22:48:31.24425+00	t	f	3	3	9	3
-16	Home	wagtail.publish	null	2021-02-15 22:48:31.326144+00	t	f	3	3	9	3
-17	Home	wagtail.edit	""	2021-02-15 22:53:01.66276+00	t	f	3	3	10	3
-18	Home	wagtail.publish	null	2021-02-15 22:53:01.746443+00	t	f	3	3	10	3
-19	Home	wagtail.edit	""	2021-02-15 23:04:42.502611+00	t	f	3	3	11	3
-20	Home	wagtail.publish	null	2021-02-15 23:04:42.585941+00	t	f	3	3	11	3
+15	WARSZTATY	wagtail.create	""	2021-02-20 23:28:30.222002+00	t	f	41	4	\N	1
+16	WARSZTATY	wagtail.publish	null	2021-02-20 23:28:30.356676+00	t	f	41	4	9	1
+17	Warsztaty	wagtail.create	""	2021-02-20 23:31:33.255749+00	t	f	41	5	\N	1
+18	Warsztaty	wagtail.publish	null	2021-02-20 23:31:33.430712+00	t	f	41	5	10	1
+19	Warsztaty	wagtail.delete	""	2021-02-21 00:03:09.046268+00	f	t	41	5	\N	1
+20	WARSZTATY	wagtail.delete	""	2021-02-21 00:03:30.184142+00	f	t	41	4	\N	1
+21	Warsztaty	wagtail.create	""	2021-02-21 00:20:43.743563+00	t	f	41	6	\N	1
+22	Warsztaty	wagtail.publish	null	2021-02-21 00:20:43.924886+00	t	f	41	6	11	1
+23	Misja	wagtail.create	""	2021-02-21 01:05:29.636394+00	t	f	42	7	\N	1
+24	Misja	wagtail.publish	null	2021-02-21 01:05:29.819018+00	t	f	42	7	12	1
+25	Stodoła Wymyślacz	wagtail.create	""	2021-02-21 01:30:25.079711+00	t	f	43	8	\N	1
+26	Stodoła Wymyślacz	wagtail.publish	null	2021-02-21 01:30:25.218257+00	t	f	43	8	13	1
+27	Ruch Wolnej Ziemi	wagtail.create	""	2021-02-21 01:35:56.679739+00	t	f	44	9	\N	1
+28	Ruch Wolnej Ziemi	wagtail.publish	null	2021-02-21 01:35:56.79174+00	t	f	44	9	14	1
 \.
 
 
@@ -2488,8 +2741,6 @@ COPY public.wagtailcore_pagelogentry (id, label, action, data_json, "timestamp",
 --
 
 COPY public.wagtailcore_pagerevision (id, submitted_for_moderation, created_at, content_json, approved_go_live_at, page_id, user_id) FROM stdin;
-11	f	2021-02-15 23:04:42.443259+00	{"pk": 3, "path": "00010001", "depth": 2, "numchild": 0, "translation_key": "4d760b9f-f4c3-407a-92e4-17f32be77507", "locale": 1, "title": "Home", "draft_title": "Home", "slug": "home", "content_type": 3, "live": true, "has_unpublished_changes": false, "url_path": "/home/", "owner": null, "seo_title": "", "show_in_menus": false, "search_description": "", "go_live_at": null, "expire_at": null, "expired": false, "locked": false, "locked_at": null, "locked_by": null, "first_published_at": "2021-02-07T06:38:02.740Z", "last_published_at": "2021-02-15T22:53:01.696Z", "latest_revision_created_at": "2021-02-15T22:53:01.577Z", "live_revision": 10, "alias_of": null, "long_name": "<p>Stowarzyszenie na rzecz uwalniania Ziemi spod w\\u0142asno\\u015bci indywidualnej, dla wsp\\u00f3lnot ekoosadowych.</p>", "quote": "Nasze czasy narzuci\\u0142y, konieczno\\u015b\\u0107 stworzenia filozofii, kt\\u00f3ra mia\\u0142aby charakter globalny i uniwersalny, ca\\u0142o\\u015bciowy i uzdrawiaj\\u0105cy.", "quote_author": "Henryk Skolimowski", "earth_head": "Rozw\\u00f3j w kierunku integracji z ca\\u0142ym \\u017cyciem na Ziemi jest naturaln\\u0105 mo\\u017cliwo\\u015bci\\u0105 przetrwania ka\\u017cdego gatunku i wynika bezpo\\u015brednio z ewolucji \\u017cycia, dlatego jest te\\u017c naturalnym kierunkiem ewolucji \\u015bwiadomo\\u015bci cz\\u0142owieka.", "earth": "<p>Chcieliby\\u015bmy, \\u017ceby wiedzieli o naszym projekcie wszyscy, kt\\u00f3rzy czuj\\u0105 Ziemi\\u0119 jako wsp\\u00f3lny dom ca\\u0142ej ludzko\\u015bci. Mamy na uwadze odtwarzanie naturalnej relacji mi\\u0119dzy cz\\u0142owiekiem a nasz\\u0105 planet\\u0105. Chcemy pokaza\\u0107, \\u017ce nie potrzebujemy posiada\\u0107 Ziemi, aby na niej \\u017cy\\u0107.<br/><br/> Jeste\\u015bmy now\\u0105 spo\\u0142eczno\\u015bci\\u0105 w trakcie powstawania. Naszym celem jest zmienianie \\u015bwiata wsp\\u00f3\\u0142czesnej cywilizacji i panuj\\u0105cych w nim relacji poprzez propozycje odmiennych rozwi\\u0105za\\u0144 na \\u017cycie.<br/><br/>W oparciu o udane zapisy bia\\u0142ych plam na mapie prawa i zak\\u0142adanie organizacji o strukturach poziomych, mo\\u017cemy tworzy\\u0107 \\u015bwiat oparty o nasze zwyczaje, wewn\\u0105trz ka\\u017cdego demokratycznego pa\\u0144stwa i to zupe\\u0142nie legalne.<br/>Jednym z tych zwyczaj\\u00f3w jest wyeliminowanie w\\u0142asno\\u015bci prywatnej, ale jedynie tam, gdzie mog\\u0142a by ona zaistnie\\u0107 jako w\\u0142adza cz\\u0142owieka nad cz\\u0142owiekiem.</p>", "star_head": "Krytycznym punktem w hierarchii warto\\u015bci wsp\\u00f3\\u0142czesnej cywilizacji, jest powszechne przekonanie, \\u017ce mo\\u017cemy mie\\u0107 ca\\u0142kowit\\u0105 w\\u0142adz\\u0119 nad tym co posiadamy.", "star": "<p>Opieraj\\u0105c si\\u0119 na tej jednej fa\\u0142szywej warto\\u015bci, ca\\u0142a \\u015bwiatowa ekonomia z koncernami i bankami, prowadzi ludzko\\u015b\\u0107 do samozag\\u0142ady.<br/>To w\\u0142a\\u015bnie z tego powodu, na naszej planecie bez przerwy trwa wojna mi\\u0119dzy cz\\u0142owiekiem a natur\\u0105. Niszcz\\u0105c dla kr\\u00f3tkowzrocznego, wyimaginowanego egoistycznego &quot;zysku&quot; kolejne gatunki i ich \\u015brodowisko, cywilizacja w tej chwili zmierza wprost do samounicestwienia.<br/>Na poziomie \\u015bwiadomo\\u015bci planetarnej, potrzebujemy zdecydowanego uderzenia w\\u0142a\\u015bnie w ten punkt i pokazania \\u015bwiatu, \\u017ce nie da si\\u0119 decydowa\\u0107 o czyim\\u015b \\u017cyciu, poprzez wymy\\u015blone prawo do jego zaw\\u0142aszczenia.Nasze zaanga\\u017cowanie si\\u0119 jest bardziej autentyczne, kiedy wynika z naturalnej ch\\u0119ci wewn\\u0119trznej realizacji, a nie z na\\u015bladowania, l\\u0119ku, albo pod\\u0105\\u017cania za przewodnikami b\\u0105d\\u017a za kimkolwiek.</p>", "flame_head": "Odrzucaj\\u0105c ca\\u0142kowicie tak\\u0105 warto\\u015b\\u0107, jak posiadanie Ziemi, przywracamy jej w naszej \\u015bwiadomo\\u015bci, naturaln\\u0105 funkcj\\u0119 jednego z \\u017cywio\\u0142\\u00f3w.<br/>Ziemia, zar\\u00f3wno jako Planeta, jak i ta pod nogami postrzegana jako grunt, kt\\u00f3ry mo\\u017ce by\\u0107 czyj\\u0105\\u015b w\\u0142asno\\u015bci\\u0105, nigdy nie by\\u0142a i nie b\\u0119dzie nale\\u017ca\\u0142a do cz\\u0142owieka.", "flame": "<p>Pierwszy raz o tej inicjatywie, mo\\u017cna by\\u0142o si\\u0119 dowiedzie\\u0107 w Zielonych Brygadach (Sierpie\\u0144 2002), jako &quot;Projekt T\\u0119czowy Kr\\u0105g&quot;. Wtedy te\\u017c kontaktowali\\u015bmy si\\u0119 z sieci\\u0105 spo\\u0142eczno\\u015bci WAS (Wiejskie Aktywne Spo\\u0142eczno\\u015bci), z kt\\u00f3rych cz\\u0119\\u015b\\u0107 nale\\u017cy do GEN (Global Ecovillage Network). Jako spo\\u0142eczno\\u015b\\u0107 zg\\u0142osili\\u015bmy do WASu sw\\u00f3j udzia\\u0142 z ch\\u0119ci\\u0105 rozpowszechnienia naszego projektu na szersz\\u0105 skal\\u0119.<br/><br/>Obecnie tworzymy og\\u00f3lnopolski Ruch na rzecz uwalniania Ziemi spod w\\u0142asno\\u015bci indywidualnej, dla wsp\\u00f3lnot ekoosadowych.<br/>Mianem \\u201eWolnej Ziemi\\u201d okre\\u015blamy taki teren, kt\\u00f3ry jest u\\u017cytkowany i zarz\\u0105dzany wsp\\u00f3lnie, spo\\u0142ecznie, przez pewn\\u0105 grup\\u0119 ludzi na zasadach r\\u00f3wno\\u015bci i braterstwa w intencji dobra i korzy\\u015bci zar\\u00f3wno u\\u017cytkownik\\u00f3w tej ziemi, jej s\\u0105siad\\u00f3w, ca\\u0142ej ludzko\\u015bci, przyrody oraz przysz\\u0142ych pokole\\u0144.</p>", "wolna_ziemia": "<p>Mianem Wolnej Ziemi okre\\u015blamy taki teren, kt\\u00f3ry jest u\\u017cytkowany i zarz\\u0105dzany wsp\\u00f3lnie, spo\\u0142ecznie, przez pewn\\u0105 grup\\u0119 ludzi na zasadach r\\u00f3wno\\u015bci i braterstwa w intencji dobra i korzy\\u015bci zar\\u00f3wno u\\u017cytkownik\\u00f3w tej ziemi, jej s\\u0105siad\\u00f3w, ca\\u0142ej ludzko\\u015bci, przyrody oraz przysz\\u0142ych pokole\\u0144.<br/>Ziemia, zar\\u00f3wno jako Planeta, jak i ta pod nogami postrzegana jako grunt, kt\\u00f3ry mo\\u017ce by\\u0107 czyj\\u0105\\u015b w\\u0142asno\\u015bci\\u0105, nigdy nie by\\u0142a i nie b\\u0119dzie nale\\u017ca\\u0142a do cz\\u0142owieka. To my ludzie przynale\\u017cymy do Ziemi i odkrywaj\\u0105c to, mo\\u017cemy r\\u00f3wnie\\u017c odkry\\u0107 nasz\\u0105 faktyczn\\u0105 funkcj\\u0119 i misj\\u0119 tu gdzie jeste\\u015bmy..<br/>a jeste\\u015bmy opiekunami i stra\\u017cnikami naszej Planety, naszego Domu i Miejsca w Kosmosie. Jako gatunek, ale r\\u00f3wnie\\u017c indywidualnie.</p>", "stodola": "<p> Ma \\u0142\\u0105czy\\u0107 wszystkich, kt\\u00f3rzy mieli by na uwadze, jak istotna dla \\u017cycia na Ziemi jest idea r\\u00f3wno\\u015bci ludzi wobec miejsca w kt\\u00f3rym si\\u0119 znajduj\\u0105. Jak r\\u00f3wnie\\u017c to, \\u017ce Ziemia nie nale\\u017c\\u0105ca do pojedynczego w\\u0142a\\u015bciciela, jest bardzo istotnym aspektem budowania wolno\\u015bci i \\u015bwiadomo\\u015bci b\\u0119d\\u0105cej alternatyw\\u0105 do konsumpcjonizmu i ch\\u0119ci zaw\\u0142aszczania sobie tego, co tak na prawd\\u0119 jest dobrem wsp\\u00f3lnym.<br/>Przedsi\\u0119wzi\\u0119cie nasze ma pokazywa\\u0107, \\u017ce da si\\u0119 tworzy\\u0107 wsp\\u00f3lnot\\u0119 na zasadach r\\u00f3wno\\u015bci, bez potrzeby posiadania miejsca w kt\\u00f3rym \\u017cyjemy. Ma to by\\u0107 te\\u017c przyk\\u0142ad, w\\u00a0jaki spos\\u00f3b mo\\u017cna d\\u0105\\u017cy\\u0107 do jak najbardziej ekonomicznego z punktu widzenia zu\\u017cycia energii, oraz jak najbardziej samowystarczalnego stylu \\u017cycia.</p>", "workshop": "<p>Z okazji za\\u0142o\\u017cenia przez Stowarzyszenie Arte Unite zbi\\u00f3rki spo\\u0142eczno\\u015bciowej, chcieli by\\u015bmy Was zaprosi\\u0107 do udzia\\u0142u w naszych warsztatach.<br/> Organizowali\\u015bmy ju\\u017c w Lubli\\u0144cu Jog\\u0119 wg Iyengara oraz nauk\\u0119 tynkowania glin\\u0105 \\u015bcian s\\u0142omianych, w po\\u0142\\u0105czeniu z budow\\u0105 izolacyjnych mat ze s\\u0142omy.<br/> Obecnie mamy mo\\u017cliwo\\u015b\\u0107 przeprowadzenia zdalnie - przez internet, kilku ciekawych zaj\\u0119\\u0107, jak r\\u00f3wnie\\u017c ju\\u017c zaplanowanych warsztat\\u00f3w w naszej Stodole, ale dopiero jak sko\\u0144czymy j\\u0105 remontowa\\u0107 za zbierane w tej chwili pieni\\u0105dze.<br/> Uznali\\u015bmy, \\u017ce w tych ci\\u0119\\u017ckich czasach nie mo\\u017cna ju\\u017c na nic czeka\\u0107 i \\u017ce jest to dla nas ostatni moment na to, \\u017ceby by\\u0107 albo nie by\\u0107. Od tej zbi\\u00f3rki zale\\u017cy, czy uda nam si\\u0119 nadal spe\\u0142nia\\u0107 nasze marzenia o kreowaniu \\u017cycia wok\\u00f3\\u0142 siebie i zmieniania \\u015bwiata na lepsze. Im wi\\u0119cej os\\u00f3b zaanga\\u017cuje si\\u0119 w nasz\\u0105 akcj\\u0119, tym bardziej uda nam si\\u0119 zmieni\\u0107 warunki i mo\\u017cliwo\\u015bci \\u017cycia dla nas i dla innych ludzi.<br/> Dlatego zach\\u0119camy serdecznie wszystkich, do aktywnego przy\\u0142\\u0105czenia si\\u0119 materialnie do inicjatywy, kt\\u00f3ra mo\\u017ce sta\\u0107 si\\u0119 nasz\\u0105 wsp\\u00f3ln\\u0105.</p>"}	\N	3	3
-10	f	2021-02-15 22:53:01.577193+00	{"pk": 3, "path": "00010001", "depth": 2, "numchild": 0, "translation_key": "4d760b9f-f4c3-407a-92e4-17f32be77507", "locale": 1, "title": "Home", "draft_title": "Home", "slug": "home", "content_type": 3, "live": true, "has_unpublished_changes": false, "url_path": "/home/", "owner": null, "seo_title": "", "show_in_menus": false, "search_description": "", "go_live_at": null, "expire_at": null, "expired": false, "locked": false, "locked_at": null, "locked_by": null, "first_published_at": "2021-02-07T06:38:02.740Z", "last_published_at": "2021-02-15T22:48:31.277Z", "latest_revision_created_at": "2021-02-15T22:48:31.182Z", "live_revision": 9, "alias_of": null, "long_name": "<p>Stowarzyszenie na rzecz uwalniania Ziemi spod w\\u0142asno\\u015bci indywidualnej, dla wsp\\u00f3lnot ekoosadowych.</p>", "quote": "Nasze czasy narzuci\\u0142y, konieczno\\u015b\\u0107 stworzenia filozofii, kt\\u00f3ra mia\\u0142aby charakter globalny i uniwersalny, ca\\u0142o\\u015bciowy i uzdrawiaj\\u0105cy.", "quote_author": "Henryk Skolimowski", "earth_head": "Rozw\\u00f3j w kierunku integracji z ca\\u0142ym \\u017cyciem na Ziemi jest naturaln\\u0105 mo\\u017cliwo\\u015bci\\u0105 przetrwania ka\\u017cdego gatunku i wynika bezpo\\u015brednio z ewolucji \\u017cycia, dlatego jest te\\u017c naturalnym kierunkiem ewolucji \\u015bwiadomo\\u015bci cz\\u0142owieka.", "earth": "<p>Chcieliby\\u015bmy, \\u017ceby wiedzieli o naszym projekcie wszyscy, kt\\u00f3rzy czuj\\u0105 Ziemi\\u0119 jako wsp\\u00f3lny dom ca\\u0142ej ludzko\\u015bci. Mamy na uwadze odtwarzanie naturalnej relacji mi\\u0119dzy cz\\u0142owiekiem a nasz\\u0105 planet\\u0105. Chcemy pokaza\\u0107, \\u017ce nie potrzebujemy posiada\\u0107 Ziemi, aby na niej \\u017cy\\u0107.<br/><br/> Jeste\\u015bmy now\\u0105 spo\\u0142eczno\\u015bci\\u0105 w trakcie powstawania. Naszym celem jest zmienianie \\u015bwiata wsp\\u00f3\\u0142czesnej cywilizacji i panuj\\u0105cych w nim relacji poprzez propozycje odmiennych rozwi\\u0105za\\u0144 na \\u017cycie.<br/><br/>W oparciu o udane zapisy bia\\u0142ych plam na mapie prawa i zak\\u0142adanie organizacji o strukturach poziomych, mo\\u017cemy tworzy\\u0107 \\u015bwiat oparty o nasze zwyczaje, wewn\\u0105trz ka\\u017cdego demokratycznego pa\\u0144stwa i to zupe\\u0142nie legalne.<br/>Jednym z tych zwyczaj\\u00f3w jest wyeliminowanie w\\u0142asno\\u015bci prywatnej, ale jedynie tam, gdzie mog\\u0142a by ona zaistnie\\u0107 jako w\\u0142adza cz\\u0142owieka nad cz\\u0142owiekiem.</p>", "star_head": "Krytycznym punktem w hierarchii warto\\u015bci wsp\\u00f3\\u0142czesnej cywilizacji, jest powszechne przekonanie, \\u017ce mo\\u017cemy mie\\u0107 ca\\u0142kowit\\u0105 w\\u0142adz\\u0119 nad tym co posiadamy.", "star": "<p>Opieraj\\u0105c si\\u0119 na tej jednej fa\\u0142szywej warto\\u015bci, ca\\u0142a \\u015bwiatowa ekonomia z koncernami i bankami, prowadzi ludzko\\u015b\\u0107 do samozag\\u0142ady.<br/>To w\\u0142a\\u015bnie z tego powodu, na naszej planecie bez przerwy trwa wojna mi\\u0119dzy cz\\u0142owiekiem a natur\\u0105. Niszcz\\u0105c dla kr\\u00f3tkowzrocznego, wyimaginowanego egoistycznego &quot;zysku&quot; kolejne gatunki i ich \\u015brodowisko, cywilizacja w tej chwili zmierza wprost do samounicestwienia.<br/>Na poziomie \\u015bwiadomo\\u015bci planetarnej, potrzebujemy zdecydowanego uderzenia w\\u0142a\\u015bnie w ten punkt i pokazania \\u015bwiatu, \\u017ce nie da si\\u0119 decydowa\\u0107 o czyim\\u015b \\u017cyciu, poprzez wymy\\u015blone prawo do jego zaw\\u0142aszczenia.Nasze zaanga\\u017cowanie si\\u0119 jest bardziej autentyczne, kiedy wynika z naturalnej ch\\u0119ci wewn\\u0119trznej realizacji, a nie z na\\u015bladowania, l\\u0119ku, albo pod\\u0105\\u017cania za przewodnikami b\\u0105d\\u017a za kimkolwiek.</p>", "flame_head": "Odrzucaj\\u0105c ca\\u0142kowicie tak\\u0105 warto\\u015b\\u0107, jak posiadanie Ziemi, przywracamy jej w naszej \\u015bwiadomo\\u015bci, naturaln\\u0105 funkcj\\u0119 jednego z \\u017cywio\\u0142\\u00f3w.<br/>Ziemia, zar\\u00f3wno jako Planeta, jak i ta pod nogami postrzegana jako grunt, kt\\u00f3ry mo\\u017ce by\\u0107 czyj\\u0105\\u015b w\\u0142asno\\u015bci\\u0105, nigdy nie by\\u0142a i nie b\\u0119dzie nale\\u017ca\\u0142a do cz\\u0142owieka.", "flame": "<p>Pierwszy raz o tej inicjatywie, mo\\u017cna by\\u0142o si\\u0119 dowiedzie\\u0107 w Zielonych Brygadach (Sierpie\\u0144 2002), jako &quot;Projekt T\\u0119czowy Kr\\u0105g&quot;. Wtedy te\\u017c kontaktowali\\u015bmy si\\u0119 z sieci\\u0105 spo\\u0142eczno\\u015bci WAS (Wiejskie Aktywne Spo\\u0142eczno\\u015bci), z kt\\u00f3rych cz\\u0119\\u015b\\u0107 nale\\u017cy do GEN (Global Ecovillage Network). Jako spo\\u0142eczno\\u015b\\u0107 zg\\u0142osili\\u015bmy do WASu sw\\u00f3j udzia\\u0142 z ch\\u0119ci\\u0105 rozpowszechnienia naszego projektu na szersz\\u0105 skal\\u0119.<br/><br/>Obecnie tworzymy og\\u00f3lnopolski Ruch na rzecz uwalniania Ziemi spod w\\u0142asno\\u015bci indywidualnej, dla wsp\\u00f3lnot ekoosadowych.<br/>Mianem \\u201eWolnej Ziemi\\u201d okre\\u015blamy taki teren, kt\\u00f3ry jest u\\u017cytkowany i zarz\\u0105dzany wsp\\u00f3lnie, spo\\u0142ecznie, przez pewn\\u0105 grup\\u0119 ludzi na zasadach r\\u00f3wno\\u015bci i braterstwa w intencji dobra i korzy\\u015bci zar\\u00f3wno u\\u017cytkownik\\u00f3w tej ziemi, jej s\\u0105siad\\u00f3w, ca\\u0142ej ludzko\\u015bci, przyrody oraz przysz\\u0142ych pokole\\u0144.</p>", "wolna_ziemia": "<p>Mianem Wolnej Ziemi okre\\u015blamy taki teren, kt\\u00f3ry jest u\\u017cytkowany i zarz\\u0105dzany wsp\\u00f3lnie, spo\\u0142ecznie, przez pewn\\u0105 grup\\u0119 ludzi na zasadach r\\u00f3wno\\u015bci i braterstwa w intencji dobra i korzy\\u015bci zar\\u00f3wno u\\u017cytkownik\\u00f3w tej ziemi, jej s\\u0105siad\\u00f3w, ca\\u0142ej ludzko\\u015bci, przyrody oraz przysz\\u0142ych pokole\\u0144.<br/>Ziemia, zar\\u00f3wno jako Planeta, jak i ta pod nogami postrzegana jako grunt, kt\\u00f3ry mo\\u017ce by\\u0107 czyj\\u0105\\u015b w\\u0142asno\\u015bci\\u0105, nigdy nie by\\u0142a i nie b\\u0119dzie nale\\u017ca\\u0142a do cz\\u0142owieka. To my ludzie przynale\\u017cymy do Ziemi i odkrywaj\\u0105c to, mo\\u017cemy r\\u00f3wnie\\u017c odkry\\u0107 nasz\\u0105 faktyczn\\u0105 funkcj\\u0119 i misj\\u0119 tu gdzie jeste\\u015bmy..<br/>a jeste\\u015bmy opiekunami i stra\\u017cnikami naszej Planety, naszego Domu i Miejsca w Kosmosie. Jako gatunek, ale r\\u00f3wnie\\u017c indywidualnie.</p>", "stodola": "<p>Przedsi\\u0119wzi\\u0119cie nasze ma pokazywa\\u0107, \\u017ce da si\\u0119 tworzy\\u0107 wsp\\u00f3lnot\\u0119 na zasadach r\\u00f3wno\\u015bci, bez potrzeby posiadania miejsca w kt\\u00f3rym \\u017cyjemy. Ma to by\\u0107 te\\u017c przyk\\u0142ad, w\\u00a0jaki spos\\u00f3b mo\\u017cna d\\u0105\\u017cy\\u0107 do jak najbardziej ekonomicznego z punktu widzenia zu\\u017cycia energii, oraz jak najbardziej samowystarczalnego stylu \\u017cycia.Miejsce to, ma \\u0142\\u0105czy\\u0107 wszystkich, kt\\u00f3rzy mieli by na uwadze, jak istotna dla \\u017cycia na Ziemi jest idea r\\u00f3wno\\u015bci ludzi wobec miejsca w kt\\u00f3rym si\\u0119 znajduj\\u0105. Jak r\\u00f3wnie\\u017c to, \\u017ce Ziemia nie nale\\u017c\\u0105ca do pojedynczego w\\u0142a\\u015bciciela jest bardzo istotnym aspektem budowania wolno\\u015bci i \\u015bwiadomo\\u015bci b\\u0119d\\u0105cej alternatyw\\u0105 do konsumpcjonizmu i ch\\u0119ci zaw\\u0142aszczania sobie tego, co tak na prawd\\u0119 jest dobrem wsp\\u00f3lnym.</p>", "workshop": "<p>Z okazji za\\u0142o\\u017cenia przez Stowarzyszenie Arte Unite zbi\\u00f3rki spo\\u0142eczno\\u015bciowej, chcieli by\\u015bmy Was zaprosi\\u0107 do udzia\\u0142u w naszych warsztatach.<br/> Organizowali\\u015bmy ju\\u017c w Lubli\\u0144cu Jog\\u0119 wg Iyengara oraz nauk\\u0119 tynkowania glin\\u0105 \\u015bcian s\\u0142omianych, w po\\u0142\\u0105czeniu z budow\\u0105 izolacyjnych mat ze s\\u0142omy.<br/> Obecnie mamy mo\\u017cliwo\\u015b\\u0107 przeprowadzenia zdalnie - przez internet, kilku ciekawych zaj\\u0119\\u0107, jak r\\u00f3wnie\\u017c ju\\u017c zaplanowanych warsztat\\u00f3w w naszej Stodole, ale dopiero jak sko\\u0144czymy j\\u0105 remontowa\\u0107 za zbierane w tej chwili pieni\\u0105dze.<br/> Uznali\\u015bmy, \\u017ce w tych ci\\u0119\\u017ckich czasach nie mo\\u017cna ju\\u017c na nic czeka\\u0107 i \\u017ce jest to dla nas ostatni moment na to, \\u017ceby by\\u0107 albo nie by\\u0107. Od tej zbi\\u00f3rki zale\\u017cy, czy uda nam si\\u0119 nadal spe\\u0142nia\\u0107 nasze marzenia o kreowaniu \\u017cycia wok\\u00f3\\u0142 siebie i zmieniania \\u015bwiata na lepsze. Im wi\\u0119cej os\\u00f3b zaanga\\u017cuje si\\u0119 w nasz\\u0105 akcj\\u0119, tym bardziej uda nam si\\u0119 zmieni\\u0107 warunki i mo\\u017cliwo\\u015bci \\u017cycia dla nas i dla innych ludzi.<br/> Dlatego zach\\u0119camy serdecznie wszystkich, do aktywnego przy\\u0142\\u0105czenia si\\u0119 materialnie do inicjatywy, kt\\u00f3ra mo\\u017ce sta\\u0107 si\\u0119 nasz\\u0105 wsp\\u00f3ln\\u0105.</p>"}	\N	3	3
 1	f	2021-02-07 06:27:14.685056+00	{"pk": 3, "path": "00010001", "depth": 2, "numchild": 0, "translation_key": "4d760b9f-f4c3-407a-92e4-17f32be77507", "locale": 1, "title": "Home", "draft_title": "Home", "slug": "home", "content_type": 3, "live": true, "has_unpublished_changes": false, "url_path": "/home/", "owner": null, "seo_title": "", "show_in_menus": false, "search_description": "", "go_live_at": null, "expire_at": null, "expired": false, "locked": false, "locked_at": null, "locked_by": null, "first_published_at": null, "last_published_at": null, "latest_revision_created_at": null, "live_revision": null, "alias_of": null, "body": "<p>Ala ma kota</p>"}	\N	3	1
 2	f	2021-02-07 06:37:51.915945+00	{"pk": 3, "path": "00010001", "depth": 2, "numchild": 0, "translation_key": "4d760b9f-f4c3-407a-92e4-17f32be77507", "locale": 1, "title": "Home", "draft_title": "Home", "slug": "home", "content_type": 3, "live": true, "has_unpublished_changes": true, "url_path": "/home/", "owner": null, "seo_title": "", "show_in_menus": false, "search_description": "", "go_live_at": null, "expire_at": null, "expired": false, "locked": false, "locked_at": null, "locked_by": null, "first_published_at": null, "last_published_at": null, "latest_revision_created_at": "2021-02-07T06:27:14.685Z", "live_revision": null, "alias_of": null, "body": "<p>Ala ma kota</p><p>a kota ma al\\u0119...</p>"}	\N	3	1
 4	f	2021-02-07 14:10:58.225814+00	{"pk": 3, "path": "00010001", "depth": 2, "numchild": 0, "translation_key": "4d760b9f-f4c3-407a-92e4-17f32be77507", "locale": 1, "title": "Home", "draft_title": "Home", "slug": "home", "content_type": 3, "live": true, "has_unpublished_changes": false, "url_path": "/home/", "owner": null, "seo_title": "", "show_in_menus": false, "search_description": "", "go_live_at": null, "expire_at": null, "expired": false, "locked": false, "locked_at": null, "locked_by": null, "first_published_at": "2021-02-07T06:38:02.740Z", "last_published_at": "2021-02-07T06:38:02.740Z", "latest_revision_created_at": "2021-02-07T06:38:02.722Z", "live_revision": 3, "alias_of": null, "long_name": "<p>Stowarzyszenie na rzecz uwalniania Ziemi spod w\\u0142asno\\u015bci indywidualnej, dla wsp\\u00f3lnot ekoosadowych.</p>", "quote": "<p>Nasze czasy narzuci\\u0142y, konieczno\\u015b\\u0107 stworzenia filozofii, kt\\u00f3ra mia\\u0142aby charakter globalny i uniwersalny, ca\\u0142o\\u015bciowy i uzdrawiaj\\u0105cy.</p>", "quote_author": "<p>Henryk Skolimowski</p>", "earth_head": "<p>Rozw\\u00f3j w kierunku integracji z ca\\u0142ym \\u017cyciem na Ziemi jest naturaln\\u0105 mo\\u017cliwo\\u015bci\\u0105 przetrwania ka\\u017cdego gatunku i wynika bezpo\\u015brednio z ewolucji \\u017cycia, dlatego jest te\\u017c naturalnym kierunkiem ewolucji \\u015bwiadomo\\u015bci cz\\u0142owieka.</p>", "earth": "<p>Chcieliby\\u015bmy, \\u017ceby wiedzieli o naszym projekcie wszyscy, kt\\u00f3rzy czuj\\u0105 Ziemi\\u0119 jako wsp\\u00f3lny dom ca\\u0142ej ludzko\\u015bci. Mamy na uwadze odtwarzanie naturalnej relacji mi\\u0119dzy cz\\u0142owiekiem a nasz\\u0105 planet\\u0105. Chcemy pokaza\\u0107, \\u017ce nie potrzebujemy posiada\\u0107 Ziemi, aby na niej \\u017cy\\u0107.<br/>   <br/>Jeste\\u015bmy now\\u0105 spo\\u0142eczno\\u015bci\\u0105 w trakcie powstawania. Naszym celem jest zmienianie \\u015bwiata wsp\\u00f3\\u0142czesnej cywilizacji i panuj\\u0105cych w nim relacji poprzez propozycje odmiennych rozwi\\u0105za\\u0144 na \\u017cycie.<br/><br/>W oparciu o udane zapisy bia\\u0142ych plam na mapie prawa i zak\\u0142adanie organizacji o strukturach poziomych, mo\\u017cemy tworzy\\u0107 \\u015bwiat oparty o nasze zwyczaje, wewn\\u0105trz ka\\u017cdego demokratycznego pa\\u0144stwa i to zupe\\u0142nie legalne.<br/>Jednym z tych zwyczaj\\u00f3w jest wyeliminowanie w\\u0142asno\\u015bci prywatnej, tam gdzie mog\\u0142a by ona zaistnie\\u0107 jako w\\u0142adza cz\\u0142owieka nad cz\\u0142owiekiem.</p>", "star_head": "<p>Krytycznym punktem w hierarchii warto\\u015bci wsp\\u00f3\\u0142czesnej cywilizacji, jest powszechne przekonanie, \\u017ce mo\\u017cemy mie\\u0107 ca\\u0142kowit\\u0105 w\\u0142adz\\u0119 nad tym co posiadamy.</p>", "star": "<p>Opieraj\\u0105c si\\u0119 na tej jednej fa\\u0142szywej warto\\u015bci, ca\\u0142a \\u015bwiatowa ekonomia z koncernami i bankami, prowadzi ludzko\\u015b\\u0107 do samozag\\u0142ady.<br/>To w\\u0142a\\u015bnie z tego powodu, na naszej planecie bez przerwy trwa wojna mi\\u0119dzy cz\\u0142owiekiem a natur\\u0105. Niszcz\\u0105c dla kr\\u00f3tkowzrocznego, wyimaginowanego egoistycznego &quot;zysku&quot; kolejne gatunki i ich \\u015brodowisko, cywilizacja w tej chwili zmierza wprost do samounicestwienia.<br/>Na poziomie \\u015bwiadomo\\u015bci planetarnej, potrzebujemy zdecydowanego uderzenia w\\u0142a\\u015bnie w ten punkt i pokazania \\u015bwiatu, \\u017ce nie da si\\u0119 decydowa\\u0107 o czyim\\u015b \\u017cyciu, poprzez wymy\\u015blone prawo do jego zaw\\u0142aszczenia.Nasze zaanga\\u017cowanie si\\u0119 jest bardziej autentyczne, kiedy wynika z naturalnej ch\\u0119ci wewn\\u0119trznej realizacji, a nie z na\\u015bladowania, l\\u0119ku, albo pod\\u0105\\u017cania za przewodnikami b\\u0105d\\u017a za kimkolwiek.</p>", "flame_head": "<p>Odrzucaj\\u0105c ca\\u0142kowicie tak\\u0105 warto\\u015b\\u0107, jak posiadanie Ziemi, przywracamy jej w naszej \\u015bwiadomo\\u015bci, naturaln\\u0105 funkcj\\u0119 jednego z \\u017cywio\\u0142\\u00f3w.<br/>Ziemia, zar\\u00f3wno jako Planeta, jak i ta pod nogami postrzegana jako grunt, kt\\u00f3ry mo\\u017ce by\\u0107 czyj\\u0105\\u015b w\\u0142asno\\u015bci\\u0105, nigdy nie by\\u0142a i nie b\\u0119dzie nale\\u017ca\\u0142a do cz\\u0142owieka.</p>", "flame": "<p>Pierwszy raz o tej inicjatywie, mo\\u017cna by\\u0142o si\\u0119 dowiedzie\\u0107 w Zielonych Brygadach (Sierpie\\u0144 2002), jako &quot;Projekt T\\u0119czowy Kr\\u0105g&quot;. Wtedy te\\u017c kontaktowali\\u015bmy si\\u0119 z sieci\\u0105 spo\\u0142eczno\\u015bci WAS (Wiejskie Aktywne Spo\\u0142eczno\\u015bci), z kt\\u00f3rych cz\\u0119\\u015b\\u0107 nale\\u017cy do GEN (Global Ecovillage Network). Jako spo\\u0142eczno\\u015b\\u0107 zg\\u0142osili\\u015bmy do WASu sw\\u00f3j udzia\\u0142 z ch\\u0119ci\\u0105 rozpowszechnienia naszego projektu na szersz\\u0105 skal\\u0119.<br/><br/>Obecnie tworzymy og\\u00f3lnopolski Ruch na rzecz uwalniania Ziemi spod w\\u0142asno\\u015bci indywidualnej, dla wsp\\u00f3lnot ekoosadowych.<br/>Mianem \\u201eWolnej Ziemi\\u201d okre\\u015blamy taki teren, kt\\u00f3ry jest u\\u017cytkowany i zarz\\u0105dzany wsp\\u00f3lnie, spo\\u0142ecznie, przez pewn\\u0105 grup\\u0119 ludzi na zasadach r\\u00f3wno\\u015bci i braterstwa w intencji dobra i korzy\\u015bci zar\\u00f3wno u\\u017cytkownik\\u00f3w tej ziemi, jej s\\u0105siad\\u00f3w, ca\\u0142ej ludzko\\u015bci, przyrody oraz przysz\\u0142ych pokole\\u0144.</p>"}	\N	3	1
@@ -2498,7 +2749,10 @@ COPY public.wagtailcore_pagerevision (id, submitted_for_moderation, created_at, 
 5	f	2021-02-07 14:16:55.14025+00	{"pk": 3, "path": "00010001", "depth": 2, "numchild": 0, "translation_key": "4d760b9f-f4c3-407a-92e4-17f32be77507", "locale": 1, "title": "Home", "draft_title": "Home", "slug": "home", "content_type": 3, "live": true, "has_unpublished_changes": false, "url_path": "/home/", "owner": null, "seo_title": "", "show_in_menus": false, "search_description": "", "go_live_at": null, "expire_at": null, "expired": false, "locked": false, "locked_at": null, "locked_by": null, "first_published_at": "2021-02-07T06:38:02.740Z", "last_published_at": "2021-02-07T14:10:58.304Z", "latest_revision_created_at": "2021-02-07T14:10:58.225Z", "live_revision": 4, "alias_of": null, "long_name": "<p>Stowarzyszenie na rzecz uwalniania Ziemi spod w\\u0142asno\\u015bci indywidualnej, dla wsp\\u00f3lnot ekoosadowych.</p>", "quote": "Nasze czasy narzuci\\u0142y, konieczno\\u015b\\u0107 stworzenia filozofii, kt\\u00f3ra mia\\u0142aby charakter globalny i uniwersalny, ca\\u0142o\\u015bciowy i uzdrawiaj\\u0105cy.", "quote_author": "Henryk Skolimowski", "earth_head": "Rozw\\u00f3j w kierunku integracji z ca\\u0142ym \\u017cyciem na Ziemi jest naturaln\\u0105 mo\\u017cliwo\\u015bci\\u0105 przetrwania ka\\u017cdego gatunku i wynika bezpo\\u015brednio z ewolucji \\u017cycia, dlatego jest te\\u017c naturalnym kierunkiem ewolucji \\u015bwiadomo\\u015bci cz\\u0142owieka.", "earth": "<p>Chcieliby\\u015bmy, \\u017ceby wiedzieli o naszym projekcie wszyscy, kt\\u00f3rzy czuj\\u0105 Ziemi\\u0119 jako wsp\\u00f3lny dom ca\\u0142ej ludzko\\u015bci. Mamy na uwadze odtwarzanie naturalnej relacji mi\\u0119dzy cz\\u0142owiekiem a nasz\\u0105 planet\\u0105. Chcemy pokaza\\u0107, \\u017ce nie potrzebujemy posiada\\u0107 Ziemi, aby na niej \\u017cy\\u0107.<br/><br/> Jeste\\u015bmy now\\u0105 spo\\u0142eczno\\u015bci\\u0105 w trakcie powstawania. Naszym celem jest zmienianie \\u015bwiata wsp\\u00f3\\u0142czesnej cywilizacji i panuj\\u0105cych w nim relacji poprzez propozycje odmiennych rozwi\\u0105za\\u0144 na \\u017cycie.<br/><br/>W oparciu o udane zapisy bia\\u0142ych plam na mapie prawa i zak\\u0142adanie organizacji o strukturach poziomych, mo\\u017cemy tworzy\\u0107 \\u015bwiat oparty o nasze zwyczaje, wewn\\u0105trz ka\\u017cdego demokratycznego pa\\u0144stwa i to zupe\\u0142nie legalne.<br/>Jednym z tych zwyczaj\\u00f3w jest wyeliminowanie w\\u0142asno\\u015bci prywatnej, tam gdzie mog\\u0142a by ona zaistnie\\u0107 jako w\\u0142adza cz\\u0142owieka nad cz\\u0142owiekiem.</p>", "star_head": "Krytycznym punktem w hierarchii warto\\u015bci wsp\\u00f3\\u0142czesnej cywilizacji, jest powszechne przekonanie, \\u017ce mo\\u017cemy mie\\u0107 ca\\u0142kowit\\u0105 w\\u0142adz\\u0119 nad tym co posiadamy.", "star": "<p>Opieraj\\u0105c si\\u0119 na tej jednej fa\\u0142szywej warto\\u015bci, ca\\u0142a \\u015bwiatowa ekonomia z koncernami i bankami, prowadzi ludzko\\u015b\\u0107 do samozag\\u0142ady.<br/>To w\\u0142a\\u015bnie z tego powodu, na naszej planecie bez przerwy trwa wojna mi\\u0119dzy cz\\u0142owiekiem a natur\\u0105. Niszcz\\u0105c dla kr\\u00f3tkowzrocznego, wyimaginowanego egoistycznego &quot;zysku&quot; kolejne gatunki i ich \\u015brodowisko, cywilizacja w tej chwili zmierza wprost do samounicestwienia.<br/>Na poziomie \\u015bwiadomo\\u015bci planetarnej, potrzebujemy zdecydowanego uderzenia w\\u0142a\\u015bnie w ten punkt i pokazania \\u015bwiatu, \\u017ce nie da si\\u0119 decydowa\\u0107 o czyim\\u015b \\u017cyciu, poprzez wymy\\u015blone prawo do jego zaw\\u0142aszczenia.Nasze zaanga\\u017cowanie si\\u0119 jest bardziej autentyczne, kiedy wynika z naturalnej ch\\u0119ci wewn\\u0119trznej realizacji, a nie z na\\u015bladowania, l\\u0119ku, albo pod\\u0105\\u017cania za przewodnikami b\\u0105d\\u017a za kimkolwiek.</p>", "flame_head": "Odrzucaj\\u0105c ca\\u0142kowicie tak\\u0105 warto\\u015b\\u0107, jak posiadanie Ziemi, przywracamy jej w naszej \\u015bwiadomo\\u015bci, naturaln\\u0105 funkcj\\u0119 jednego z \\u017cywio\\u0142\\u00f3w.<br/>Ziemia, zar\\u00f3wno jako Planeta, jak i ta pod nogami postrzegana jako grunt, kt\\u00f3ry mo\\u017ce by\\u0107 czyj\\u0105\\u015b w\\u0142asno\\u015bci\\u0105, nigdy nie by\\u0142a i nie b\\u0119dzie nale\\u017ca\\u0142a do cz\\u0142owieka.", "flame": "<p>Pierwszy raz o tej inicjatywie, mo\\u017cna by\\u0142o si\\u0119 dowiedzie\\u0107 w Zielonych Brygadach (Sierpie\\u0144 2002), jako &quot;Projekt T\\u0119czowy Kr\\u0105g&quot;. Wtedy te\\u017c kontaktowali\\u015bmy si\\u0119 z sieci\\u0105 spo\\u0142eczno\\u015bci WAS (Wiejskie Aktywne Spo\\u0142eczno\\u015bci), z kt\\u00f3rych cz\\u0119\\u015b\\u0107 nale\\u017cy do GEN (Global Ecovillage Network). Jako spo\\u0142eczno\\u015b\\u0107 zg\\u0142osili\\u015bmy do WASu sw\\u00f3j udzia\\u0142 z ch\\u0119ci\\u0105 rozpowszechnienia naszego projektu na szersz\\u0105 skal\\u0119.<br/><br/>Obecnie tworzymy og\\u00f3lnopolski Ruch na rzecz uwalniania Ziemi spod w\\u0142asno\\u015bci indywidualnej, dla wsp\\u00f3lnot ekoosadowych.<br/>Mianem \\u201eWolnej Ziemi\\u201d okre\\u015blamy taki teren, kt\\u00f3ry jest u\\u017cytkowany i zarz\\u0105dzany wsp\\u00f3lnie, spo\\u0142ecznie, przez pewn\\u0105 grup\\u0119 ludzi na zasadach r\\u00f3wno\\u015bci i braterstwa w intencji dobra i korzy\\u015bci zar\\u00f3wno u\\u017cytkownik\\u00f3w tej ziemi, jej s\\u0105siad\\u00f3w, ca\\u0142ej ludzko\\u015bci, przyrody oraz przysz\\u0142ych pokole\\u0144.</p>"}	\N	3	1
 6	f	2021-02-07 14:24:43.009281+00	{"pk": 3, "path": "00010001", "depth": 2, "numchild": 0, "translation_key": "4d760b9f-f4c3-407a-92e4-17f32be77507", "locale": 1, "title": "Home", "draft_title": "Home", "slug": "home", "content_type": 3, "live": true, "has_unpublished_changes": false, "url_path": "/home/", "owner": null, "seo_title": "", "show_in_menus": false, "search_description": "", "go_live_at": null, "expire_at": null, "expired": false, "locked": false, "locked_at": null, "locked_by": null, "first_published_at": "2021-02-07T06:38:02.740Z", "last_published_at": "2021-02-07T14:16:55.208Z", "latest_revision_created_at": "2021-02-07T14:16:55.140Z", "live_revision": 5, "alias_of": null, "long_name": "<p>Stowarzyszenie na rzecz uwalniania Ziemi spod w\\u0142asno\\u015bci indywidualnej, dla wsp\\u00f3lnot ekoosadowych.</p>", "quote": "Nasze czasy narzuci\\u0142y, konieczno\\u015b\\u0107 stworzenia filozofii, kt\\u00f3ra mia\\u0142aby charakter globalny i uniwersalny, ca\\u0142o\\u015bciowy i uzdrawiaj\\u0105cy.", "quote_author": "Henryk Skolimowski", "earth_head": "Rozw\\u00f3j w kierunku integracji z ca\\u0142ym \\u017cyciem na Ziemi jest naturaln\\u0105 mo\\u017cliwo\\u015bci\\u0105 przetrwania ka\\u017cdego gatunku i wynika bezpo\\u015brednio z ewolucji \\u017cycia, dlatego jest te\\u017c naturalnym kierunkiem ewolucji \\u015bwiadomo\\u015bci cz\\u0142owieka.", "earth": "<p>Chcieliby\\u015bmy, \\u017ceby wiedzieli o naszym projekcie wszyscy, kt\\u00f3rzy czuj\\u0105 Ziemi\\u0119 jako wsp\\u00f3lny dom ca\\u0142ej ludzko\\u015bci. Mamy na uwadze odtwarzanie naturalnej relacji mi\\u0119dzy cz\\u0142owiekiem a nasz\\u0105 planet\\u0105. Chcemy pokaza\\u0107, \\u017ce nie potrzebujemy posiada\\u0107 Ziemi, aby na niej \\u017cy\\u0107.<br/><br/> Jeste\\u015bmy now\\u0105 spo\\u0142eczno\\u015bci\\u0105 w trakcie powstawania. Naszym celem jest zmienianie \\u015bwiata wsp\\u00f3\\u0142czesnej cywilizacji i panuj\\u0105cych w nim relacji poprzez propozycje odmiennych rozwi\\u0105za\\u0144 na \\u017cycie.<br/><br/>W oparciu o udane zapisy bia\\u0142ych plam na mapie prawa i zak\\u0142adanie organizacji o strukturach poziomych, mo\\u017cemy tworzy\\u0107 \\u015bwiat oparty o nasze zwyczaje, wewn\\u0105trz ka\\u017cdego demokratycznego pa\\u0144stwa i to zupe\\u0142nie legalne.<br/>Jednym z tych zwyczaj\\u00f3w jest wyeliminowanie w\\u0142asno\\u015bci prywatnej, tam gdzie mog\\u0142a by ona zaistnie\\u0107 jako w\\u0142adza cz\\u0142owieka nad cz\\u0142owiekiem.</p>", "star_head": "Krytycznym punktem w hierarchii warto\\u015bci wsp\\u00f3\\u0142czesnej cywilizacji, jest powszechne przekonanie, \\u017ce mo\\u017cemy mie\\u0107 ca\\u0142kowit\\u0105 w\\u0142adz\\u0119 nad tym co posiadamy.", "star": "<p>Opieraj\\u0105c si\\u0119 na tej jednej fa\\u0142szywej warto\\u015bci, ca\\u0142a \\u015bwiatowa ekonomia z koncernami i bankami, prowadzi ludzko\\u015b\\u0107 do samozag\\u0142ady.<br/>To w\\u0142a\\u015bnie z tego powodu, na naszej planecie bez przerwy trwa wojna mi\\u0119dzy cz\\u0142owiekiem a natur\\u0105. Niszcz\\u0105c dla kr\\u00f3tkowzrocznego, wyimaginowanego egoistycznego &quot;zysku&quot; kolejne gatunki i ich \\u015brodowisko, cywilizacja w tej chwili zmierza wprost do samounicestwienia.<br/>Na poziomie \\u015bwiadomo\\u015bci planetarnej, potrzebujemy zdecydowanego uderzenia w\\u0142a\\u015bnie w ten punkt i pokazania \\u015bwiatu, \\u017ce nie da si\\u0119 decydowa\\u0107 o czyim\\u015b \\u017cyciu, poprzez wymy\\u015blone prawo do jego zaw\\u0142aszczenia.Nasze zaanga\\u017cowanie si\\u0119 jest bardziej autentyczne, kiedy wynika z naturalnej ch\\u0119ci wewn\\u0119trznej realizacji, a nie z na\\u015bladowania, l\\u0119ku, albo pod\\u0105\\u017cania za przewodnikami b\\u0105d\\u017a za kimkolwiek.</p>", "flame_head": "Odrzucaj\\u0105c ca\\u0142kowicie tak\\u0105 warto\\u015b\\u0107, jak posiadanie Ziemi, przywracamy jej w naszej \\u015bwiadomo\\u015bci, naturaln\\u0105 funkcj\\u0119 jednego z \\u017cywio\\u0142\\u00f3w.<br/>Ziemia, zar\\u00f3wno jako Planeta, jak i ta pod nogami postrzegana jako grunt, kt\\u00f3ry mo\\u017ce by\\u0107 czyj\\u0105\\u015b w\\u0142asno\\u015bci\\u0105, nigdy nie by\\u0142a i nie b\\u0119dzie nale\\u017ca\\u0142a do cz\\u0142owieka.", "flame": "<p>Pierwszy raz o tej inicjatywie, mo\\u017cna by\\u0142o si\\u0119 dowiedzie\\u0107 w Zielonych Brygadach (Sierpie\\u0144 2002), jako &quot;Projekt T\\u0119czowy Kr\\u0105g&quot;. Wtedy te\\u017c kontaktowali\\u015bmy si\\u0119 z sieci\\u0105 spo\\u0142eczno\\u015bci WAS (Wiejskie Aktywne Spo\\u0142eczno\\u015bci), z kt\\u00f3rych cz\\u0119\\u015b\\u0107 nale\\u017cy do GEN (Global Ecovillage Network). Jako spo\\u0142eczno\\u015b\\u0107 zg\\u0142osili\\u015bmy do WASu sw\\u00f3j udzia\\u0142 z ch\\u0119ci\\u0105 rozpowszechnienia naszego projektu na szersz\\u0105 skal\\u0119.<br/><br/>Obecnie tworzymy og\\u00f3lnopolski Ruch na rzecz uwalniania Ziemi spod w\\u0142asno\\u015bci indywidualnej, dla wsp\\u00f3lnot ekoosadowych.<br/>Mianem \\u201eWolnej Ziemi\\u201d okre\\u015blamy taki teren, kt\\u00f3ry jest u\\u017cytkowany i zarz\\u0105dzany wsp\\u00f3lnie, spo\\u0142ecznie, przez pewn\\u0105 grup\\u0119 ludzi na zasadach r\\u00f3wno\\u015bci i braterstwa w intencji dobra i korzy\\u015bci zar\\u00f3wno u\\u017cytkownik\\u00f3w tej ziemi, jej s\\u0105siad\\u00f3w, ca\\u0142ej ludzko\\u015bci, przyrody oraz przysz\\u0142ych pokole\\u0144.</p>"}	\N	3	1
 7	f	2021-02-14 22:05:22.729116+00	{"pk": 3, "path": "00010001", "depth": 2, "numchild": 0, "translation_key": "4d760b9f-f4c3-407a-92e4-17f32be77507", "locale": 1, "title": "Home", "draft_title": "Home", "slug": "home", "content_type": 3, "live": true, "has_unpublished_changes": false, "url_path": "/home/", "owner": null, "seo_title": "", "show_in_menus": false, "search_description": "", "go_live_at": null, "expire_at": null, "expired": false, "locked": false, "locked_at": null, "locked_by": null, "first_published_at": "2021-02-07T06:38:02.740Z", "last_published_at": "2021-02-07T14:24:43.085Z", "latest_revision_created_at": "2021-02-07T14:24:43.009Z", "live_revision": 6, "alias_of": null, "long_name": "<p>Stowarzyszenie na rzecz uwalniania Ziemi spod w\\u0142asno\\u015bci indywidualnej, dla wsp\\u00f3lnot ekoosadowych.</p>", "quote": "Nasze czasy narzuci\\u0142y, konieczno\\u015b\\u0107 stworzenia filozofii, kt\\u00f3ra mia\\u0142aby charakter globalny i uniwersalny, ca\\u0142o\\u015bciowy i uzdrawiaj\\u0105cy.", "quote_author": "Henryk Skolimowski", "earth_head": "Rozw\\u00f3j w kierunku integracji z ca\\u0142ym \\u017cyciem na Ziemi jest naturaln\\u0105 mo\\u017cliwo\\u015bci\\u0105 przetrwania ka\\u017cdego gatunku i wynika bezpo\\u015brednio z ewolucji \\u017cycia, dlatego jest te\\u017c naturalnym kierunkiem ewolucji \\u015bwiadomo\\u015bci cz\\u0142owieka.", "earth": "<p>Chcieliby\\u015bmy, \\u017ceby wiedzieli o naszym projekcie wszyscy, kt\\u00f3rzy czuj\\u0105 Ziemi\\u0119 jako wsp\\u00f3lny dom ca\\u0142ej ludzko\\u015bci. Mamy na uwadze odtwarzanie naturalnej relacji mi\\u0119dzy cz\\u0142owiekiem a nasz\\u0105 planet\\u0105. Chcemy pokaza\\u0107, \\u017ce nie potrzebujemy posiada\\u0107 Ziemi, aby na niej \\u017cy\\u0107.<br/><br/> Jeste\\u015bmy now\\u0105 spo\\u0142eczno\\u015bci\\u0105 w trakcie powstawania. Naszym celem jest zmienianie \\u015bwiata wsp\\u00f3\\u0142czesnej cywilizacji i panuj\\u0105cych w nim relacji poprzez propozycje odmiennych rozwi\\u0105za\\u0144 na \\u017cycie.<br/><br/>W oparciu o udane zapisy bia\\u0142ych plam na mapie prawa i zak\\u0142adanie organizacji o strukturach poziomych, mo\\u017cemy tworzy\\u0107 \\u015bwiat oparty o nasze zwyczaje, wewn\\u0105trz ka\\u017cdego demokratycznego pa\\u0144stwa i to zupe\\u0142nie legalne.<br/>Jednym z tych zwyczaj\\u00f3w jest wyeliminowanie w\\u0142asno\\u015bci prywatnej, tam gdzie mog\\u0142a by ona zaistnie\\u0107 jako w\\u0142adza cz\\u0142owieka nad cz\\u0142owiekiem.</p>", "star_head": "Krytycznym punktem w hierarchii warto\\u015bci wsp\\u00f3\\u0142czesnej cywilizacji, jest powszechne przekonanie, \\u017ce mo\\u017cemy mie\\u0107 ca\\u0142kowit\\u0105 w\\u0142adz\\u0119 nad tym co posiadamy.", "star": "<p>Opieraj\\u0105c si\\u0119 na tej jednej fa\\u0142szywej warto\\u015bci, ca\\u0142a \\u015bwiatowa ekonomia z koncernami i bankami, prowadzi ludzko\\u015b\\u0107 do samozag\\u0142ady.<br/>To w\\u0142a\\u015bnie z tego powodu, na naszej planecie bez przerwy trwa wojna mi\\u0119dzy cz\\u0142owiekiem a natur\\u0105. Niszcz\\u0105c dla kr\\u00f3tkowzrocznego, wyimaginowanego egoistycznego &quot;zysku&quot; kolejne gatunki i ich \\u015brodowisko, cywilizacja w tej chwili zmierza wprost do samounicestwienia.<br/>Na poziomie \\u015bwiadomo\\u015bci planetarnej, potrzebujemy zdecydowanego uderzenia w\\u0142a\\u015bnie w ten punkt i pokazania \\u015bwiatu, \\u017ce nie da si\\u0119 decydowa\\u0107 o czyim\\u015b \\u017cyciu, poprzez wymy\\u015blone prawo do jego zaw\\u0142aszczenia.Nasze zaanga\\u017cowanie si\\u0119 jest bardziej autentyczne, kiedy wynika z naturalnej ch\\u0119ci wewn\\u0119trznej realizacji, a nie z na\\u015bladowania, l\\u0119ku, albo pod\\u0105\\u017cania za przewodnikami b\\u0105d\\u017a za kimkolwiek.</p>", "flame_head": "Odrzucaj\\u0105c ca\\u0142kowicie tak\\u0105 warto\\u015b\\u0107, jak posiadanie Ziemi, przywracamy jej w naszej \\u015bwiadomo\\u015bci, naturaln\\u0105 funkcj\\u0119 jednego z \\u017cywio\\u0142\\u00f3w.<br/>Ziemia, zar\\u00f3wno jako Planeta, jak i ta pod nogami postrzegana jako grunt, kt\\u00f3ry mo\\u017ce by\\u0107 czyj\\u0105\\u015b w\\u0142asno\\u015bci\\u0105, nigdy nie by\\u0142a i nie b\\u0119dzie nale\\u017ca\\u0142a do cz\\u0142owieka.", "flame": "<p>Pierwszy raz o tej inicjatywie, mo\\u017cna by\\u0142o si\\u0119 dowiedzie\\u0107 w Zielonych Brygadach (Sierpie\\u0144 2002), jako &quot;Projekt T\\u0119czowy Kr\\u0105g&quot;. Wtedy te\\u017c kontaktowali\\u015bmy si\\u0119 z sieci\\u0105 spo\\u0142eczno\\u015bci WAS (Wiejskie Aktywne Spo\\u0142eczno\\u015bci), z kt\\u00f3rych cz\\u0119\\u015b\\u0107 nale\\u017cy do GEN (Global Ecovillage Network). Jako spo\\u0142eczno\\u015b\\u0107 zg\\u0142osili\\u015bmy do WASu sw\\u00f3j udzia\\u0142 z ch\\u0119ci\\u0105 rozpowszechnienia naszego projektu na szersz\\u0105 skal\\u0119.<br/><br/>Obecnie tworzymy og\\u00f3lnopolski Ruch na rzecz uwalniania Ziemi spod w\\u0142asno\\u015bci indywidualnej, dla wsp\\u00f3lnot ekoosadowych.<br/>Mianem \\u201eWolnej Ziemi\\u201d okre\\u015blamy taki teren, kt\\u00f3ry jest u\\u017cytkowany i zarz\\u0105dzany wsp\\u00f3lnie, spo\\u0142ecznie, przez pewn\\u0105 grup\\u0119 ludzi na zasadach r\\u00f3wno\\u015bci i braterstwa w intencji dobra i korzy\\u015bci zar\\u00f3wno u\\u017cytkownik\\u00f3w tej ziemi, jej s\\u0105siad\\u00f3w, ca\\u0142ej ludzko\\u015bci, przyrody oraz przysz\\u0142ych pokole\\u0144.</p>", "wolna_ziemia": "<p>Mianem Wolnej Ziemi okre\\u015blamy taki teren, kt\\u00f3ry jest u\\u017cytkowany i zarz\\u0105dzany wsp\\u00f3lnie, spo\\u0142ecznie, przez pewn\\u0105 grup\\u0119 ludzi na zasadach r\\u00f3wno\\u015bci i braterstwa w intencji dobra i korzy\\u015bci zar\\u00f3wno u\\u017cytkownik\\u00f3w tej ziemi, jej s\\u0105siad\\u00f3w, ca\\u0142ej ludzko\\u015bci, przyrody oraz przysz\\u0142ych pokole\\u0144.<br/>Ziemia, zar\\u00f3wno jako Planeta, jak i ta pod nogami postrzegana jako grunt, kt\\u00f3ry mo\\u017ce by\\u0107 czyj\\u0105\\u015b w\\u0142asno\\u015bci\\u0105, nigdy nie by\\u0142a i nie b\\u0119dzie nale\\u017ca\\u0142a do cz\\u0142owieka. To my ludzie przynale\\u017cymy do Ziemi i odkrywaj\\u0105c to, mo\\u017cemy r\\u00f3wnie\\u017c odkry\\u0107 nasz\\u0105 faktyczn\\u0105 funkcj\\u0119 i misj\\u0119 tu gdzie jeste\\u015bmy..<br/>a jeste\\u015bmy opiekunami i stra\\u017cnikami naszej Planety, naszego Domu i Miejsca w Kosmosie. Jako gatunek, ale r\\u00f3wnie\\u017c indywidualnie.</p>", "stodola": "<p><b>Przedsi\\u0119wzi\\u0119cie nasze ma pokazywa\\u0107, \\u017ce da si\\u0119 tworzy\\u0107 wsp\\u00f3lnot\\u0119 na zasadach r\\u00f3wno\\u015bci, bez potrzeby posiadania miejsca w kt\\u00f3rym \\u017cyjemy. Ma to by\\u0107 te\\u017c przyk\\u0142ad, w\\u00a0jaki spos\\u00f3b mo\\u017cna d\\u0105\\u017cy\\u0107 do jak najbardziej ekonomicznego z punktu widzenia zu\\u017cycia energii, oraz jak najbardziej samowystarczalnego stylu \\u017cycia.Miejsce to, ma \\u0142\\u0105czy\\u0107 wszystkich, kt\\u00f3rzy mieli by na uwadze, jak istotna dla \\u017cycia na Ziemi jest idea r\\u00f3wno\\u015bci ludzi wobec miejsca w kt\\u00f3rym si\\u0119 znajduj\\u0105. Jak r\\u00f3wnie\\u017c to, \\u017ce Ziemia nie nale\\u017c\\u0105ca do pojedynczego w\\u0142a\\u015bciciela jest bardzo istotnym aspektem budowania wolno\\u015bci i \\u015bwiadomo\\u015bci b\\u0119d\\u0105cej alternatyw\\u0105 do konsumpcjonizmu i ch\\u0119ci zaw\\u0142aszczania sobie tego, co tak na prawd\\u0119 jest dobrem wsp\\u00f3lnym.</b></p>", "workshop": "<p>Z okazji za\\u0142o\\u017cenia przez Stowarzyszenie Arte Unite zbi\\u00f3rki spo\\u0142eczno\\u015bciowej, chcieli by\\u015bmy Was zaprosi\\u0107 do udzia\\u0142u w naszych warsztatach. <br/>Organizowali\\u015bmy ju\\u017c w Lubli\\u0144cu Jog\\u0119 wg Iyengara oraz nauk\\u0119 budowy izolacyjnych mat ze s\\u0142omy, w po\\u0142\\u0105czeniu z tynkowaniem glin\\u0105 \\u015bcian s\\u0142omianych. <br/>Obecnie mamy mo\\u017cliwo\\u015b\\u0107 przeprowadzenia zdalnie kilku ciekawych zaj\\u0119\\u0107, jak r\\u00f3wnie\\u017c ju\\u017c zaplanowanych warsztat\\u00f3w w naszej Stodole, ale dopiero jak sko\\u0144czymy j\\u0105 remontowa\\u0107 za zbierane w tej chwili pieni\\u0105dze. <br/>Uznali\\u015bmy, \\u017ce w tych ci\\u0119\\u017ckich czasach nie mo\\u017cna ju\\u017c na nic czeka\\u0107 i \\u017ce jest to dla nas ostatni moment na to, \\u017ceby by\\u0107 albo nie by\\u0107. <br/>Dlatego zach\\u0119camy serdecznie wszystkich, do aktywnego przy\\u0142\\u0105czenia si\\u0119 materialnie do inicjatywy, kt\\u00f3ra mo\\u017ce sta\\u0107 si\\u0119 nasz\\u0105 wsp\\u00f3ln\\u0105.</p>"}	\N	3	1
-9	f	2021-02-15 22:48:31.182853+00	{"pk": 3, "path": "00010001", "depth": 2, "numchild": 0, "translation_key": "4d760b9f-f4c3-407a-92e4-17f32be77507", "locale": 1, "title": "Home", "draft_title": "Home", "slug": "home", "content_type": 3, "live": true, "has_unpublished_changes": false, "url_path": "/home/", "owner": null, "seo_title": "", "show_in_menus": false, "search_description": "", "go_live_at": null, "expire_at": null, "expired": false, "locked": false, "locked_at": null, "locked_by": null, "first_published_at": "2021-02-07T06:38:02.740Z", "last_published_at": "2021-02-14T22:14:00.204Z", "latest_revision_created_at": "2021-02-14T22:14:00.145Z", "live_revision": 8, "alias_of": null, "long_name": "<p>Stowarzyszenie na rzecz uwalniania Ziemi spod w\\u0142asno\\u015bci indywidualnej, dla wsp\\u00f3lnot ekoosadowych.</p>", "quote": "Nasze czasy narzuci\\u0142y, konieczno\\u015b\\u0107 stworzenia filozofii, kt\\u00f3ra mia\\u0142aby charakter globalny i uniwersalny, ca\\u0142o\\u015bciowy i uzdrawiaj\\u0105cy.", "quote_author": "Henryk Skolimowski", "earth_head": "Rozw\\u00f3j w kierunku integracji z ca\\u0142ym \\u017cyciem na Ziemi jest naturaln\\u0105 mo\\u017cliwo\\u015bci\\u0105 przetrwania ka\\u017cdego gatunku i wynika bezpo\\u015brednio z ewolucji \\u017cycia, dlatego jest te\\u017c naturalnym kierunkiem ewolucji \\u015bwiadomo\\u015bci cz\\u0142owieka.", "earth": "<p>Chcieliby\\u015bmy, \\u017ceby wiedzieli o naszym projekcie wszyscy, kt\\u00f3rzy czuj\\u0105 Ziemi\\u0119 jako wsp\\u00f3lny dom ca\\u0142ej ludzko\\u015bci. Mamy na uwadze odtwarzanie naturalnej relacji mi\\u0119dzy cz\\u0142owiekiem a nasz\\u0105 planet\\u0105. Chcemy pokaza\\u0107, \\u017ce nie potrzebujemy posiada\\u0107 Ziemi, aby na niej \\u017cy\\u0107.<br/><br/> Jeste\\u015bmy now\\u0105 spo\\u0142eczno\\u015bci\\u0105 w trakcie powstawania. Naszym celem jest zmienianie \\u015bwiata wsp\\u00f3\\u0142czesnej cywilizacji i panuj\\u0105cych w nim relacji poprzez propozycje odmiennych rozwi\\u0105za\\u0144 na \\u017cycie.<br/><br/>W oparciu o udane zapisy bia\\u0142ych plam na mapie prawa i zak\\u0142adanie organizacji o strukturach poziomych, mo\\u017cemy tworzy\\u0107 \\u015bwiat oparty o nasze zwyczaje, wewn\\u0105trz ka\\u017cdego demokratycznego pa\\u0144stwa i to zupe\\u0142nie legalne.<br/>Jednym z tych zwyczaj\\u00f3w jest wyeliminowanie w\\u0142asno\\u015bci prywatnej, tam gdzie mog\\u0142a by ona zaistnie\\u0107 jako w\\u0142adza cz\\u0142owieka nad cz\\u0142owiekiem.</p>", "star_head": "Krytycznym punktem w hierarchii warto\\u015bci wsp\\u00f3\\u0142czesnej cywilizacji, jest powszechne przekonanie, \\u017ce mo\\u017cemy mie\\u0107 ca\\u0142kowit\\u0105 w\\u0142adz\\u0119 nad tym co posiadamy.", "star": "<p>Opieraj\\u0105c si\\u0119 na tej jednej fa\\u0142szywej warto\\u015bci, ca\\u0142a \\u015bwiatowa ekonomia z koncernami i bankami, prowadzi ludzko\\u015b\\u0107 do samozag\\u0142ady.<br/>To w\\u0142a\\u015bnie z tego powodu, na naszej planecie bez przerwy trwa wojna mi\\u0119dzy cz\\u0142owiekiem a natur\\u0105. Niszcz\\u0105c dla kr\\u00f3tkowzrocznego, wyimaginowanego egoistycznego &quot;zysku&quot; kolejne gatunki i ich \\u015brodowisko, cywilizacja w tej chwili zmierza wprost do samounicestwienia.<br/>Na poziomie \\u015bwiadomo\\u015bci planetarnej, potrzebujemy zdecydowanego uderzenia w\\u0142a\\u015bnie w ten punkt i pokazania \\u015bwiatu, \\u017ce nie da si\\u0119 decydowa\\u0107 o czyim\\u015b \\u017cyciu, poprzez wymy\\u015blone prawo do jego zaw\\u0142aszczenia.Nasze zaanga\\u017cowanie si\\u0119 jest bardziej autentyczne, kiedy wynika z naturalnej ch\\u0119ci wewn\\u0119trznej realizacji, a nie z na\\u015bladowania, l\\u0119ku, albo pod\\u0105\\u017cania za przewodnikami b\\u0105d\\u017a za kimkolwiek.</p>", "flame_head": "Odrzucaj\\u0105c ca\\u0142kowicie tak\\u0105 warto\\u015b\\u0107, jak posiadanie Ziemi, przywracamy jej w naszej \\u015bwiadomo\\u015bci, naturaln\\u0105 funkcj\\u0119 jednego z \\u017cywio\\u0142\\u00f3w.<br/>Ziemia, zar\\u00f3wno jako Planeta, jak i ta pod nogami postrzegana jako grunt, kt\\u00f3ry mo\\u017ce by\\u0107 czyj\\u0105\\u015b w\\u0142asno\\u015bci\\u0105, nigdy nie by\\u0142a i nie b\\u0119dzie nale\\u017ca\\u0142a do cz\\u0142owieka.", "flame": "<p>Pierwszy raz o tej inicjatywie, mo\\u017cna by\\u0142o si\\u0119 dowiedzie\\u0107 w Zielonych Brygadach (Sierpie\\u0144 2002), jako &quot;Projekt T\\u0119czowy Kr\\u0105g&quot;. Wtedy te\\u017c kontaktowali\\u015bmy si\\u0119 z sieci\\u0105 spo\\u0142eczno\\u015bci WAS (Wiejskie Aktywne Spo\\u0142eczno\\u015bci), z kt\\u00f3rych cz\\u0119\\u015b\\u0107 nale\\u017cy do GEN (Global Ecovillage Network). Jako spo\\u0142eczno\\u015b\\u0107 zg\\u0142osili\\u015bmy do WASu sw\\u00f3j udzia\\u0142 z ch\\u0119ci\\u0105 rozpowszechnienia naszego projektu na szersz\\u0105 skal\\u0119.<br/><br/>Obecnie tworzymy og\\u00f3lnopolski Ruch na rzecz uwalniania Ziemi spod w\\u0142asno\\u015bci indywidualnej, dla wsp\\u00f3lnot ekoosadowych.<br/>Mianem \\u201eWolnej Ziemi\\u201d okre\\u015blamy taki teren, kt\\u00f3ry jest u\\u017cytkowany i zarz\\u0105dzany wsp\\u00f3lnie, spo\\u0142ecznie, przez pewn\\u0105 grup\\u0119 ludzi na zasadach r\\u00f3wno\\u015bci i braterstwa w intencji dobra i korzy\\u015bci zar\\u00f3wno u\\u017cytkownik\\u00f3w tej ziemi, jej s\\u0105siad\\u00f3w, ca\\u0142ej ludzko\\u015bci, przyrody oraz przysz\\u0142ych pokole\\u0144.</p>", "wolna_ziemia": "<p>Mianem Wolnej Ziemi okre\\u015blamy taki teren, kt\\u00f3ry jest u\\u017cytkowany i zarz\\u0105dzany wsp\\u00f3lnie, spo\\u0142ecznie, przez pewn\\u0105 grup\\u0119 ludzi na zasadach r\\u00f3wno\\u015bci i braterstwa w intencji dobra i korzy\\u015bci zar\\u00f3wno u\\u017cytkownik\\u00f3w tej ziemi, jej s\\u0105siad\\u00f3w, ca\\u0142ej ludzko\\u015bci, przyrody oraz przysz\\u0142ych pokole\\u0144.<br/>Ziemia, zar\\u00f3wno jako Planeta, jak i ta pod nogami postrzegana jako grunt, kt\\u00f3ry mo\\u017ce by\\u0107 czyj\\u0105\\u015b w\\u0142asno\\u015bci\\u0105, nigdy nie by\\u0142a i nie b\\u0119dzie nale\\u017ca\\u0142a do cz\\u0142owieka. To my ludzie przynale\\u017cymy do Ziemi i odkrywaj\\u0105c to, mo\\u017cemy r\\u00f3wnie\\u017c odkry\\u0107 nasz\\u0105 faktyczn\\u0105 funkcj\\u0119 i misj\\u0119 tu gdzie jeste\\u015bmy..<br/>a jeste\\u015bmy opiekunami i stra\\u017cnikami naszej Planety, naszego Domu i Miejsca w Kosmosie. Jako gatunek, ale r\\u00f3wnie\\u017c indywidualnie.</p>", "stodola": "<p>Przedsi\\u0119wzi\\u0119cie nasze ma pokazywa\\u0107, \\u017ce da si\\u0119 tworzy\\u0107 wsp\\u00f3lnot\\u0119 na zasadach r\\u00f3wno\\u015bci, bez potrzeby posiadania miejsca w kt\\u00f3rym \\u017cyjemy. Ma to by\\u0107 te\\u017c przyk\\u0142ad, w\\u00a0jaki spos\\u00f3b mo\\u017cna d\\u0105\\u017cy\\u0107 do jak najbardziej ekonomicznego z punktu widzenia zu\\u017cycia energii, oraz jak najbardziej samowystarczalnego stylu \\u017cycia.Miejsce to, ma \\u0142\\u0105czy\\u0107 wszystkich, kt\\u00f3rzy mieli by na uwadze, jak istotna dla \\u017cycia na Ziemi jest idea r\\u00f3wno\\u015bci ludzi wobec miejsca w kt\\u00f3rym si\\u0119 znajduj\\u0105. Jak r\\u00f3wnie\\u017c to, \\u017ce Ziemia nie nale\\u017c\\u0105ca do pojedynczego w\\u0142a\\u015bciciela jest bardzo istotnym aspektem budowania wolno\\u015bci i \\u015bwiadomo\\u015bci b\\u0119d\\u0105cej alternatyw\\u0105 do konsumpcjonizmu i ch\\u0119ci zaw\\u0142aszczania sobie tego, co tak na prawd\\u0119 jest dobrem wsp\\u00f3lnym.</p>", "workshop": "<p>Z okazji za\\u0142o\\u017cenia przez Stowarzyszenie Arte Unite zbi\\u00f3rki spo\\u0142eczno\\u015bciowej, chcieli by\\u015bmy Was zaprosi\\u0107 do udzia\\u0142u w naszych warsztatach.<br/> Organizowali\\u015bmy ju\\u017c w Lubli\\u0144cu Jog\\u0119 wg Iyengara oraz nauk\\u0119 tynkowania glin\\u0105 \\u015bcian s\\u0142omianych, w po\\u0142\\u0105czeniu z budow\\u0105 izolacyjnych mat ze s\\u0142omy.<br/> Obecnie mamy mo\\u017cliwo\\u015b\\u0107 przeprowadzenia zdalnie - przez internet, kilku ciekawych zaj\\u0119\\u0107, jak r\\u00f3wnie\\u017c ju\\u017c zaplanowanych warsztat\\u00f3w w naszej Stodole, ale dopiero jak sko\\u0144czymy j\\u0105 remontowa\\u0107 za zbierane w tej chwili pieni\\u0105dze.<br/> Uznali\\u015bmy, \\u017ce w tych ci\\u0119\\u017ckich czasach nie mo\\u017cna ju\\u017c na nic czeka\\u0107 i \\u017ce jest to dla nas ostatni moment na to, \\u017ceby by\\u0107 albo nie by\\u0107. Od tej zbi\\u00f3rki zale\\u017cy, czy uda nam si\\u0119 nadal spe\\u0142nia\\u0107 nasze marzenia o kreowaniu \\u017cycia wok\\u00f3\\u0142 siebie i zmieniania \\u015bwiata na lepsze. Im wi\\u0119cej os\\u00f3b zaanga\\u017cuje si\\u0119 w nasz\\u0105 akcj\\u0119, tym bardziej uda nam si\\u0119 zmieni\\u0107 warunki i mo\\u017cliwo\\u015bci \\u017cycia dla nas i dla innych ludzi. <br/> Dlatego zach\\u0119camy serdecznie wszystkich, do aktywnego przy\\u0142\\u0105czenia si\\u0119 materialnie do inicjatywy, kt\\u00f3ra mo\\u017ce sta\\u0107 si\\u0119 nasz\\u0105 wsp\\u00f3ln\\u0105.</p>"}	\N	3	3
+11	f	2021-02-21 00:20:43.778304+00	{"pk": 6, "path": "000100010001", "depth": 3, "numchild": 0, "translation_key": "af663334-acac-4c96-9aa7-48db95a271d6", "locale": 1, "title": "Warsztaty", "draft_title": "Warsztaty", "slug": "warsztaty", "content_type": 41, "live": true, "has_unpublished_changes": false, "url_path": "/home/warsztaty/", "owner": 1, "seo_title": "", "show_in_menus": false, "search_description": "", "go_live_at": null, "expire_at": null, "expired": false, "locked": false, "locked_at": null, "locked_by": null, "first_published_at": null, "last_published_at": null, "latest_revision_created_at": null, "live_revision": null, "alias_of": null, "opis": "<h2>Po ca\\u0142kowitym sko\\u0144czeniu Stodo\\u0142y, b\\u0119dziemy dysponowali -warsztatem ceramicznym (mamy ko\\u0142o garncarskie, szkliwa i piec gazowy do wypalania) - warsztatem rze\\u017aby w drewnie, szklarni\\u0105 i suszarni\\u0105 do warzyw (nie tylko produkowanych przez nas, ale r\\u00f3wnie\\u017c z zaprzyja\\u017anionych gospodarstw, o kt\\u00f3rych wiemy, \\u017ce uprawia si\\u0119 tam ro\\u015bliny w spos\\u00f3b ekologiczny) B\\u0119dziemy mogli si\\u0119 te\\u017c zaj\\u0105\\u0107 pakowaniem tych warzyw. - sal\\u0105 do spotka\\u0144 na oko\\u0142o 20 os\\u00f3b, jak r\\u00f3wnie\\u017c zapleczem umo\\u017cliwiaj\\u0105cym, \\u017ceby takie osoby mog\\u0142y mieszka\\u0107 w Stodole przez tydzie\\u0144 lub dwa. (Nie s\\u0105 to warunki hotelowe, poniewa\\u017c spa\\u0107 mo\\u017cna na drewnianej pod\\u0142odze i na antresoli, na karimatach.)</h2>", "zaproszenie": "<p>Zapraszamy do wsp\\u00f3\\u0142pracy osoby, kt\\u00f3re chcia\\u0142y by si\\u0119 zajmowa\\u0107 alternatywnymi rozwi\\u0105zaniami, dotycz\\u0105cymi struktur spo\\u0142ecznych. B\\u0119dziemy te\\u017c dysponowa\\u0107 tzw. biurem, gdzie mo\\u017cna gromadzi\\u0107 i udost\\u0119pnia\\u0107 przez internet gotowe projekty.</p>", "milicki": "<p><b>Artur Milicki</b> jest konstruktorem, zdunem i nauczycielem zdu\\u0144stwa specjalizuj\\u0105cym si\\u0119 w projektowaniu i budowie wydajnych piec\\u00f3w akumulacyjnych (rakietowych, komorowych) oraz kompleksowych instalacji s\\u0142u\\u017c\\u0105cych do ogrzewania pomieszcze\\u0144 mieszkalnych i u\\u017cytkowych. Ponadto projektuje on i buduje r\\u00f3wnie\\u017c trzony kuchenne, piece chlebowe, piece do pizzy, suszarnie, sauny, w\\u0119dzarnie, grille.</p><h3><b>Kurs projektowania i budowy piec\\u00f3w (Kurs Zdu\\u0144ski - edycja VI - 2021)</b></h3><h3><b>Proces Integracji Emocjonalnej (9-tygodniowy kurs online).</b></h3>", "beret": "<p><b>Adam Ma\\u0144czuk</b> is a programmer with over 20 years of experience all over the world (Silicon Valley included). He specializes in Python and Django. He worked as programming lector on Warsaw University. Adam is also a poet and sailor (skipper)</p>", "monika": "<p><b>Monika Matis</b>  \\u017begluje od pi\\u0119tnastego roku \\u017cycia, zwykle na jachtach znajomych i przyjaci\\u00f3\\u0142, gdy potrzebowali kogo\\u015b znaj\\u0105cego si\\u0119 na rzeczy i do\\u015bwiadczonego aby pop\\u0142yn\\u0105\\u0107 gdzie\\u015b dalej. Prowadzi\\u0142a jachty na Ba\\u0142tyku, Morzu P\\u00f3\\u0142nocnym i \\u015ar\\u00f3dziemnym, Atlantyku, od Afryki po dalek\\u0105 Arktyk\\u0119. \\u017beglowa\\u0142a r\\u00f3wnie\\u017c samotnie i w ma\\u0142ych za\\u0142ogach. Pracuje jako publicystka, t\\u0142umaczka, autorka tekst\\u00f3w \\u017ceglarskich oraz piel\\u0119gniarka.  Posiada r\\u00f3\\u017cnorodne do\\u015bwiadczenia akademickie (od informatyki i mechaniki po studia medyczne) i z zami\\u0142owania zajmuje si\\u0119 nawigacj\\u0105 tradycyjn\\u0105 (lub jak si\\u0119 j\\u0105 teraz okre\\u015bla \\u201cawaryjn\\u0105\\u201d). Monika jest naszym Skipperem, czyli osob\\u0105 pierwsz\\u0105 po Bogu na pok\\u0142adzie naszego jachtu.</p>", "comment": ""}	\N	6	1
+12	f	2021-02-21 01:05:29.671106+00	{"pk": 7, "path": "000100010002", "depth": 3, "numchild": 0, "translation_key": "ad7d4a29-49cc-4bbc-9cd5-a8fbeaaa3b04", "locale": 1, "title": "Misja", "draft_title": "Misja", "slug": "misja", "content_type": 42, "live": true, "has_unpublished_changes": false, "url_path": "/home/misja/", "owner": 1, "seo_title": "", "show_in_menus": false, "search_description": "", "go_live_at": null, "expire_at": null, "expired": false, "locked": false, "locked_at": null, "locked_by": null, "first_published_at": null, "last_published_at": null, "latest_revision_created_at": null, "live_revision": null, "alias_of": null, "opis": "<h2>Rozw\\u00f3j w kierunku integracji z ca\\u0142ym \\u017cyciem na Ziemi jest naturaln\\u0105 mo\\u017cliwo\\u015bci\\u0105 przetrwania ka\\u017cdego gatunku i wynika bezpo\\u015brednio z ewolucji \\u017cycia, dlatego jest te\\u017c naturalnym kierunkiem ewolucji \\u015bwiadomo\\u015bci cz\\u0142owieka. Chcieliby\\u015bmy, \\u017ceby wiedzieli o naszym projekcie wszyscy, kt\\u00f3rzy czuj\\u0105 Ziemi\\u0119 jako wsp\\u00f3lny dom ca\\u0142ej ludzko\\u015bci. Mamy na uwadze odtwarzanie naturalnej relacji mi\\u0119dzy cz\\u0142owiekiem a nasz\\u0105 planet\\u0105. Chcemy pokaza\\u0107, \\u017ce nie potrzebujemy posiada\\u0107 Ziemi, aby na niej \\u017cy\\u0107.</h2>", "objasnienie": "<p>Jeste\\u015bmy now\\u0105 spo\\u0142eczno\\u015bci\\u0105 w trakcie powstawania. Naszym celem jest zmienianie \\u015bwiata wsp\\u00f3\\u0142czesnej cywilizacji i panuj\\u0105cych w nim relacji poprzez propozycje odmiennych rozwi\\u0105za\\u0144 na \\u017cycie. W oparciu o udane zapisy bia\\u0142ych plam na mapie prawa i zak\\u0142adanie organizacji o strukturach poziomych, mo\\u017cemy tworzy\\u0107 \\u015bwiat oparty o nasze zwyczaje, wewn\\u0105trz ka\\u017cdego demokratycznego pa\\u0144stwa i to zupe\\u0142nie legalne. Jednym z tych zwyczaj\\u00f3w jest wyeliminowanie w\\u0142asno\\u015bci prywatnej, tam gdzie mog\\u0142a by ona zaistnie\\u0107 jako w\\u0142adza cz\\u0142owieka nad cz\\u0142owiekiem. Umo\\u017cliwi nam to posiadanie ziemi jako wsp\\u00f3lnej i niepodzielnej w\\u0142asno\\u015bci. Krytycznym punktem w hierarchii warto\\u015bci wsp\\u00f3\\u0142czesnej cywilizacji, jest powszechne przekonanie, \\u017ce mo\\u017cemy mie\\u0107 ca\\u0142kowit\\u0105 w\\u0142adz\\u0119 nad tym co posiadamy. To w\\u0142a\\u015bnie z tego powodu, na naszej planecie bez przerwy trwa wojna mi\\u0119dzy cz\\u0142owiekiem a natur\\u0105. Niszcz\\u0105c kolejne gatunki i ich \\u015brodowisko, cywilizacja w tej chwili zmierza wprost do samounicestwienia. \\u015awiat konsumpcji doprowadzi\\u0142 nawet do sytuacji, gdzie mo\\u017cemy konsumowa\\u0107 czas i \\u017cycie innych ludzi wyznaczaj\\u0105c za nie cen\\u0119. Demokracja daje r\\u00f3wne prawa r\\u00f3wnie\\u017c g\\u0142upocie, je\\u015bli tylko da si\\u0119 j\\u0105 sprzeda\\u0107. Kiedy od dziecka motywacj\\u0119 wyznaczaj\\u0105 dwa bieguny: kara i nagroda, zysk i strata, kupno i sprzeda\\u017c tworzymy \\u015bwiat rywalizacji i kariery, ludzi coraz bardziej sobie obcych i podatnych na w\\u0142adz\\u0119. Jest to upadek poni\\u017cej normalno\\u015bci, a prawda o tym mo\\u017ce wystraszy\\u0107. Dlatego boimy si\\u0119 jej i ukrywamy swoj\\u0105 natur\\u0119 wci\\u0105\\u017c nie mog\\u0105c jej odkry\\u0107. Nie mamy potrzeby przeciwstawiania si\\u0119 jakiejkolwiek w\\u0142adzy, ale te\\u017c nie mamy potrzeby jej tworzy\\u0107, ani uczestniczy\\u0107 w przekazywaniu sobie tej zb\\u0119dnej dla wolno\\u015bci tradycji. Kiedy przemieniamy stare systemy warto\\u015bciowania w nowe, nie potrzebujemy ju\\u017c buntu. Nasze dzia\\u0142ania wywodz\\u0105 si\\u0119 z ekofilozofii i g\\u0142\\u0119bokiej ekologii oraz kultur plemiennych, gdzie Ziemia nigdy nie by\\u0142a w\\u0142asno\\u015bci\\u0105 cz\\u0142owieka. To my nale\\u017cymy do tej Planety. Jeste\\u015bmy jej opiekunami i stra\\u017cnikami. B\\u0119d\\u0105c r\\u00f3wnymi wobec miejsca, w kt\\u00f3rym \\u017cyjemy, stajemy si\\u0119 w spos\\u00f3b naturalny r\\u00f3wni wobec siebie. Dzi\\u0119ki temu ka\\u017cdy, kto pojawia si\\u0119 u nas, mo\\u017ce mie\\u0107 poczucie, \\u017ce uczestniczy w tym na r\\u00f3wni ze wszystkimi. Na tym poziomie r\\u00f3\\u017cnice miedzy nami staj\\u0105 si\\u0119 inspiracj\\u0105 do \\u0142\\u0105czenia r\\u00f3\\u017cnorodno\\u015bci w funkcjonalny zesp\\u00f3\\u0142, wtedy ka\\u017cdy staje si\\u0119 jednakowo potrzebny.</p>", "komentarz_1": "<p>W oparciu o udane zapisy bia\\u0142ych plam na mapie prawa i zak\\u0142adanie organizacji o strukturach poziomych, mo\\u017cemy tworzy\\u0107 \\u015bwiat oparty o nasze zwyczaje, wewn\\u0105trz ka\\u017cdego demokratycznego pa\\u0144stwa i to zupe\\u0142nie legalne. Jednym z tych zwyczaj\\u00f3w jest wyeliminowanie w\\u0142asno\\u015bci prywatnej, tam gdzie mog\\u0142a by ona zaistnie\\u0107 jako w\\u0142adza cz\\u0142owieka nad cz\\u0142owiekiem. Zak\\u0142adaj\\u0105c, \\u017ce dane miejsce ma w\\u0142a\\u015bciciela, to w\\u0142a\\u015bnie owy w\\u0142a\\u015bciciel mo\\u017ce zawsze zdecydowa\\u0107 ostatecznie i to jego decyzje s\\u0105 egzekwowane przez oficjalne i funkcjonuj\\u0105ce we wsp\\u00f3\\u0142czesnym spo\\u0142ecze\\u0144stwie prawo. W zwi\\u0105zku z tym, wszyscy inni ludzie znajduj\\u0105cy si\\u0119 w tym w\\u0142a\\u015bnie miejscu, niestety podlegaj\\u0105 decyzj\\u0105 jednej osoby: w\\u0142a\\u015bciciela. Ta sama w\\u0142adza, jest przekazywana z pokolenia na pokolenie za pomoc\\u0105 tak prostego narz\\u0119dzia jak dziedziczenie maj\\u0105tku -czyli posiadania terytorium. Jedn\\u0105 z g\\u0142\\u00f3wnych przyczyn powstania Ruchu Wolnej Ziemi jest przerwanie \\u0142a\\u0144cucha dziedziczenia i przekazywania sobie w\\u0142adzy i tym samym nap\\u0119dzania w ten spos\\u00f3b konsumpcjonizmu.</p>", "komentarz_2": "<p>U nas nikt nie jest &quot;u kogo\\u015b&quot;, wszyscy jeste\\u015bmy u siebie. Ziemia jest dla nas dobrem wsp\\u00f3lnym. B\\u0119d\\u0105c r\\u00f3wnymi wobec miejsca, w kt\\u00f3rym \\u017cyjemy, stajemy si\\u0119 r\\u00f3wni wobec siebie. W praktyce oznacza to, \\u017ce wszelkie nieruchomo\\u015bci pozostaj\\u0105ce w zarz\\u0105dzaniu organizacji, kt\\u00f3ra zajmuje si\\u0119 wsp\\u00f3ln\\u0105 Ziemi\\u0105 s\\u0105 od pocz\\u0105tku i na zawsze traktowane jako dobro wsp\\u00f3lne i nie mog\\u0105 by\\u0107 przez nikogo postrzegane jako w\\u0142asno\\u015b\\u0107. Jest to nasz\\u0105 drog\\u0105 do wolno\\u015bci, jak i sam\\u0105 wolno\\u015bci\\u0105, kt\\u00f3ra eliminuje z naszego \\u017cycia konsumpcjonizm jako warto\\u015b\\u0107. Jakakolwiek forma posiadania Ziemi, oparta o struktury w\\u0142adzy cz\\u0142owieka nad cz\\u0142owiekiem, lub jednych ludzi nad drugimi, z naszego punktu widzenia eliminuje ide\\u0119 przestrzeni, gdzie ka\\u017cdy mo\\u017ce by\\u0107 r\\u00f3wny, zar\\u00f3wno wobec miejsca w kt\\u00f3rym \\u017cyje, jak i wobec innych ludzi.</p>", "komentarz_3": "<p>Ziemia, zar\\u00f3wno jako Planeta, jak i ta pod nogami postrzegana jako grunt, kt\\u00f3ry mo\\u017ce by\\u0107 czyj\\u0105\\u015b w\\u0142asno\\u015bci\\u0105, nigdy nie by\\u0142a i nie b\\u0119dzie nale\\u017ca\\u0142a do cz\\u0142owieka. To my ludzie przynale\\u017cymy do Ziemi i odkrywaj\\u0105c to, mo\\u017cemy r\\u00f3wnie\\u017c odkry\\u0107 nasz\\u0105 faktyczn\\u0105 funkcj\\u0119 i misj\\u0119 tu gdzie jeste\\u015bmy.. a jeste\\u015bmy opiekunami i stra\\u017cnikami naszej Planety, naszego Domu i Miejsca w Kosmosie. Jako gatunek, ale r\\u00f3wnie\\u017c indywidualnie. Jeste\\u015bmy dzie\\u0107mi tej Planety i mo\\u017cemy bawi\\u0107 si\\u0119 w co chcemy i z kim chcemy, a kto chce mo\\u017ce bawi\\u0107 si\\u0119 z nami. Dlatego \\u017ceby unikn\\u0105\\u0107 przypadkowo\\u015bci ludzi bior\\u0105cych udzia\\u0142 we wsp\\u00f3lnym prze\\u017cywaniu, jeste\\u015bmy w mocy zaprosi\\u0107 wszystkich, kt\\u00f3rzy nie uto\\u017csamiaj\\u0105 si\\u0119 z \\u017cadnymi dogmatami, nie potrzebuj\\u0105 przyw\\u00f3dc\\u00f3w i chc\\u0105 wzi\\u0105\\u0107 udzia\\u0142 w tworzeniu rodziny opartej na plemiennym kr\\u0119gu. Kiedy rywalizacja zmienia si\\u0119 we wsp\\u00f3\\u0142prac\\u0119, nikt nie pod\\u0105\\u017ca ju\\u017c sam na przeciw przeszkodom i problemom, \\u0142atwiej jest pokonywa\\u0107 je razem. Nie mo\\u017cna ju\\u017c zmieni\\u0107 przesz\\u0142o\\u015bci, jednak po tylu latach eko i ludob\\u00f3jstwa, nadszed\\u0142 ju\\u017c czas, by zacz\\u0105\\u0107 spe\\u0142nia\\u0107 marzenia. Pierwszy raz o tej inicjatywie, mo\\u017cna by\\u0142o si\\u0119 dowiedzie\\u0107 w Zielonych Brygadach (Sierpie\\u0144 2002), jako &quot;Projekt T\\u0119czowy Kr\\u0105g&quot;. Wtedy te\\u017c kontaktowali\\u015bmy si\\u0119 z sieci\\u0105 spo\\u0142eczno\\u015bci WAS (Wiejskie Aktywne Spo\\u0142eczno\\u015bci), z kt\\u00f3rych cz\\u0119\\u015b\\u0107 nale\\u017cy do GEN (Global Ecovillage Network). Jako spo\\u0142eczno\\u015b\\u0107 zg\\u0142osili\\u015bmy do WASu sw\\u00f3j udzia\\u0142 z ch\\u0119ci\\u0105 rozpowszechnienia naszego projektu na szersz\\u0105 skal\\u0119.</p>", "podsumowanie": "<p>Tworzymy og\\u00f3lnopolski Ruch na rzecz uwalniania Ziemi spod w\\u0142asno\\u015bci indywidualnej, dla wsp\\u00f3lnot ekoosadowych. Ruch Wolnej Ziemi jest inicjatyw\\u0105 spo\\u0142eczn\\u0105 skupion\\u0105 na wdra\\u017caniu w \\u017cycie sprawdzonych rozwi\\u0105za\\u0144 prawnych i organizacyjnych w celu \\u201euwalniania Ziemi\\u201d spod w\\u0142asno\\u015bci prywatnej. Zale\\u017cy nam na tworzeniu i rozwoju intencjonalnych spo\\u0142eczno\\u015bci wiejskich (tzw. ekowiosek, ekoosad), w kt\\u00f3rych decyzje dotycz\\u0105ce wszystkich podejmowane s\\u0105 wsp\\u00f3lnie (konsensus), i w kt\\u00f3rych my, ludzie, posiadamy r\\u00f3wne prawa zar\\u00f3wno wobec Ziemi oraz siebie nawzajem. Tworzymy w tym celu osoby prawne tj. fundacje lub stowarzyszenia. Uczestnikiem Ruchu mo\\u017ce by\\u0107 ka\\u017cda osoba, kt\\u00f3ra rozumie nasze za\\u0142o\\u017cenia i zgadza si\\u0119 z nimi. Ruch Wolnej Ziemi nie jest organizacj\\u0105 i nie prowadzi \\u017cadnej ewidencji przynale\\u017cno\\u015bci. Mianem \\u201eWolnej Ziemi\\u201d okre\\u015blamy taki teren, kt\\u00f3ry jest u\\u017cytkowany i zarz\\u0105dzany wsp\\u00f3lnie, spo\\u0142ecznie, przez pewn\\u0105 grup\\u0119 ludzi na zasadach r\\u00f3wno\\u015bci i braterstwa w intencji dobra i korzy\\u015bci zar\\u00f3wno u\\u017cytkownik\\u00f3w tej ziemi, jej s\\u0105siad\\u00f3w, ca\\u0142ej ludzko\\u015bci, przyrody oraz przysz\\u0142ych pokole\\u0144. Jednym z g\\u0142\\u00f3wnych za\\u0142o\\u017ce\\u0144 jest wsp\\u00f3lne decydowanie w sprawach, kt\\u00f3re dotycz\\u0105 Ruchu. Pozwala to miejscom w kt\\u00f3rych \\u017cyjemy, jak r\\u00f3wnie\\u017c nam wszystkim na rozw\\u00f3j i ewoluowanie zgodnie z jednog\\u0142o\\u015bnie ustalanym kierunkiem. Decyzje takie, mog\\u0105 zapada\\u0107 jedynie w kontakcie osobistym w kr\\u0119gu. Jedn\\u0105 z organizacji, kt\\u00f3re za\\u0142o\\u017cyli\\u015bmy, jest Zwi\\u0105zek Wolnej Ziemi. Oto jego podstawowe za\\u0142o\\u017cenia : . My, ludzie tworz\\u0105cy Zwi\\u0105zek Wolnej Ziemi, uznajemy si\\u0119 za opiekun\\u00f3w i stra\\u017cnik\\u00f3w Ziemi, a w szczeg\\u00f3lno\\u015bci teren\\u00f3w, na kt\\u00f3rych \\u017cyjemy. D\\u0105\\u017cymy do rozwoju \\u015bwiadomo\\u015bci poprzez odtworzenie naturalnej relacji cz\\u0142owieka z nasz\\u0105 Planet\\u0105. Przyjmujemy, \\u017ce b\\u0119d\\u0105c r\\u00f3wnymi wobec Ziemi, na kt\\u00f3rej \\u017cyjemy, jeste\\u015bmy r\\u00f3wnie\\u017c r\\u00f3wni wobec siebie i ca\\u0142ej Przyrody. O\\u015bwiadczamy, \\u017ce Ziemia i ca\\u0142e \\u017cycie na Ziemi stanowi\\u0105 dla nas najwi\\u0119ksz\\u0105 warto\\u015b\\u0107 przez sam fakt swego istnienia. Uznajemy, \\u017ce naszym zadaniem jest ochrona Ziemi, naszego Domu i Miejsca w Kosmosie. Uznajemy, \\u017ce to my, ludzie, nale\\u017cymy do Ziemi, a nie odwrotnie. Uznajemy, \\u017ce Ziemia ma takie samo prawo do istnienia i uszanowania jej bytu, jakie maj\\u0105 wszyscy ludzie. Pragniemy tworzy\\u0107 wsp\\u00f3lnoty, w kt\\u00f3rych b\\u0119dziemy razem \\u017cyli, wsp\\u00f3\\u0142pracowali ze sob\\u0105 i uczyli si\\u0119 od siebie dla dobra nas samych i ca\\u0142ego \\u017bycia. Pragniemy, aby wszyscy ludzie \\u017cyli w harmonii ze sob\\u0105 i z ca\\u0142\\u0105 Przyrod\\u0105, szanuj\\u0105c i chroni\\u0105c Ziemi\\u0119. Wszystkie decyzje podejmujemy przez consensus (jednog\\u0142o\\u015bnie), czyli sposoby \\u017cycia, ochrony ziemi i dalsze dzia\\u0142ania na terenie fundacji podlegaj\\u0105 decyzji kr\\u0119gu. Dzi\\u0119ki temu ka\\u017cdy, kto pojawi si\\u0119 u nas, b\\u0119dzie m\\u00f3g\\u0142 mie\\u0107 poczucie, \\u017ce ziemia jest naszym wsp\\u00f3lnym domem i razem mo\\u017cemy w tym uczestniczy\\u0107.</p>"}	\N	7	1
+13	f	2021-02-21 01:30:25.103087+00	{"pk": 8, "path": "000100010003", "depth": 3, "numchild": 0, "translation_key": "9337acdf-56ac-42a5-aacb-5ea59c83aa6f", "locale": 1, "title": "Stodo\\u0142a Wymy\\u015blacz", "draft_title": "Stodo\\u0142a Wymy\\u015blacz", "slug": "stodo\\u0142a-wymy\\u015blacz", "content_type": 43, "live": true, "has_unpublished_changes": false, "url_path": "/home/stodo\\u0142a-wymy\\u015blacz/", "owner": 1, "seo_title": "", "show_in_menus": false, "search_description": "", "go_live_at": null, "expire_at": null, "expired": false, "locked": false, "locked_at": null, "locked_by": null, "first_published_at": null, "last_published_at": null, "latest_revision_created_at": null, "live_revision": null, "alias_of": null, "opis": "<h2>Miejsce to, ma \\u0142\\u0105czy\\u0107 wszystkich, kt\\u00f3rzy mieli by na uwadze, jak istotna dla \\u017cycia na Ziemi jest idea r\\u00f3wno\\u015bci ludzi wobec miejsca w kt\\u00f3rym si\\u0119 znajduj\\u0105. Jak r\\u00f3wnie\\u017c to, \\u017ce Ziemia nie nale\\u017c\\u0105ca do pojedynczego w\\u0142a\\u015bciciela jest bardzo istotnym aspektem budowania wolno\\u015bci i \\u015bwiadomo\\u015bci b\\u0119d\\u0105cej alternatyw\\u0105 do konsumpcjonizmu i ch\\u0119ci zaw\\u0142aszczania sobie tego, co tak na prawd\\u0119 jest dobrem wsp\\u00f3lnym.</h2>", "objasnienie": "<p>Stodo\\u0142a Wymy\\u015blacz jest na obrze\\u017cach Lubli\\u0144ca, blisko trasy nr 11 \\u0142\\u0105cz\\u0105cej Katowice z Poznaniem. Nasze miasteczko le\\u017cy 30 km na zach\\u00f3d od Cz\\u0119stochowy. Oddzielone jest od aglomeracji \\u015bl\\u0105skiej du\\u017cym kompleksem las\\u00f3w, kt\\u00f3ry rozpoczyna si\\u0119 kilkaset metr\\u00f3w od naszego budynku. Przedsi\\u0119wzi\\u0119cie nasze ma pokazywa\\u0107, \\u017ce da si\\u0119 tworzy\\u0107 wsp\\u00f3lnot\\u0119 na zasadach r\\u00f3wno\\u015bci, bez potrzeby posiadania miejsca w kt\\u00f3rym \\u017cyjemy. Ma to by\\u0107 te\\u017c przyk\\u0142ad, w\\u00a0jaki spos\\u00f3b mo\\u017cna d\\u0105\\u017cy\\u0107 do jak najbardziej ekonomicznego z punktu widzenia zu\\u017cycia energii, oraz jak najbardziej samowystarczalnego stylu \\u017cycia.</p>", "komentarz": "", "zaproszenie": "<h2>Zasady/Zwyczaje (zaproszenie)</h2><p>\\u017beby unikn\\u0105\\u0107 \\u201cprzypadkowo\\u015bci\\u201d ludzi bior\\u0105cych udzia\\u0142 w naszym projekcie, jeste\\u015bmy w mocy zaprosi\\u0107 wszystkich, kt\\u00f3rzy nie uto\\u017csamiaj\\u0105 si\\u0119 z \\u017cadnymi dogmatami, nie potrzebuj\\u0105 przyw\\u00f3dc\\u00f3w i chc\\u0105 z nami wsp\\u00f3\\u0142tworzy\\u0107 rodzin\\u0119 opart\\u0105 na plemiennym kr\\u0119gu. Mamy na uwadze stwarzanie mi\\u0119dzy nami relacji, w kt\\u00f3rej uczymy si\\u0119 nawzajem nie dla samej wiedzy, a dla harmonii ze sob\\u0105 i z ca\\u0142ym \\u017cyciem. Na tym poziomie r\\u00f3\\u017cnice mi\\u0119dzy nami staj\\u0105 si\\u0119 inspiracj\\u0105 do \\u0142\\u0105czenia r\\u00f3\\u017cnorodno\\u015bci w funkcjonalny zesp\\u00f3\\u0142, wtedy ka\\u017cdy staje si\\u0119 jednakowo potrzebny. Kiedy rywalizacja zmienia si\\u0119 we wsp\\u00f3\\u0142prac\\u0119, nikt nie pod\\u0105\\u017ca ju\\u017c sam naprzeciw przeszkodom i problemom - \\u0142atwiej jest pokonywa\\u0107 je razem. U nas nikt nie jest u kogo\\u015b, wszyscy jeste\\u015bmy u siebie. Organizacja pozarz\\u0105dowa, gdzie zarz\\u0105d jest wy\\u0142\\u0105cznie w\\u0142adz\\u0105 wykonawcz\\u0105 jednog\\u0142o\\u015bnych decyzji daje nam tak\\u0105 mo\\u017cliwo\\u015b\\u0107 r\\u00f3wnie\\u017c na poziomie prawnym. B\\u0119d\\u0105c r\\u00f3wnymi wobec miejsca, w kt\\u00f3rym \\u017cyjemy, stajemy si\\u0119 r\\u00f3wni wobec siebie. Dzi\\u0119ki temu ka\\u017cdy, kto pojawia si\\u0119 u nas, mo\\u017ce mie\\u0107 poczucie, \\u017ce uczestniczy w tym na r\\u00f3wni ze wszystkimi. Nie mamy potrzeby przeciwstawiania si\\u0119 jakiejkolwiek w\\u0142adzy, ale te\\u017c nie mamy potrzeby jej tworzy\\u0107 mi\\u0119dzy sob\\u0105, ani uczestniczy\\u0107 w przekazywaniu sobie tej zb\\u0119dnej dla wolno\\u015bci tradycji. Wsp\\u00f3lnie nie uto\\u017csamiamy si\\u0119 z \\u017cadn\\u0105 religi\\u0105, ani jej nie tworzymy. Jest to koniecznym warunkiem na \\u015bcie\\u017cce \\u017cycia kt\\u00f3r\\u0105 idziemy, w taki spos\\u00f3b chcemy zachowa\\u0107 mo\\u017cliwo\\u015b\\u0107 kontynuacji tego kim jeste\\u015bmy jako ludzie tutaj na Ziemi. Nasz\\u0105 odpowiedzi\\u0105 jest utworzenie kr\\u0119gu, w kt\\u00f3rym mog\\u0105 uczestniczy\\u0107 wyznawcy wielu religii, jednak \\u017cadnej z nich nie stawiamy w centrum. Zdajemy sobie spraw\\u0119, \\u017ce wiara jest cz\\u0119\\u015bci\\u0105 anatomii naszych uczu\\u0107 i nadaje moc tworzenia wszystkiemu co jeste\\u015bmy w stanie uzna\\u0107 za prawdziwe. Kiedy nie jest w sprzeczno\\u015bci z naszym rozumieniem faktycznie staje si\\u0119 coraz bardziej skuteczna w kreowaniu rzeczywisto\\u015bci. \\u017beby to widzie\\u0107, nie potrzebujemy \\u017cadnych \\u201cpo\\u015brednik\\u00f3w\\u201d pomi\\u0119dzy cz\\u0142owiekiem a Tym wszystkim czego manifestacj\\u0105 jeste\\u015bmy. To my nale\\u017cymy do tej Planety. Jeste\\u015bmy jej opiekunami i stra\\u017cnikami.</p>"}	\N	8	1
+14	f	2021-02-21 01:35:56.701499+00	{"pk": 9, "path": "000100010004", "depth": 3, "numchild": 0, "translation_key": "9f495cdd-69e2-4634-a111-b3c6ffc99ed9", "locale": 1, "title": "Ruch Wolnej Ziemi", "draft_title": "Ruch Wolnej Ziemi", "slug": "ruch-wolnej-ziemi", "content_type": 44, "live": true, "has_unpublished_changes": false, "url_path": "/home/ruch-wolnej-ziemi/", "owner": 1, "seo_title": "", "show_in_menus": false, "search_description": "", "go_live_at": null, "expire_at": null, "expired": false, "locked": false, "locked_at": null, "locked_by": null, "first_published_at": null, "last_published_at": null, "latest_revision_created_at": null, "live_revision": null, "alias_of": null, "opis": "<h2>Ruch Wolnej Ziemi jest inicjatyw\\u0105 spo\\u0142eczn\\u0105 skupion\\u0105 na wdra\\u017caniu w \\u017cycie sprawdzonych rozwi\\u0105za\\u0144 prawnych i organizacyjnych w celu \\u201euwalniania Ziemi\\u201d spod w\\u0142asno\\u015bci prywatnej. Zale\\u017cy nam na tworzeniu i rozwoju intencjonalnych spo\\u0142eczno\\u015bci wiejskich (tzw. ekowiosek, ekoosad), w kt\\u00f3rych decyzje dotycz\\u0105ce wszystkich podejmowane s\\u0105 wsp\\u00f3lnie (konsensus), i w kt\\u00f3rych my, ludzie, posiadamy r\\u00f3wne prawa zar\\u00f3wno wobec Ziemi oraz siebie nawzajem. Tworzymy w tym celu osoby prawne tj. fundacje lub stowarzyszenia.</h2>", "objasnienie": "<p>Uczestnikiem Ruchu mo\\u017ce by\\u0107 ka\\u017cda osoba, kt\\u00f3ra rozumie nasze za\\u0142o\\u017cenia i zgadza si\\u0119 z nimi. Ruch Wolnej Ziemi nie jest organizacj\\u0105 i nie prowadzi \\u017cadnej ewidencji przynale\\u017cno\\u015bci. Ziemia, zar\\u00f3wno jako Planeta, jak i ta pod nogami postrzegana jako grunt, kt\\u00f3ry mo\\u017ce by\\u0107 czyj\\u0105\\u015b w\\u0142asno\\u015bci\\u0105, nigdy nie by\\u0142a i nie b\\u0119dzie nale\\u017ca\\u0142a do cz\\u0142owieka. To my ludzie przynale\\u017cymy do Ziemi i odkrywaj\\u0105c to, mo\\u017cemy r\\u00f3wnie\\u017c odkry\\u0107 nasz\\u0105 faktyczn\\u0105 funkcj\\u0119 i misj\\u0119 tu gdzie jeste\\u015bmy.. a jeste\\u015bmy opiekunami i stra\\u017cnikami naszej Planety, naszego Domu i Miejsca w Kosmosie. Jako gatunek, ale r\\u00f3wnie\\u017c indywidualnie. U nas nikt nie jest &quot;u kogo\\u015b&quot;, wszyscy jeste\\u015bmy u siebie. Ziemia jest dla nas dobrem wsp\\u00f3lnym. B\\u0119d\\u0105c r\\u00f3wnymi wobec miejsca, w kt\\u00f3rym \\u017cyjemy, stajemy si\\u0119 r\\u00f3wni wobec siebie. W praktyce oznacza to, \\u017ce wszelkie nieruchomo\\u015bci pozostaj\\u0105ce w zarz\\u0105dzaniu organizacji, kt\\u00f3ra zajmuje si\\u0119 wsp\\u00f3ln\\u0105 Ziemi\\u0105 s\\u0105 od pocz\\u0105tku i na zawsze traktowane jako dobro wsp\\u00f3lne i nie mog\\u0105 by\\u0107 przez nikogo postrzegane jako w\\u0142asno\\u015b\\u0107. Jest to nasz\\u0105 drog\\u0105 do wolno\\u015bci, jak i sam\\u0105 wolno\\u015bci\\u0105, kt\\u00f3ra w ten spos\\u00f3b eliminuje z naszego \\u017cycia podstawy konsumpcjonizmu.</p>", "komentarz": "<p>Zal\\u0105\\u017cki Ruchu Wolnej Ziemi, istniej\\u0105ce w spos\\u00f3b faktyczny na terenie Polski zainicjowa\\u0142 Henry Schumacher, tworz\\u0105c w 2000 r w Bieszczadach Fundacj\\u0119 Plemi\\u0119 Sanu. Henry przyjecha\\u0142 do Polski w 1991 r odkrywaj\\u0105c przysz\\u0142e miejsce do \\u017cycia z grup\\u0105 skautingow\\u0105 Rodziny T\\u0119czy. W tamtym czasie szukali oni miejsca na europejskie Zgromadzenie Rainbow Family, kt\\u00f3re odby\\u0142o si\\u0119 w 1991 r w dolinie Tworylne. W 2001 r\\u00f3wnie\\u017c w Bieszczadach w Koma\\u0144czy pojawi\\u0142a si\\u0119 te\\u017c o\\u015bmioosobowa grupa T\\u0119czowy Kr\\u0105g, kt\\u00f3ra za cel postawi\\u0142a sobie za\\u0142o\\u017cenie organizacji, umo\\u017cliwiaj\\u0105cej posiadanie ziemi jako wsp\\u00f3lnej i niepodzielnej w\\u0142asno\\u015bci. Dzi\\u0119ki temu w 2004 r w Grab\\u00f3wce uda\\u0142o si\\u0119 zarejestrowa\\u0107 Stowarzyszenie Arte Unite, kt\\u00f3re w 2012 r otrzyma\\u0142o na wsp\\u00f3ln\\u0105 w\\u0142asno\\u015b\\u0107 budynek gospodarczy. T\\u0119czowy Kr\\u0105g zosta\\u0142 za\\u0142o\\u017cony pod Bydgoszcz\\u0105 przez ludzi z mi\\u0119dzynarodowego posthipisowskiego ruchu Rainbow Family - Rodzina T\\u0119czy. W tym samym czasie dzi\\u0119ki Arturowi Milickiemu powsta\\u0142a Fundacja dla Ziemi i Ludzi za\\u0142o\\u017cona w roku 2011. R\\u00f3wnie\\u017c dzi\\u0119ki Arturowi, powy\\u017csze inicjatywy uda\\u0142o si\\u0119 zebra\\u0107 i uruchomi\\u0107 jako Ruch Wolnej Ziemi. Wszystkie wymienione tutaj organizacje, mo\\u017cna uzna\\u0107 za inicjuj\\u0105ce Ruch Wolnej Ziemi ze wzgl\\u0119du na szczeg\\u00f3lne uwzgl\\u0119dnienie podejmowania w nich decyzji przez kosensus, czyli jednog\\u0142o\\u015bnie.</p>"}	\N	9	1
 \.
 
 
@@ -2588,10 +2842,18 @@ COPY public.wagtaildocs_document (id, title, file, created_at, uploaded_by_user_
 
 
 --
+-- Data for Name: wagtaildocs_uploadeddocument; Type: TABLE DATA; Schema: public; Owner: beret
+--
+
+COPY public.wagtaildocs_uploadeddocument (id, file, uploaded_by_user_id) FROM stdin;
+\.
+
+
+--
 -- Data for Name: wagtailembeds_embed; Type: TABLE DATA; Schema: public; Owner: beret
 --
 
-COPY public.wagtailembeds_embed (id, url, max_width, type, html, title, author_name, provider_name, thumbnail_url, width, height, last_updated) FROM stdin;
+COPY public.wagtailembeds_embed (id, url, max_width, type, html, title, author_name, provider_name, thumbnail_url, width, height, last_updated, hash) FROM stdin;
 \.
 
 
@@ -2665,7 +2927,15 @@ COPY public.wagtailsearch_querydailyhits (id, date, hits, query_id) FROM stdin;
 
 COPY public.wagtailusers_userprofile (id, submitted_notifications, approved_notifications, rejected_notifications, user_id, preferred_language, current_time_zone, avatar) FROM stdin;
 1	t	t	t	1			
-2	t	t	t	3			
+\.
+
+
+--
+-- Data for Name: warsztaty_warsztatypage; Type: TABLE DATA; Schema: public; Owner: beret
+--
+
+COPY public.warsztaty_warsztatypage (page_ptr_id, beret, comment, milicki, monika, opis, zaproszenie) FROM stdin;
+6	<p><b>Adam Mańczuk</b> is a programmer with over 20 years of experience all over the world (Silicon Valley included). He specializes in Python and Django. He worked as programming lector on Warsaw University. Adam is also a poet and sailor (skipper)</p>		<p><b>Artur Milicki</b> jest konstruktorem, zdunem i nauczycielem zduństwa specjalizującym się w projektowaniu i budowie wydajnych pieców akumulacyjnych (rakietowych, komorowych) oraz kompleksowych instalacji służących do ogrzewania pomieszczeń mieszkalnych i użytkowych. Ponadto projektuje on i buduje również trzony kuchenne, piece chlebowe, piece do pizzy, suszarnie, sauny, wędzarnie, grille.</p><h3><b>Kurs projektowania i budowy pieców (Kurs Zduński - edycja VI - 2021)</b></h3><h3><b>Proces Integracji Emocjonalnej (9-tygodniowy kurs online).</b></h3>	<p><b>Monika Matis</b>  Żegluje od piętnastego roku życia, zwykle na jachtach znajomych i przyjaciół, gdy potrzebowali kogoś znającego się na rzeczy i doświadczonego aby popłynąć gdzieś dalej. Prowadziła jachty na Bałtyku, Morzu Północnym i Śródziemnym, Atlantyku, od Afryki po daleką Arktykę. Żeglowała również samotnie i w małych załogach. Pracuje jako publicystka, tłumaczka, autorka tekstów żeglarskich oraz pielęgniarka.  Posiada różnorodne doświadczenia akademickie (od informatyki i mechaniki po studia medyczne) i z zamiłowania zajmuje się nawigacją tradycyjną (lub jak się ją teraz określa “awaryjną”). Monika jest naszym Skipperem, czyli osobą pierwszą po Bogu na pokładzie naszego jachtu.</p>	<h2>Po całkowitym skończeniu Stodoły, będziemy dysponowali -warsztatem ceramicznym (mamy koło garncarskie, szkliwa i piec gazowy do wypalania) - warsztatem rzeźby w drewnie, szklarnią i suszarnią do warzyw (nie tylko produkowanych przez nas, ale również z zaprzyjaźnionych gospodarstw, o których wiemy, że uprawia się tam rośliny w sposób ekologiczny) Będziemy mogli się też zająć pakowaniem tych warzyw. - salą do spotkań na około 20 osób, jak również zapleczem umożliwiającym, żeby takie osoby mogły mieszkać w Stodole przez tydzień lub dwa. (Nie są to warunki hotelowe, ponieważ spać można na drewnianej podłodze i na antresoli, na karimatach.)</h2>	<p>Zapraszamy do współpracy osoby, które chciały by się zajmować alternatywnymi rozwiązaniami, dotyczącymi struktur społecznych. Będziemy też dysponować tzw. biurem, gdzie można gromadzić i udostępniać przez internet gotowe projekty.</p>
 \.
 
 
@@ -2680,28 +2950,28 @@ SELECT pg_catalog.setval('public.auth_group_id_seq', 2, true);
 -- Name: auth_group_permissions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: beret
 --
 
-SELECT pg_catalog.setval('public.auth_group_permissions_id_seq', 14, true);
+SELECT pg_catalog.setval('public.auth_group_permissions_id_seq', 18, true);
 
 
 --
 -- Name: auth_permission_id_seq; Type: SEQUENCE SET; Schema: public; Owner: beret
 --
 
-SELECT pg_catalog.setval('public.auth_permission_id_seq', 149, true);
+SELECT pg_catalog.setval('public.auth_permission_id_seq', 175, true);
 
 
 --
 -- Name: auth_user_groups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: beret
 --
 
-SELECT pg_catalog.setval('public.auth_user_groups_id_seq', 2, true);
+SELECT pg_catalog.setval('public.auth_user_groups_id_seq', 1, false);
 
 
 --
 -- Name: auth_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: beret
 --
 
-SELECT pg_catalog.setval('public.auth_user_id_seq', 3, true);
+SELECT pg_catalog.setval('public.auth_user_id_seq', 1, true);
 
 
 --
@@ -2722,14 +2992,14 @@ SELECT pg_catalog.setval('public.django_admin_log_id_seq', 1, false);
 -- Name: django_content_type_id_seq; Type: SEQUENCE SET; Schema: public; Owner: beret
 --
 
-SELECT pg_catalog.setval('public.django_content_type_id_seq', 38, true);
+SELECT pg_catalog.setval('public.django_content_type_id_seq', 44, true);
 
 
 --
 -- Name: django_migrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: beret
 --
 
-SELECT pg_catalog.setval('public.django_migrations_id_seq', 153, true);
+SELECT pg_catalog.setval('public.django_migrations_id_seq', 170, true);
 
 
 --
@@ -2744,6 +3014,13 @@ SELECT pg_catalog.setval('public.taggit_tag_id_seq', 1, false);
 --
 
 SELECT pg_catalog.setval('public.taggit_taggeditem_id_seq', 1, false);
+
+
+--
+-- Name: wagtailadmin_admin_id_seq; Type: SEQUENCE SET; Schema: public; Owner: beret
+--
+
+SELECT pg_catalog.setval('public.wagtailadmin_admin_id_seq', 1, false);
 
 
 --
@@ -2778,7 +3055,7 @@ SELECT pg_catalog.setval('public.wagtailcore_groupapprovaltask_groups_id_seq', 1
 -- Name: wagtailcore_groupcollectionpermission_id_seq; Type: SEQUENCE SET; Schema: public; Owner: beret
 --
 
-SELECT pg_catalog.setval('public.wagtailcore_groupcollectionpermission_id_seq', 8, true);
+SELECT pg_catalog.setval('public.wagtailcore_groupcollectionpermission_id_seq', 12, true);
 
 
 --
@@ -2799,21 +3076,21 @@ SELECT pg_catalog.setval('public.wagtailcore_locale_id_seq', 1, true);
 -- Name: wagtailcore_page_id_seq; Type: SEQUENCE SET; Schema: public; Owner: beret
 --
 
-SELECT pg_catalog.setval('public.wagtailcore_page_id_seq', 3, true);
+SELECT pg_catalog.setval('public.wagtailcore_page_id_seq', 9, true);
 
 
 --
 -- Name: wagtailcore_pagelogentry_id_seq; Type: SEQUENCE SET; Schema: public; Owner: beret
 --
 
-SELECT pg_catalog.setval('public.wagtailcore_pagelogentry_id_seq', 20, true);
+SELECT pg_catalog.setval('public.wagtailcore_pagelogentry_id_seq', 28, true);
 
 
 --
 -- Name: wagtailcore_pagerevision_id_seq; Type: SEQUENCE SET; Schema: public; Owner: beret
 --
 
-SELECT pg_catalog.setval('public.wagtailcore_pagerevision_id_seq', 11, true);
+SELECT pg_catalog.setval('public.wagtailcore_pagerevision_id_seq', 14, true);
 
 
 --
@@ -2877,6 +3154,13 @@ SELECT pg_catalog.setval('public.wagtailcore_workflowtask_id_seq', 1, true);
 --
 
 SELECT pg_catalog.setval('public.wagtaildocs_document_id_seq', 1, false);
+
+
+--
+-- Name: wagtaildocs_uploadeddocument_id_seq; Type: SEQUENCE SET; Schema: public; Owner: beret
+--
+
+SELECT pg_catalog.setval('public.wagtaildocs_uploadeddocument_id_seq', 1, false);
 
 
 --
@@ -2946,7 +3230,7 @@ SELECT pg_catalog.setval('public.wagtailsearch_querydailyhits_id_seq', 1, false)
 -- Name: wagtailusers_userprofile_id_seq; Type: SEQUENCE SET; Schema: public; Owner: beret
 --
 
-SELECT pg_catalog.setval('public.wagtailusers_userprofile_id_seq', 2, true);
+SELECT pg_catalog.setval('public.wagtailusers_userprofile_id_seq', 1, true);
 
 
 --
@@ -3046,6 +3330,14 @@ ALTER TABLE ONLY public.auth_user
 
 
 --
+-- Name: contact_contactpage contact_contactpage_pkey; Type: CONSTRAINT; Schema: public; Owner: beret
+--
+
+ALTER TABLE ONLY public.contact_contactpage
+    ADD CONSTRAINT contact_contactpage_pkey PRIMARY KEY (page_ptr_id);
+
+
+--
 -- Name: django_admin_log django_admin_log_pkey; Type: CONSTRAINT; Schema: public; Owner: beret
 --
 
@@ -3086,19 +3378,35 @@ ALTER TABLE ONLY public.django_session
 
 
 --
--- Name: home_arteunitemock home_arteunitemock_pkey; Type: CONSTRAINT; Schema: public; Owner: beret
---
-
-ALTER TABLE ONLY public.home_arteunitemock
-    ADD CONSTRAINT home_arteunitemock_pkey PRIMARY KEY (page_ptr_id);
-
-
---
 -- Name: home_homepage home_homepage_pkey; Type: CONSTRAINT; Schema: public; Owner: beret
 --
 
 ALTER TABLE ONLY public.home_homepage
     ADD CONSTRAINT home_homepage_pkey PRIMARY KEY (page_ptr_id);
+
+
+--
+-- Name: miejsca_miejscapage miejsca_miejscapage_pkey; Type: CONSTRAINT; Schema: public; Owner: beret
+--
+
+ALTER TABLE ONLY public.miejsca_miejscapage
+    ADD CONSTRAINT miejsca_miejscapage_pkey PRIMARY KEY (page_ptr_id);
+
+
+--
+-- Name: misja_misjapage misja_misjapage_pkey; Type: CONSTRAINT; Schema: public; Owner: beret
+--
+
+ALTER TABLE ONLY public.misja_misjapage
+    ADD CONSTRAINT misja_misjapage_pkey PRIMARY KEY (page_ptr_id);
+
+
+--
+-- Name: rwz_rwzpage rwz_rwzpage_pkey; Type: CONSTRAINT; Schema: public; Owner: beret
+--
+
+ALTER TABLE ONLY public.rwz_rwzpage
+    ADD CONSTRAINT rwz_rwzpage_pkey PRIMARY KEY (page_ptr_id);
 
 
 --
@@ -3139,6 +3447,14 @@ ALTER TABLE ONLY public.taggit_taggeditem
 
 ALTER TABLE ONLY public.taggit_taggeditem
     ADD CONSTRAINT taggit_taggeditem_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: wagtailadmin_admin wagtailadmin_admin_pkey; Type: CONSTRAINT; Schema: public; Owner: beret
+--
+
+ALTER TABLE ONLY public.wagtailadmin_admin
+    ADD CONSTRAINT wagtailadmin_admin_pkey PRIMARY KEY (id);
 
 
 --
@@ -3406,19 +3722,27 @@ ALTER TABLE ONLY public.wagtaildocs_document
 
 
 --
+-- Name: wagtaildocs_uploadeddocument wagtaildocs_uploadeddocument_pkey; Type: CONSTRAINT; Schema: public; Owner: beret
+--
+
+ALTER TABLE ONLY public.wagtaildocs_uploadeddocument
+    ADD CONSTRAINT wagtaildocs_uploadeddocument_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: wagtailembeds_embed wagtailembeds_embed_hash_c9bd8c9a_uniq; Type: CONSTRAINT; Schema: public; Owner: beret
+--
+
+ALTER TABLE ONLY public.wagtailembeds_embed
+    ADD CONSTRAINT wagtailembeds_embed_hash_c9bd8c9a_uniq UNIQUE (hash);
+
+
+--
 -- Name: wagtailembeds_embed wagtailembeds_embed_pkey; Type: CONSTRAINT; Schema: public; Owner: beret
 --
 
 ALTER TABLE ONLY public.wagtailembeds_embed
     ADD CONSTRAINT wagtailembeds_embed_pkey PRIMARY KEY (id);
-
-
---
--- Name: wagtailembeds_embed wagtailembeds_embed_url_max_width_8a2922d8_uniq; Type: CONSTRAINT; Schema: public; Owner: beret
---
-
-ALTER TABLE ONLY public.wagtailembeds_embed
-    ADD CONSTRAINT wagtailembeds_embed_url_max_width_8a2922d8_uniq UNIQUE (url, max_width);
 
 
 --
@@ -3531,6 +3855,14 @@ ALTER TABLE ONLY public.wagtailusers_userprofile
 
 ALTER TABLE ONLY public.wagtailusers_userprofile
     ADD CONSTRAINT wagtailusers_userprofile_user_id_key UNIQUE (user_id);
+
+
+--
+-- Name: warsztaty_warsztatypage warsztaty_warsztatypage_pkey; Type: CONSTRAINT; Schema: public; Owner: beret
+--
+
+ALTER TABLE ONLY public.warsztaty_warsztatypage
+    ADD CONSTRAINT warsztaty_warsztatypage_pkey PRIMARY KEY (page_ptr_id);
 
 
 --
@@ -3670,7 +4002,7 @@ CREATE INDEX taggit_taggeditem_tag_id_f4f5b767 ON public.taggit_taggeditem USING
 -- Name: unique_in_progress_workflow; Type: INDEX; Schema: public; Owner: beret
 --
 
-CREATE UNIQUE INDEX unique_in_progress_workflow ON public.wagtailcore_workflowstate USING btree (page_id) WHERE (((status)::text = 'in_progress'::text) OR ((status)::text = 'needs_changes'::text));
+CREATE UNIQUE INDEX unique_in_progress_workflow ON public.wagtailcore_workflowstate USING btree (page_id) WHERE ((status)::text = ANY ((ARRAY['in_progress'::character varying, 'needs_changes'::character varying])::text[]));
 
 
 --
@@ -4052,6 +4384,20 @@ CREATE INDEX wagtaildocs_document_uploaded_by_user_id_17258b41 ON public.wagtail
 
 
 --
+-- Name: wagtaildocs_uploadeddocument_uploaded_by_user_id_8dd61a73; Type: INDEX; Schema: public; Owner: beret
+--
+
+CREATE INDEX wagtaildocs_uploadeddocument_uploaded_by_user_id_8dd61a73 ON public.wagtaildocs_uploadeddocument USING btree (uploaded_by_user_id);
+
+
+--
+-- Name: wagtailembeds_embed_hash_c9bd8c9a_like; Type: INDEX; Schema: public; Owner: beret
+--
+
+CREATE INDEX wagtailembeds_embed_hash_c9bd8c9a_like ON public.wagtailembeds_embed USING btree (hash varchar_pattern_ops);
+
+
+--
 -- Name: wagtailforms_formsubmission_page_id_e48e93e7; Type: INDEX; Schema: public; Owner: beret
 --
 
@@ -4220,6 +4566,14 @@ ALTER TABLE ONLY public.auth_user_user_permissions
 
 
 --
+-- Name: contact_contactpage contact_contactpage_page_ptr_id_143c93c1_fk_wagtailcore_page_id; Type: FK CONSTRAINT; Schema: public; Owner: beret
+--
+
+ALTER TABLE ONLY public.contact_contactpage
+    ADD CONSTRAINT contact_contactpage_page_ptr_id_143c93c1_fk_wagtailcore_page_id FOREIGN KEY (page_ptr_id) REFERENCES public.wagtailcore_page(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
 -- Name: django_admin_log django_admin_log_content_type_id_c4bce8eb_fk_django_co; Type: FK CONSTRAINT; Schema: public; Owner: beret
 --
 
@@ -4236,19 +4590,35 @@ ALTER TABLE ONLY public.django_admin_log
 
 
 --
--- Name: home_arteunitemock home_arteunitemock_page_ptr_id_2c6e3ae4_fk_wagtailcore_page_id; Type: FK CONSTRAINT; Schema: public; Owner: beret
---
-
-ALTER TABLE ONLY public.home_arteunitemock
-    ADD CONSTRAINT home_arteunitemock_page_ptr_id_2c6e3ae4_fk_wagtailcore_page_id FOREIGN KEY (page_ptr_id) REFERENCES public.wagtailcore_page(id) DEFERRABLE INITIALLY DEFERRED;
-
-
---
 -- Name: home_homepage home_homepage_page_ptr_id_e5b77cf7_fk_wagtailcore_page_id; Type: FK CONSTRAINT; Schema: public; Owner: beret
 --
 
 ALTER TABLE ONLY public.home_homepage
     ADD CONSTRAINT home_homepage_page_ptr_id_e5b77cf7_fk_wagtailcore_page_id FOREIGN KEY (page_ptr_id) REFERENCES public.wagtailcore_page(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: miejsca_miejscapage miejsca_miejscapage_page_ptr_id_35a3584d_fk_wagtailcore_page_id; Type: FK CONSTRAINT; Schema: public; Owner: beret
+--
+
+ALTER TABLE ONLY public.miejsca_miejscapage
+    ADD CONSTRAINT miejsca_miejscapage_page_ptr_id_35a3584d_fk_wagtailcore_page_id FOREIGN KEY (page_ptr_id) REFERENCES public.wagtailcore_page(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: misja_misjapage misja_misjapage_page_ptr_id_58c92f38_fk_wagtailcore_page_id; Type: FK CONSTRAINT; Schema: public; Owner: beret
+--
+
+ALTER TABLE ONLY public.misja_misjapage
+    ADD CONSTRAINT misja_misjapage_page_ptr_id_58c92f38_fk_wagtailcore_page_id FOREIGN KEY (page_ptr_id) REFERENCES public.wagtailcore_page(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: rwz_rwzpage rwz_rwzpage_page_ptr_id_9d95fd1c_fk_wagtailcore_page_id; Type: FK CONSTRAINT; Schema: public; Owner: beret
+--
+
+ALTER TABLE ONLY public.rwz_rwzpage
+    ADD CONSTRAINT rwz_rwzpage_page_ptr_id_9d95fd1c_fk_wagtailcore_page_id FOREIGN KEY (page_ptr_id) REFERENCES public.wagtailcore_page(id) DEFERRABLE INITIALLY DEFERRED;
 
 
 --
@@ -4588,6 +4958,14 @@ ALTER TABLE ONLY public.wagtaildocs_document
 
 
 --
+-- Name: wagtaildocs_uploadeddocument wagtaildocs_uploaded_uploaded_by_user_id_8dd61a73_fk_auth_user; Type: FK CONSTRAINT; Schema: public; Owner: beret
+--
+
+ALTER TABLE ONLY public.wagtaildocs_uploadeddocument
+    ADD CONSTRAINT wagtaildocs_uploaded_uploaded_by_user_id_8dd61a73_fk_auth_user FOREIGN KEY (uploaded_by_user_id) REFERENCES public.auth_user(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
 -- Name: wagtailforms_formsubmission wagtailforms_formsub_page_id_e48e93e7_fk_wagtailco; Type: FK CONSTRAINT; Schema: public; Owner: beret
 --
 
@@ -4673,6 +5051,14 @@ ALTER TABLE ONLY public.wagtailsearch_querydailyhits
 
 ALTER TABLE ONLY public.wagtailusers_userprofile
     ADD CONSTRAINT wagtailusers_userprofile_user_id_59c92331_fk_auth_user_id FOREIGN KEY (user_id) REFERENCES public.auth_user(id) DEFERRABLE INITIALLY DEFERRED;
+
+
+--
+-- Name: warsztaty_warsztatypage warsztaty_warsztatyp_page_ptr_id_e5a915c4_fk_wagtailco; Type: FK CONSTRAINT; Schema: public; Owner: beret
+--
+
+ALTER TABLE ONLY public.warsztaty_warsztatypage
+    ADD CONSTRAINT warsztaty_warsztatyp_page_ptr_id_e5a915c4_fk_wagtailco FOREIGN KEY (page_ptr_id) REFERENCES public.wagtailcore_page(id) DEFERRABLE INITIALLY DEFERRED;
 
 
 --
