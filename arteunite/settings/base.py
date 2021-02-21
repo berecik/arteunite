@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     'django_extensions',
 
     'home',
-    'contact',
     'warsztaty',
     'misja',
     'miejsca',
