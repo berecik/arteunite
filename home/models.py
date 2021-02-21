@@ -30,11 +30,3 @@ class HomePage(Page):
 
     for field in ["quote", "quote_author", "earth_head", "earth", "star_head", "star", "flame_head", "flame", "wolna_ziemia", "stodola", "workshop"]:
         content_panels.append(FieldPanel(field, classname="full"))
-
-
-class ArteuniteMock(Page):
-    intro = RichTextField(blank=True)
-
-    content_panels = Page.content_panels + [
-        FieldPanel('intro', classname="full"),
-    ]
