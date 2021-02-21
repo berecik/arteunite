@@ -1,8 +1,3 @@
-
-
-
-
-
 $(document).ready(function(){
 	
 /*Sticky nav*/
@@ -38,5 +33,3 @@ $(document).ready(function(){
 	});
 	
 });
-	
-close-outline
