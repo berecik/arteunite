@@ -11,3 +11,6 @@ environs # simplified environment variable parsing
 django-middleware-global-request # global access to request
 Werkzeug # for runserver_plus
 bpython # for shell_plus
+
+# custom tools set
+git+git://github.com/berecik/beret_utils.git
