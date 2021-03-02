@@ -13,4 +13,4 @@ Werkzeug # for runserver_plus
 bpython # for shell_plus
 
 # custom tools set
-git+git://github.com/berecik/beret_utils.git
+beret_utils

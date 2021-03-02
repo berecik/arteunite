@@ -11,24 +11,26 @@
 
 {% block content %}
     {% block header %}
-        <header>
+        <header id="{% block header_id %}{% endblock header_id %}">
             {% block menu %}
                 <nav>
-                    <div class=" header-row">
+                    <div id="header-row">
                         <img src="{%  static "resources/img/logo_RED.png" %}" alt="Arte Unite Logo" class="logo">
 
                         <ul class="main-nav js--main-nav">
                             <li><a href="/">Główna</a></li>
                             <li><a href="/warsztaty">Warsztaty</a></li>
                             <li><a href="/misja">Misja</a></li>
-                            <li><a href="/stodoła-wymyślacz">Stodoła Wymyślacz</a></li>
-                            <li><a href="/ruch-wolnej-ziemi">Ruch Wolnej Ziemi</a></li>
+                            <li><a href="/stodoła-wymyślacz">Stodoła&nbsp;Wymyślacz</a></li>
+                            <li><a href="/ruch-wolnej-ziemi">Ruch&nbsp;Wolnej&nbsp;Ziemi</a></li>
                             <li><a href="{%  static "arteunitestatut.html" %}">Statuty</a></li>
                         </ul>
                         <a class="mobile-nav-icon js--nav-icon">
                             <ion-icon name="reorder-four-outline"></ion-icon>
                         </a>
                     </div>
+
+
                 </nav>
 
             {% endblock menu %}
