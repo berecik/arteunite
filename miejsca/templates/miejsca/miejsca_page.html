@@ -3,84 +3,41 @@
 {% load wagtailcore_tags %}
 {% load i18n %}
 {% block sections %}
-	<section class="heading-subpage">
-		<div class="row">
-		<h2>{{ page.title }}</h2>
-		</div>
-		<div class="row">
-		{{ page.opis|richtext }}
-		</div>
-	</section>
-	<section class="content-subpage">
+    <section class="heading-subpage">
+        <div class="row">
+            <h2>{{ page.title }}</h2>
+        </div>
+        <div class="row">
+            {{ page.opis|richtext }}
+        </div>
+    </section>
+    <section class="content-subpage">
 
-		<div class="row">
-			<img src="/static/vendors/img/mapa-punkt.jpg" alt="Stodoła - lokalizacja" class="map-point">
-		</div>
+        <div class="row">
+            <img src="/static/vendors/img/mapa-punkt.jpg" alt="Stodoła - lokalizacja" class="map-point">
+        </div>
 
-		<div class="row text-first-miejsca">
-			{{ page.komentarz|richtext }}
-			</div>
-		<div class="row">
-			<div class="line-subpage">
-			</div>
-		</div>
-		<div class="row">
-			<div class="content-bottom-subpage">
-				<div class="row">
-					<div class="col span-1-of-2">
-						<img src="/static/resources/img/galeria10.jpg" alt="Stodoła" class="stodola-photo">
-					</div>
-					<div class="col span-1-of-2">
-						{{ page.zaproszenie|richtext }}
-					</div>
+        <div class="row text-first-miejsca">
+            {{ page.komentarz|richtext }}
+        </div>
+        <div class="row">
+            <div class="line-subpage">
+            </div>
+        </div>
+        <div class="row">
+            <div class="content-bottom-subpage">
+                <div class="row">
+                    <div class="col span-1-of-2">
+                        <img src="/static/resources/img/galeria10.jpg" alt="Stodoła" class="stodola-photo">
+                    </div>
+                    <div class="col span-1-of-2">
+                        {{ page.zaproszenie|richtext }}
+                    </div>
 
-				</div>
+                </div>
 
-			</div>
+            </div>
 
-		</div>
-		</section>
-		<section class="section-call">
-			<div class="row title-call">
-				<h2>Czas na Ciebie</h2>
-			</div>
-			<div class="row">
-			<div class="col span-1-of-2">
-				<div class="title-box">
-					<div>
-						<h3>Dołącz do nas</h3>
-						<p class="join-title"> Dołącz do naszej grupy, zapisując się na miesięczny newsletter</p>
-					</div>
-					<div>
-					<ul>
-						<li><ion-icon name="shield-checkmark"></ion-icon>Bądź na bieżąco</li>
-						<li><ion-icon name="shield-checkmark"></ion-icon>Stań się częścią czegoś większego</li>
-						<li><ion-icon name="shield-checkmark"></ion-icon>Korzystaj ze zniżki na nas warsztaty</li>
-					</ul>
-					</div>
-					<div>
-						<a href="dolaczsie.html" class="btn">Dopisz się</a>
-					</div>
-					</div>
-			</div>
-			<div class="col span-1-of-2">
-				<div class="title-box">
-					<div>
-						<h3>Dorzuć się</h3>
-						<p class="join-title"> Dołącz do grona naszych patronów, weź udział w losowaniu wybranych warsztatów</p>
-					</div>
-					<div>
-					<ul>
-						<li><ion-icon name="shield-checkmark"></ion-icon>Realnie dokonaj zmiany rzeczywistsci</li>
-						<li><ion-icon name="shield-checkmark"></ion-icon>Stań się częścią czegoś większego</li>
-						<li><ion-icon name="shield-checkmark"></ion-icon>Korzystaj ze zniżki na nas warsztaty</li>
-					</ul>
-					</div>
-					<div>
-						<a href="dorzucsie.html" class="btn">Dorzuć się</a>
-					</div>
-					</div>
-			</div>
-			</div>
-		</section>
+        </div>
+    </section>
 {% endblock sections %}

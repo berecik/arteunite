@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'miejsca',
     'rwz',
     'search',
+    'statut',
 ]
 
 MIDDLEWARE = [

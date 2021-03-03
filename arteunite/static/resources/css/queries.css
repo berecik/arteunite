@@ -1,13 +1,6 @@
 /* Screen to 1520px (widths smaller than the 1900 row))*/
 
 @media only screen and (max-width: 1900px) {
-    .main-nav {
-        margin-right: 4%;
-    }
-
-    .logo {
-        margin-left: 4%;
-    }
 
     .btn-main:link,
     .btn-main:visited,
@@ -16,7 +9,7 @@
     }
 
     .stodola {
-        height: 130vh;
+        /*height: 100vh;*/
     }
 
     .btn-section-stodola:link,
@@ -70,9 +63,7 @@
 
     @media only screen and (max-width: 1354px) {
 
-        .main-nav {
-            margin-right: 1%;
-        }
+
 
         .btn-main:link,
         .btn-main:visited,
@@ -87,7 +78,6 @@
 
         .logo {
             height: 120px;
-            margin-left: 1%;
         }
 
         .ind {
@@ -124,7 +114,7 @@
         }
 
         .stodola {
-            height: 170vh;
+            /*height: 170vh;*/
         }
 
         .btn-section-stodola:link,
@@ -143,11 +133,9 @@
             }
 
             .logo {
-
                 height: 100px;
                 width: auto;
                 float: left;
-                margin: 2%;
             }
 
             .quote-h {
@@ -164,7 +152,7 @@
             }
 
             .stodola {
-                height: 190vh;
+                /*height: 190vh;*/
             }
 
             .btn-section-stodola:link,
@@ -191,13 +179,10 @@
 
         .main-nav {
             float: right;
-            margin-right: 0;
-
         }
 
         .logo {
             height: 110px;
-            margin-left: 0;
         }
 
         .btn-section-stodola:link,
@@ -220,14 +205,11 @@
 
         .logo {
             height: 100px;
-            margin: 2%;
-            margin-left: 5%;
         }
 
         .main-nav li a:link,
         .main-nav li a:visited {
             font-size: 70%;
-            margin-left: 3px;
         }
 
         .btn-section-stodola:link,
@@ -245,7 +227,7 @@
         }
 
         .stodola {
-            height: 200vh;
+            /*height: 200vh;*/
         }
 
         .p {
@@ -257,8 +239,6 @@
 
         .logo {
             height: 90px;
-            margin: 2%;
-            margin-left: 5%;
         }
 
         .quote-h {
@@ -279,7 +259,7 @@
         }
 
         .stodola {
-            height: 220vh;
+            /*height: 220vh;*/
         }
     }
 
@@ -318,7 +298,7 @@
         }
 
         .stodola {
-            height: 110vh;
+            /*height: 110vh;*/
         }
 
         .btn-section-stodola:link,
@@ -369,7 +349,7 @@
         }
 
         .stodola {
-            height: 120vh;
+            /*height: 120vh;*/
         }
 
         .btn-section-stodola:link,
@@ -408,7 +388,7 @@
         }
 
         .stodola {
-            height: 140vh;
+            /*height: 140vh;*/
         }
 
         .btn-section-stodola:link,
@@ -451,7 +431,7 @@
         }
 
         .stodola {
-            height: 180vh;
+            /*height: 180vh;*/
         }
 
         .btn-section-stodola:link,
@@ -490,7 +470,7 @@
         }
 
         .stodola {
-            height: 240vh;
+            /*height: 240vh;*/
         }
 
         .btn-section-stodola:link,

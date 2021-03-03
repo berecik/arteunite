@@ -23,6 +23,7 @@ class HomePage(Page):
     wolna_ziemia = RichTextField(blank=True)
     stodola = RichTextField(blank=True)
     workshop = RichTextField(blank=True)
+    filozofia = RichTextField(blank=True)
 
     content_panels = Page.content_panels + [
         FieldPanel('long_name', classname="full"),
