@@ -1,0 +1,96 @@
+{% extends "page.html" %}
+{% load static %}
+{% load wagtailcore_tags %}
+{% load i18n %}
+{% block sections %}
+    <section class="heading-subpage">
+        <div class="row">
+            <h2>{{ page.title }}</h2>
+        </div>
+    </section>
+    <section class="heading-subpage">
+        <div class="row">
+            {{ page.statut|richtext }}
+        </div>
+    </section>
+    <section class="content-subpage">
+        <div class="row">
+            <form method="post" action="#" class="contact-form">
+                {% if page.pokaz_imie %}
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="name">Imię i Nazwisko</label>
+                    </div>
+                    <div class=" col span2-of-3">
+                        <input type="text" name="name" id="name" placeholder="Twoje imę i nazwisko" required>
+                    </div>
+                </div>
+                {% endif %}
+                {% if page.pokaz_email %}
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="email">Email adres</label>
+                    </div>
+                    <div class=" col span2-of-3">
+                        <input type="email" name="email" id="email" placeholder="Twój email adres" required>
+                    </div>
+                </div>
+                {% endif %}
+                {% if page.pokaz_jak_sie_dowiedziales %}
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="find-us">Jak się o nas dowiedziałeś?</label>
+                    </div>
+                    <div class=" col span2-of-3">
+                        <select name="find-us" id="find-us">
+                            <option value="friens">Znajomi</option>
+                            <option value="search">Wyszukiwarka</option>
+                            <option value="social">Media Społecznościowe</option>
+                            <option value="other">Inaczej</option>
+                        </select>
+                    </div>
+                </div>
+                {% endif %}
+                {% if page.pokaz_newsletter %}
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label>Newsletter</label>
+                    </div>
+                    <div class=" col span2-of-3">
+                        <input type="checkbox" name="newsletter" id="newsletter" checked> Tak, poproszę
+                    </div>
+                </div>
+                {% endif %}
+                {% if page.pokaz_napisz_do_nas %}
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label>Napisz do nas</label>
+                    </div>
+                    <div class=" col span2-of-3">
+                        <textarea name="message" placeholder="Twój tekst"></textarea>
+                    </div>
+                </div>
+                {% endif %}
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label>&nbsp;</label>
+                    </div>
+                    <div class=" col span2-of-3">
+                        <input type="submit" value="Wyślij">
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+    </section>
+    {% if page.link %}
+        <div class="row">
+            <div class="content-bottom-s">
+                <a class="btn-statut" href="{{ page.link }}">{{ page.link_text }}</a>
+            </div>
+        </div>
+    {% endif %}
+{% endblock sections %}
+{% block section_call %}
+{% endblock section_call %}

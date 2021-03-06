@@ -25,9 +25,13 @@ class HomePage(Page):
     workshop = RichTextField(blank=True)
     filozofia = RichTextField(blank=True)
 
+    spis_title = models.TextField(blank=True)
+    spis = RichTextField(blank=True)
+    spis_link = models.TextField(blank=True)
+
     content_panels = Page.content_panels + [
         FieldPanel('long_name', classname="full"),
     ]
 
-    for field in ["quote", "quote_author", "earth_head", "earth", "star_head", "star", "flame_head", "flame", "wolna_ziemia", "stodola", "workshop"]:
+    for field in ["quote", "quote_author", "earth_head", "earth", "star_head", "star", "flame_head", "flame", "wolna_ziemia", "stodola", "workshop", "spis_title", "spis", "spis_link"]:
         content_panels.append(FieldPanel(field, classname="full"))
