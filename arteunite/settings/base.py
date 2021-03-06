@@ -56,6 +56,9 @@ INSTALLED_APPS = [
     'rwz',
     'search',
     'statut',
+    'dolacz',
+    'dorzuc',
+    'strona',
 ]
 
 MIDDLEWARE = [

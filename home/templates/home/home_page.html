@@ -7,8 +7,8 @@
 
         <div class="main-quote-box">
             <h1>{{ page.long_name|richtext }}</h1>
-            <a class="btn-main" href="#">Dowiedz się</a>
-            <a class="btn-main" href="#">Przyłącz się</a>
+            <a class="btn-main" href="#filozofia">Dowiedz się</a>
+            <a class="btn-main" href="#wolna-ziemia">Przyłącz się</a>
             <a class="btn-main" href="#">Dorzuć się</a>
 
         </div>
@@ -106,12 +106,12 @@
         <div class="row">
             <div class="col span-1-of-2 wz-box">
                 <div class="row title-rwz">
-                    <h2>Ruch Wolnej Ziemi</h2>
+                    <h2>Nasze działania</h2>
                 </div>
                 <div class="row wz-opis">
                     {{ page.wolna_ziemia|richtext }}
                 </div>
-                <a class="btn-ruch" href="/ruch-wolnej-ziemi">Dowiedz się więcej</a>
+                <a class="btn-ruch" href="#spis">Dowiedz się więcej</a>
 
             </div>
             {#            <div class="col span-1-of-2 wz-box">#}
@@ -152,9 +152,8 @@
             </div>
         </div>
     </section>
-<a name="filozofia"></a>
+    <a name="filozofia"></a>
     <section class="filozofia">
-
         <div class="row">
             <div class="col span-1-of-2">
             </div>
@@ -168,12 +167,25 @@
                 <a class="btn-ruch" href="/ruch-wolnej-ziemi">Dowiedz się więcej</a>
 
             </div>
-            {#            <div class="col span-1-of-2 wz-box">#}
-            {#                <img src="{% static 'resources/img/ind_bmw.png' %}" alt="Logo Wolnej Ziemi" class="ind">#}
-            {#            </div>#}
-
         </div>
-
+    </section>
+    <a name="spis"></a>
+    <section class="spis">
+        <div class="row">
+            <div class="col span-1-of-2">
+            </div>
+            <div class="col span-1-of-2 wz-box">
+                <div class="row title-rwz">
+                    <h2>{{ page.spis_title }}</h2>
+                </div>
+                <div class="row right-opis">
+                    {{ page.spis|richtext }}
+                </div>
+                {% if page.spis_link %}
+                <a class="btn-ruch" href="{{ page.spis_link }}">Dowiedz się więcej</a>
+                {% endif %}
+            </div>
+        </div>
     </section>
 
 {% endblock sections %}
