@@ -159,33 +159,40 @@
             </div>
             <div class="col span-1-of-2 wz-box">
                 <div class="row title-rwz">
-                    <h2>Nasza Filozofia</h2>
+                    {% if page.filoziofia_title %}#}
+                        <h2>{{ page.filoziofia_title }}</h2>
+                    {% else %}
+                        <h2>Nasza Filozofia</h2>
+                    {% endif %}
                 </div>
                 <div class="row right-opis">
                     {{ page.filoziofia|richtext }}
                 </div>
-                <a class="btn-ruch" href="/ruch-wolnej-ziemi">Dowiedz się więcej</a>
-
+                {% if page.spis_link %}
+                    <a class="btn-ruch" href="{{ page.filoziofia_link }}">Dowiedz się więcej</a>
+                {% else %}
+                    <a class="btn-ruch" href="/ruch-wolnej-ziemi">Dowiedz się więcej</a>
+                {% endif %}
             </div>
         </div>
     </section>
-{#    <a name="spis"></a>#}
-{#    <section class="spis">#}
-{#        <div class="row">#}
-{#            <div class="col span-1-of-2">#}
-{#            </div>#}
-{#            <div class="col span-1-of-2 wz-box">#}
-{#                <div class="row title-rwz">#}
-{#                    <h2>{{ page.spis_title }}</h2>#}
-{#                </div>#}
-{#                <div class="row right-opis">#}
-{#                    {{ page.spis|richtext }}#}
-{#                </div>#}
-{#                {% if page.spis_link %}#}
-{#                <a class="btn-ruch" href="{{ page.spis_link }}">Dowiedz się więcej</a>#}
-{#                {% endif %}#}
-{#            </div>#}
-{#        </div>#}
-{#    </section>#}
+    {#    <a name="spis"></a>#}
+    {#    <section class="spis">#}
+    {#        <div class="row">#}
+    {#            <div class="col span-1-of-2">#}
+    {#            </div>#}
+    {#            <div class="col span-1-of-2 wz-box">#}
+    {#                <div class="row title-rwz">#}
+    {#                    <h2>{{ page.spis_title }}</h2>#}
+    {#                </div>#}
+    {#                <div class="row right-opis">#}
+    {#                    {{ page.spis|richtext }}#}
+    {#                </div>#}
+    {#                {% if page.spis_link %}#}
+    {#                <a class="btn-ruch" href="{{ page.spis_link }}">Dowiedz się więcej</a>#}
+    {#                {% endif %}#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </section>#}
 
 {% endblock sections %}

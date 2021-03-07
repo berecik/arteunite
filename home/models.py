@@ -33,5 +33,5 @@ class HomePage(Page):
         FieldPanel('long_name', classname="full"),
     ]
 
-    for field in ["quote", "quote_author", "earth_head", "earth", "star_head", "star", "flame_head", "flame", "wolna_ziemia", "stodola", "workshop", "spis_title", "spis", "spis_link"]:
+    for field in ["quote", "quote_author", "earth_head", "earth", "star_head", "star", "flame_head", "flame", "wolna_ziemia", "stodola", "workshop", "spis_title", "spis", "spis_link", "filoziofia"]:
         content_panels.append(FieldPanel(field, classname="full"))
