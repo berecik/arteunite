@@ -1,7 +1,4 @@
-<<<<<<< Updated upstream
 #!/usr/bin/env bash
-=======
->>>>>>> Stashed changes
 git stash
 pg_dump $POSTGRES_DB > arteunite.sql
 git add arteunite.sql
