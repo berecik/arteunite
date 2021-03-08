@@ -323,7 +323,7 @@ header {
     width: 70vh;
     top: 75%;
     left: 70%;
-    transform: translate(-55%, -55%);
+    transform: translate(-55%, 10%);
 
 }
 
@@ -333,9 +333,9 @@ header {
     margin-right: 4rem;
     margin-top: 1%;
     margin-left: 4%;
-	display: flex;
-	justify-content: space-around;
-	flex-wrap: nowrap;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: nowrap;
 }
 
 .main-nav li {
@@ -440,7 +440,7 @@ header {
 .quote-h {
     text-align: center;
     color: #fff;
-    padding-top: 10%;
+    /*padding-top: 10%;*/
     font-size: 120%;
 }
 
@@ -561,7 +561,7 @@ header {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/w3.png);
     background-size: cover;
     background-position: center;
-    height: 60hv;
+    height: 60 hv;
     background-attachment: fixed;
     margin-top: 0;
     padding-top: 0;
@@ -582,13 +582,78 @@ header {
 
 .workshop-box:last-child {
     text-align: right;
-    padding-left: 35;
+    padding-left: 35px;
     margin-top: 2%;
     margin-bottom: 5%;
     color: #fff;
     font-size: 130%;
     letter-spacing: 0.5px;
     word-spacing: 1px;
+}
+
+/*------------------*/
+/* GENERAL SECTION  */
+/*------------------*/
+
+.section {
+    /*background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/w3.png);*/
+    background-size: cover;
+    background-position: center;
+    height: 85rem;
+    background-attachment: fixed;
+    margin-top: 0;
+    padding-top: 0;
+
+}
+
+.section-header {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 2%;
+
+}
+
+.section-box:first-child {
+    padding-right: 4%;
+    text-align: left;
+}
+
+.section-box:last-child {
+    text-align: right;
+    padding-left: 35px;
+    margin-top: 2%;
+    margin-bottom: 5%;
+    color: #000;
+    font-size: 130%;
+    letter-spacing: 0.5px;
+    word-spacing: 1px;
+}
+
+
+
+.btn-section:link,
+.btn-section:visited,
+input[type=submit] {
+    display: inline-block;
+    padding: 10px 40px;
+    margin-left: 20px;
+    margin-right: 15px;
+    /*margin-top: 25px;*/
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 200px;
+    color: rgb(134, 8, 9);
+    background-color: rgba(245, 245, 245, 0.78);
+    transition: background-color 0.3s, color 0.3s;
+    transform: translate(-50%);
+    margin-top: 2rem;
+}
+
+.btn-section:hover,
+.btn-section:active,
+input[type=submit] {
+    background-color: rgba(202, 185, 139, 0.74);
+    color: rgba(255, 255, 255, 0.74);
 }
 
 /*------------------*/
@@ -952,7 +1017,8 @@ input[type=submit] {
     align-items: center;
     justify-content: space-around;
 }
-.shield span{
+
+.shield span {
     display: flex;
     align-items: center;
 }

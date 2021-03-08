@@ -8,8 +8,8 @@
         <div class="main-quote-box">
             <h1>{{ page.long_name|richtext }}</h1>
             <a class="btn-main" href="#filozofia">Dowiedz się</a>
-            <a class="btn-main" href="#wolna-ziemia">Przyłącz się</a>
-            <a class="btn-main" href="/pomóż-nam-zmieniać-świat">Dorzuć się</a>
+            <a class="btn-main" href="/dolacz-sie">Przyłącz się</a>
+            <a class="btn-main" href="/dorzuc-sie">Dorzuć się</a>
 
         </div>
         <div class="row quote-mix">
@@ -40,7 +40,7 @@
                 <h3>{{ page.star_head }}</h3>
                 {{ page.star|richtext }}
 
-                <a class="btn-features" href="#filozofia">Dowiedz się więcej</a>
+                <a class="btn-features" href="#filozofia">Nasza Filozofia</a>
             </div>
             <div class="col span-1-of-3 box">
                 <ion-icon name="flame"></ion-icon>
@@ -148,51 +148,29 @@
                 <div class="workshop-opis">
                     {{ page.workshop|richtext }}
                     <a class="btn-section-workshop" href="/warsztaty">Dowiedz się więcej</a>
+                    <a name="filozofia"></a>
                 </div>
             </div>
         </div>
     </section>
-    <a name="filozofia"></a>
-    <section class="filozofia">
+
+    <section class="section">
         <div class="row">
             <div class="col span-1-of-2">
             </div>
-            <div class="col span-1-of-2 wz-box">
-                <div class="row title-rwz">
-                    {% if page.filoziofia_title %}#}
-                        <h2>{{ page.filoziofia_title }}</h2>
-                    {% else %}
-                        <h2>Nasza Filozofia</h2>
+            <div class="col span-1-of-2 section-box">
+                <div class="row title">
+                    {% if page.filozofia_title %}
+                        <h2>{{ page.filozofia_title }}</h2>
                     {% endif %}
                 </div>
                 <div class="row right-opis">
-                    {{ page.filoziofia|richtext }}
+                    {{ page.filozofia|richtext }}
                 </div>
-                {% if page.spis_link %}
-                    <a class="btn-ruch" href="{{ page.filoziofia_link }}">Dowiedz się więcej</a>
-                {% else %}
-                    <a class="btn-ruch" href="/ruch-wolnej-ziemi">Dowiedz się więcej</a>
+                {% if page.filozofia_link %}
+                    <a class="btn-section" href="{{ page.filozofia_link }}">Dowiedz się więcej</a>
                 {% endif %}
             </div>
         </div>
     </section>
-    {#    <a name="spis"></a>#}
-    {#    <section class="spis">#}
-    {#        <div class="row">#}
-    {#            <div class="col span-1-of-2">#}
-    {#            </div>#}
-    {#            <div class="col span-1-of-2 wz-box">#}
-    {#                <div class="row title-rwz">#}
-    {#                    <h2>{{ page.spis_title }}</h2>#}
-    {#                </div>#}
-    {#                <div class="row right-opis">#}
-    {#                    {{ page.spis|richtext }}#}
-    {#                </div>#}
-    {#                {% if page.spis_link %}#}
-    {#                <a class="btn-ruch" href="{{ page.spis_link }}">Dowiedz się więcej</a>#}
-    {#                {% endif %}#}
-    {#            </div>#}
-    {#        </div>#}
-    {#    </section>#}
-
 {% endblock sections %}
