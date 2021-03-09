@@ -782,6 +782,17 @@ footer {
     padding: 2%;
 }
 
+
+/*------------------*/
+/*Subpage Misja*/
+/*------------------*/
+
+.flatter {
+    width: 20%;
+    height: auto;
+    /*transform: translate(70%);*/
+}
+
 /*------------------*/
 /*Subpage KONTAKT*/
 /*------------------*/
