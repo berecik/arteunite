@@ -28,3 +28,11 @@ class DolaczPage(Page):
 
     # for field in ["milicki", "beret", "monika", "comment"]:
     #     content_panels.append(FieldPanel(field, classname="full"))
+
+class Contact(models.Model):
+    page = models.CharField(max_length=1024, null=True)
+    name = models.CharField(max_length=1024, null=True)
+    email = models.EmailField(null=True)
+    find_us = models.CharField(max_length=1024, null=True)
+    newsletter = models.BooleanField(null=True)
+    message = models.TextField(null=True)
