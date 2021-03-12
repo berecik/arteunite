@@ -17,6 +17,7 @@
         <div class="row">
             <form method="post" action="/contact_form/" class="contact-form">
                 {% csrf_token %}
+                <input type="hidden" name="page" value="{{ page.title }}">
                 {% if page.pokaz_imie %}
                 <div class="row">
                     <div class="col span-1-of-3">

@@ -10,6 +10,7 @@ class ContactPost(View):
     def post(self, request):
         print(request.POST)
         contact = Contact()
+        contact.page = request.POST.get('page')
         contact.name = request.POST.get('name')
         contact.newsletter = 'newsletter' in request.POST
         contact.email = request.POST.get('email')
