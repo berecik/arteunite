@@ -3,12 +3,10 @@
 {% load wagtailcore_tags %}
 {% load i18n %}
 {% block sections %}
-    <section class="heading-subpage">
-        <div class="row">
+   <section class="heading-subpage">
+        <div class="row flex-center">
             <h2>{{ page.title }}</h2>
         </div>
-    </section>
-    <section class="heading-subpage">
         <div class="row">
             {{ page.opis|richtext }}
         </div>

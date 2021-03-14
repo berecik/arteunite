@@ -175,3 +175,13 @@ WAGTAIL_SITE_NAME = "arteunite"
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://arteunite.org'
+
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = config.DEBUG
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = config.SECRET_KEY
+
+# SECURITY WARNING: define the correct hosts in production!
+ALLOWED_HOSTS = ['*']
+

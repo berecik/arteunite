@@ -33,7 +33,7 @@ html, body {
 }
 
 p {
-    text-align: center;
+    /*text-align: center;*/
     font-size: 95%;
     letter-spacing: 1px;
     word-spacing: 2px;
@@ -74,6 +74,7 @@ h1 {
 h2 {
     margin-bottom: 2rem;
     margin-top: 2rem;
+    text-align: center;
 }
 
 h3 {
@@ -147,7 +148,7 @@ input[type=submit] {
 input[type=submit] {
     display: inline-block;
     padding: 10px 40px;
-    margin-left: 20px;
+    margin-left: 10rem;
     margin-right: 15px;
     /*margin-top: 25px;*/
     text-decoration: none;
@@ -493,7 +494,7 @@ header {
 /*------------------*/
 
 .wolna-ziemia {
-    height: 80rem;
+    height: 85rem;
 }
 
 .wz-box {
@@ -502,8 +503,8 @@ header {
     height: 40vh;
     padding-bottom: 0;
     margin-bottom: 0;
-    text-align: right;
-    padding-left: 35;
+    /*text-align: right;*/
+    padding-left: 35px;
 
 }
 
@@ -536,7 +537,7 @@ header {
 }
 
 .stodola-text {
-    text-align: center;
+    /*text-align: center;*/
     font-size: 130%;
     padding-left: 10%;
     margin-top: 0;
@@ -561,7 +562,7 @@ header {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/w3.png);
     background-size: cover;
     background-position: center;
-    height: 60 hv;
+    height: 60hv;
     background-attachment: fixed;
     margin-top: 0;
     padding-top: 0;
@@ -581,7 +582,7 @@ header {
 }
 
 .workshop-box:last-child {
-    text-align: right;
+    /*text-align: right;*/
     padding-left: 35px;
     margin-top: 2%;
     margin-bottom: 5%;
@@ -599,7 +600,7 @@ header {
     /*background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/w3.png);*/
     background-size: cover;
     background-position: center;
-    height: 85rem;
+    /*height: 85rem;*/
     background-attachment: fixed;
     margin-top: 0;
     padding-top: 0;
@@ -665,7 +666,7 @@ input[type=submit] {
 }
 
 .title-call {
-    text-align: center;
+    /*text-align: center;*/
     margin-bottom: 30px;
 }
 
@@ -740,7 +741,9 @@ footer {
 .heading-subpage {
     padding: 30px 0px;
     font-size: 100%;
-    text-align: center;
+}
+.heading-subpage h2 {
+    text-align: left;
 }
 
 .humantree {
@@ -754,7 +757,7 @@ footer {
 
 .text-first {
     padding: 50px 10px;
-    text-align: center;
+    /*text-align: center;*/
     font-size: 110%;
 }
 

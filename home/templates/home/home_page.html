@@ -147,7 +147,9 @@
                 </div>
                 <div class="workshop-opis">
                     {{ page.workshop|richtext }}
-                    <a class="btn-section-workshop" href="/warsztaty">Dowiedz się więcej</a>
+                    <div class="flex-center">
+                        <a class="btn-section-workshop" href="/warsztaty">Dowiedz się więcej</a>
+                    </div>
                     <a name="filozofia"></a>
                 </div>
             </div>
@@ -156,17 +158,19 @@
 
     <section class="section">
         <div class="row">
-            <div class="col section-box">
+            <div class="col">
                 <div class="row title">
                     {% if page.filozofia_title %}
                         <h2>{{ page.filozofia_title }}</h2>
                     {% endif %}
                 </div>
-                <div class="row right-opis">
+                <div class="row">
                     {{ page.filozofia|richtext }}
                 </div>
                 {% if page.filozofia_link %}
-                    <a class="btn-section" href="{{ page.filozofia_link }}">Dowiedz się więcej</a>
+                    <div class="flex-center">
+                        <a class="btn-section" href="{{ page.filozofia_link }}">Dowiedz się więcej</a>
+                    </div>
                 {% endif %}
             </div>
         </div>
