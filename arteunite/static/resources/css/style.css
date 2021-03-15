@@ -37,6 +37,7 @@ p {
     font-size: 95%;
     letter-spacing: 1px;
     word-spacing: 2px;
+    margin-bottom: 1rem;
 }
 
 ion-icon {
