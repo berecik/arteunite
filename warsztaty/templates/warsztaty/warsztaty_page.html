@@ -75,8 +75,13 @@
             </div>
         </div>
         <div class="row">
-            {{ page.comment|richtext }}
 
+                    <div class="col span-1-of-2">
+                        {{ page.comment|richtext }}
+                    </div>
+                    <div class="col span-1-of-2">
+                        <img src="/static/resources/img/kuba.png" alt="Beret" class="workshop-autor">
+                    </div>
         </div>
     </section>
 {% endblock sections %}
