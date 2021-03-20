@@ -3,96 +3,132 @@
 {% load wagtailcore_tags %}
 {% load i18n %}
 {% block header_extra %}
-    <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/3bc2330bfb173d985d86eddff/1137b6176204283d9828f21f0.js");</script>
+    <script id="mcjs">!function (c, h, i, m, p) {
+        m = c.createElement(h), p = c.getElementsByTagName(h)[0], m.async = 1, m.src = i, p.parentNode.insertBefore(m, p)
+    }(document, "script", "https://chimpstatic.com/mcjs-connected/js/users/3bc2330bfb173d985d86eddff/1137b6176204283d9828f21f0.js");</script>
 {% endblock header_extra %}
-{#{% block sections %}#}
-{#   <section class="heading-subpage">#}
-{#        <div class="row flex-center">#}
-{#            <h2>{{ page.title }}</h2>#}
-{#        </div>#}
-{#        <div class="row">#}
-{#            {{ page.opis|richtext }}#}
-{#        </div>#}
-{#    </section>#}
-{#    <section class="content-subpage">#}
-{#        <div class="row">#}
-{#            <form method="post" action="/contact_form/" class="contact-form">#}
-{#                {% csrf_token %}#}
-{#                <input type="hidden" name="page" value="{{ page.title }}">#}
-{#                {% if page.pokaz_imie %}#}
-{#                <div class="row">#}
-{#                    <div class="col span-1-of-3">#}
-{#                        <label for="name">Imię i Nazwisko</label>#}
-{#                    </div>#}
-{#                    <div class=" col span2-of-3">#}
-{#                        <input type="text" name="name" id="name" placeholder="Twoje imę i nazwisko" required>#}
-{#                    </div>#}
-{#                </div>#}
-{#                {% endif %}#}
-{#                {% if page.pokaz_email %}#}
-{#                <div class="row">#}
-{#                    <div class="col span-1-of-3">#}
-{#                        <label for="email">Email adres..</label>#}
-{#                    </div>#}
-{#                    <div class=" col span2-of-3">#}
-{#                        <input type="email" name="email" id="email" placeholder="Twój email adres" required>#}
-{#                    </div>#}
-{#                </div>#}
-{#                {% endif %}#}
-{#                {% if page.pokaz_jak_sie_dowiedziales %}#}
-{#                <div class="row">#}
-{#                    <div class="col span-1-of-3">#}
-{#                        <label for="find-us">Jak się o nas dowiedziałeś?</label>#}
-{#                    </div>#}
-{#                    <div class=" col span2-of-3">#}
-{#                        <select name="find-us" id="find-us">#}
-{#                            <option value="friens">Znajomi</option>#}
-{#                            <option value="search">Wyszukiwarka</option>#}
-{#                            <option value="social">Media Społecznościowe</option>#}
-{#                            <option value="other">Inaczej</option>#}
-{#                        </select>#}
-{#                    </div>#}
-{#                </div>#}
-{#                {% endif %}#}
-{#                {% if page.pokaz_newsletter %}#}
-{#                <div class="row">#}
-{#                    <div class="col span-1-of-3">#}
-{#                        <label>Newsletter</label>#}
-{#                    </div>#}
-{#                    <div class=" col span2-of-3">#}
-{#                        <input type="checkbox" name="newsletter" id="newsletter" checked> Tak, poproszę#}
-{#                    </div>#}
-{#                </div>#}
-{#                {% endif %}#}
-{#                {% if page.pokaz_napisz_do_nas %}#}
-{#                <div class="row">#}
-{#                    <div class="col span-1-of-3">#}
-{#                        <label>Napisz do nas</label>#}
-{#                    </div>#}
-{#                    <div class=" col span2-of-3">#}
-{#                        <textarea name="message" placeholder="Twój tekst"></textarea>#}
-{#                    </div>#}
-{#                </div>#}
-{#                {% endif %}#}
-{#                <div class="row">#}
-{#                    <div class="col span-1-of-3">#}
-{#                        <label>&nbsp;</label>#}
-{#                    </div>#}
-{#                    <div class=" col span2-of-3">#}
-{#                        <input type="submit" value="Wyślij">#}
-{#                    </div>#}
-{#                </div>#}
-{#            </form>#}
-{#        </div>#}
-{##}
-{#    </section>#}
-{#    {% if page.link %}#}
-{#        <div class="row">#}
-{#            <div class="content-bottom-s">#}
-{#                <a class="btn-statut" href="{{ page.link }}">{{ page.link_text }}</a>#}
-{#            </div>#}
-{#        </div>#}
-{#    {% endif %}#}
-{#{% endblock sections %}#}
+{% block sections %}
+    <section class="heading-subpage">
+        <div class="row flex-center">
+            <h2>{{ page.title }}</h2>
+        </div>
+        <div class="row">
+            {{ page.opis|richtext }}
+        </div>
+    </section>
+    <section class="content-subpage">
+        <!-- Begin Mailchimp Signup Form -->
+        <link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
+        <style type="text/css">
+            #mc_embed_signup {
+                background: #fff;
+                clear: left;
+                font: 14px Helvetica, Arial, sans-serif;
+            }
+
+            /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+               We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+        </style>
+        <div id="mc_embed_signup">
+            <form action="https://arteunite.us1.list-manage.com/subscribe/post?u=3bc2330bfb173d985d86eddff&amp;id=fdf895954d"
+                  method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
+                  target="_blank" novalidate>
+                <div id="mc_embed_signup_scroll">
+                    <label for="mce-EMAIL"></label>
+                    <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address"
+                           required>
+                    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+                                                                                              name="b_3bc2330bfb173d985d86eddff_fdf895954d"
+                                                                                              tabindex="-1" value="">
+                    </div>
+                    <div class="clear"><input type="submit" value="Wyślij" name="subscribe"
+                                              id="mc-embedded-subscribe" class="button"></div>
+                </div>
+            </form>
+        </div>
+
+        <!--End mc_embed_signup-->
+    </section>
+    {#    <section class="content-subpage">#}
+    {#        <div class="row">#}
+    {#            <form method="post" action="/contact_form/" class="contact-form">#}
+    {#                {% csrf_token %}#}
+    {#                <input type="hidden" name="page" value="{{ page.title }}">#}
+    {#                {% if page.pokaz_imie %}#}
+    {#                <div class="row">#}
+    {#                    <div class="col span-1-of-3">#}
+    {#                        <label for="name">Imię i Nazwisko</label>#}
+    {#                    </div>#}
+    {#                    <div class=" col span2-of-3">#}
+    {#                        <input type="text" name="name" id="name" placeholder="Twoje imę i nazwisko" required>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#                {% endif %}#}
+    {#                {% if page.pokaz_email %}#}
+    {#                <div class="row">#}
+    {#                    <div class="col span-1-of-3">#}
+    {#                        <label for="email">Email adres..</label>#}
+    {#                    </div>#}
+    {#                    <div class=" col span2-of-3">#}
+    {#                        <input type="email" name="email" id="email" placeholder="Twój email adres" required>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#                {% endif %}#}
+    {#                {% if page.pokaz_jak_sie_dowiedziales %}#}
+    {#                <div class="row">#}
+    {#                    <div class="col span-1-of-3">#}
+    {#                        <label for="find-us">Jak się o nas dowiedziałeś?</label>#}
+    {#                    </div>#}
+    {#                    <div class=" col span2-of-3">#}
+    {#                        <select name="find-us" id="find-us">#}
+    {#                            <option value="friens">Znajomi</option>#}
+    {#                            <option value="search">Wyszukiwarka</option>#}
+    {#                            <option value="social">Media Społecznościowe</option>#}
+    {#                            <option value="other">Inaczej</option>#}
+    {#                        </select>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#                {% endif %}#}
+    {#                {% if page.pokaz_newsletter %}#}
+    {#                <div class="row">#}
+    {#                    <div class="col span-1-of-3">#}
+    {#                        <label>Newsletter</label>#}
+    {#                    </div>#}
+    {#                    <div class=" col span2-of-3">#}
+    {#                        <input type="checkbox" name="newsletter" id="newsletter" checked> Tak, poproszę#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#                {% endif %}#}
+    {#                {% if page.pokaz_napisz_do_nas %}#}
+    {#                <div class="row">#}
+    {#                    <div class="col span-1-of-3">#}
+    {#                        <label>Napisz do nas</label>#}
+    {#                    </div>#}
+    {#                    <div class=" col span2-of-3">#}
+    {#                        <textarea name="message" placeholder="Twój tekst"></textarea>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#                {% endif %}#}
+    {#                <div class="row">#}
+    {#                    <div class="col span-1-of-3">#}
+    {#                        <label>&nbsp;</label>#}
+    {#                    </div>#}
+    {#                    <div class=" col span2-of-3">#}
+    {#                        <input type="submit" value="Wyślij">#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </form>#}
+    {#        </div>#}
+    {##}
+    {#    </section>#}
+    {#    {% if page.link %}#}
+    {#        <div class="row">#}
+    {#            <div class="content-bottom-s">#}
+    {#                <a class="btn-statut" href="{{ page.link }}">{{ page.link_text }}</a>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    {% endif %}#}
+{% endblock sections %}
 {% block section_call %}
 {% endblock section_call %}
