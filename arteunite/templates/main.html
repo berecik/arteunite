@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags %}
+{% load i18n %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block extra_css %}
+
+{% endblock extra_css %}
+
+{% block content %}
+    {% block header %}
+        <header id="{% block header_id %}{% endblock header_id %}">
+            {% block menu %}
+                <nav>
+                    <div id="header-row">
+                        <img src="{% static "resources/img/logo_RED.png" %}" alt="Arte Unite Logo" class="logo">
+
+                        <ul class="main-nav js--main-nav">
+                            <li><a href="/">Główna</a></li>
+                            <li><a href="/warsztaty">Warsztaty</a></li>
+                            <li><a href="/misja">Misja</a></li>
+                            <li><a href="/stodoła-wymyślacz">Stodoła&nbsp;Wymyślacz</a></li>
+                            <li><a href="/ruch-wolnej-ziemi">Ruch&nbsp;Wolnej&nbsp;Ziemi</a></li>
+                            <li><a href="/statut-stowarzyszenia-arte-unite">Statuty</a></li>
+                            <li><a href="/kontakt">Kontakt</a></li>
+                        </ul>
+                        <a class="mobile-nav-icon js--nav-icon">
+                            <ion-icon name="reorder-four-outline"></ion-icon>
+                        </a>
+                    </div>
+
+
+                </nav>
+
+            {% endblock menu %}
+            {% block header_extra %}
+            {% endblock header_extra %}
+        </header>
+    {% endblock header %}
+
+    {% block sections %}
+
+    {% endblock sections %}
+    {% block section_call %}
+        <section class="section-call">
+            <div class="row title-call">
+                <h2>Wezwanie do działania</h2>
+                <p>
+                    Zależy nam na realnej deklaracji każdego, świadomego pojedynczego człowieka. Razem możemy pokazać
+                    naszą wspólną siłę.
+                </p>
+                <p>
+                    W tym wypadku zdecydowanie ilość osób, biorących w tym udział zaświadczy o sukcesie planowanej przez
+                    nas zmiany.
+                    Jeśli to czytasz i jesteś tego świadomy, to właśnie teraz i tylko teraz jest moment, kiedy nie ma
+                    już innych osób,
+                    które zrobią to za Ciebie.
+                </p>
+                <p>
+                    W tym trudnym czasie, kiedy tak trudno jest działać wspólnie, odnosimy się do Waszego zrozumienia
+                    sytuacji w jakiej znalazła się nasza osobista wolność, jak również wolność ogólnoludzka. Owoce
+                    naszych działań zdecydowanie mogą zmienić tą właśnie trudną sytuację. Zarówno w naszym życiu, jak
+                    również na Ziemi.
+                </p>
+            </div>
+            <div class="row">
+                <div class="col span-1-of-2">
+                    <div class="title-box">
+                        <div>
+                            <h3>Przyłącz się do nas</h3>
+                            <p class="join-title"> Dołącz do naszej grupy, zapisując się na miesięczny newsletter.</p>
+                        </div>
+                        <div>
+                            <ul>
+                                <li class="shield">
+                                    <ion-icon name="shield-checkmark"></ion-icon>
+                                    <span>Bądź na bieżąco z wydarzeniami</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <a href="/dolacz-sie" class="btn">Przyłącz się</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col span-1-of-2">
+                    <div class="title-box">
+                        <div>
+                            <h3>Dorzuć się</h3>
+                            <p class="join-title">Dokonaj realnej zmiany rzeczywistości, wspierając nas.</p>
+                        </div>
+                        <div>
+                            <ul>
+                                <li class="shield">
+                                    <ion-icon name="shield-checkmark"></ion-icon>
+                                    <span>Korzystaj ze zniżki na nasze warsztaty</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <a href="/dorzuc-sie" class="btn">Dorzuć się</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endblock section_call %}
+    {% block footer %}
+        <footer>
+            <div class="row">
+                <div class="col span-1-of-2">
+                    <ul class="footer-nav">
+                        <li><a href="/statut-stowarzyszenia-arte-unite">Statut</a></li>
+                        <li><a href="/kontakt">Kontakt</a></li>
+                        <li><a href="/wspolpraca">Współpraca</a></li>
+                    </ul>
+                </div>
+                <div class="col span-1-of-2">
+                    <ul class="social-links">
+                        <li><a href="https://www.facebook.com/sztukajednosci">
+                            <ion-icon name="logo-facebook"></ion-icon>
+                        </a></li>
+                        {#                        <li><a href="https://www.instagram.com/arturmilicki/">#}
+                        {#                            <ion-icon name="logo-instagram"></ion-icon>#}
+                        {#                        </a></li>#}
+                        <li><a href="https://www.youtube.com/user/ekowioska">
+                            <ion-icon name="logo-youtube"></ion-icon>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <p class="copyrights">
+                    Arte Unite 2020 &copy;
+                </p>
+            </div>
+        </footer>
+    {% endblock footer %}
+{% endblock content %}

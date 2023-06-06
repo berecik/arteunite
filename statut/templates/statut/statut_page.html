@@ -1,0 +1,23 @@
+{% extends "page.html" %}
+{% load static %}
+{% load wagtailcore_tags %}
+{% load i18n %}
+{% block sections %}
+    <section class="heading-subpage">
+        <div class="row flex-center">
+            <h2>{{ page.title }}</h2>
+        </div>
+    </section>
+    <section>
+        <div class="row">
+            {{ page.statut|richtext }}
+        </div>
+    </section>
+    {% if page.link %}
+        <div class="row">
+            <div class="content-bottom-s">
+                <a class="btn-statut" href="{{ page.link }}">{{ page.link_text }}</a>
+            </div>
+        </div>
+    {% endif %}
+{% endblock sections %}
