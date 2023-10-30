@@ -1,5 +1,12 @@
 from beret_utils import get_config
-from beret_utils.config import bool_value
+from beret_utils.config import bool_value, EnvValue
+from beret_utils import PathData
+
+PROJECT_NAME = "cityexplorer_api"
+
+base_dir = PathData.main()
+home_dir = PathData.home()
+
 
 DEFAULT_SETTINGS = (
    ("POSTGRES_DB", "arteunite_wagtail"),
@@ -22,3 +29,7 @@ ENV_FILE = (
 
 ConfigClass = get_config(DEFAULT_SETTINGS, ENV_FILE)
 config = ConfigClass()
+
+if __name__ == '__main__':
+   for key, value in config.items():
+       print(f"{key} = {value}")

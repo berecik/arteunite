@@ -1,5 +1,5 @@
 # wagtail
-wagtail
+wagtail <3,>2.0
 
 # for django and core packages
 Django # >=3.1,<3.2
