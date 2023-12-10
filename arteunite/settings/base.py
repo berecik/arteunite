@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # 'django_extensions',
+    'django_extensions',
 
     'home',
     'warsztaty',
@@ -184,4 +184,6 @@ SECRET_KEY = config.SECRET_KEY
 
 # SECURITY WARNING: define the correct hosts in production!
 ALLOWED_HOSTS = ['*']
+
+CSRF_TRUSTED_ORIGINS=['http://*.arteunite.org', 'http://arteunite.org', 'http://localhost:8000', 'http:/']
 
