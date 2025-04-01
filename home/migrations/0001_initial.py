@@ -2,7 +2,7 @@
 
 from django.db import migrations, models
 import django.db.models.deletion
-import wagtail.core.fields
+import wagtail.fields
 
 
 class Migration(migrations.Migration):
@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
             name='ArteuniteMock',
             fields=[
                 ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.page')),
-                ('intro', wagtail.core.fields.RichTextField(blank=True)),
+                ('intro', wagtail.fields.RichTextField(blank=True)),
             ],
             options={
                 'abstract': False,
@@ -29,18 +29,18 @@ class Migration(migrations.Migration):
             name='HomePage',
             fields=[
                 ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.page')),
-                ('long_name', wagtail.core.fields.RichTextField(blank=True)),
+                ('long_name', wagtail.fields.RichTextField(blank=True)),
                 ('quote', models.TextField(blank=True)),
                 ('quote_author', models.TextField(blank=True)),
                 ('earth_head', models.TextField(blank=True)),
-                ('earth', wagtail.core.fields.RichTextField(blank=True)),
+                ('earth', wagtail.fields.RichTextField(blank=True)),
                 ('star_head', models.TextField(blank=True)),
-                ('star', wagtail.core.fields.RichTextField(blank=True)),
+                ('star', wagtail.fields.RichTextField(blank=True)),
                 ('flame_head', models.TextField(blank=True)),
-                ('flame', wagtail.core.fields.RichTextField(blank=True)),
-                ('wolna_ziemia', wagtail.core.fields.RichTextField(blank=True)),
-                ('stodola', wagtail.core.fields.RichTextField(blank=True)),
-                ('workshop', wagtail.core.fields.RichTextField(blank=True)),
+                ('flame', wagtail.fields.RichTextField(blank=True)),
+                ('wolna_ziemia', wagtail.fields.RichTextField(blank=True)),
+                ('stodola', wagtail.fields.RichTextField(blank=True)),
+                ('workshop', wagtail.fields.RichTextField(blank=True)),
             ],
             options={
                 'abstract': False,

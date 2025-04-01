@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'wagtail.images',
     'wagtail.search',
     'wagtail.admin',
-    'wagtail.core',
+    'wagtail',
 
     'modelcluster',
     'taggit',
@@ -185,5 +185,5 @@ SECRET_KEY = config.SECRET_KEY
 # SECURITY WARNING: define the correct hosts in production!
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS=['http://*.arteunite.org', 'http://arteunite.org', 'http://localhost:8000', 'http:/']
+CSRF_TRUSTED_ORIGINS=['http://*.arteunite.org', 'http://arteunite.org', 'http://localhost:8000', 'http://*']
 

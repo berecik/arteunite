@@ -2,7 +2,7 @@
 
 from django.db import migrations, models
 import django.db.models.deletion
-import wagtail.core.fields
+import wagtail.fields
 
 
 class Migration(migrations.Migration):
@@ -18,12 +18,12 @@ class Migration(migrations.Migration):
             name='MisjaPage',
             fields=[
                 ('page_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='wagtailcore.page')),
-                ('opis', wagtail.core.fields.RichTextField(blank=True)),
-                ('objasnienie', wagtail.core.fields.RichTextField(blank=True)),
-                ('komentarz_1', wagtail.core.fields.RichTextField(blank=True)),
-                ('komentarz_2', wagtail.core.fields.RichTextField(blank=True)),
-                ('komentarz_3', wagtail.core.fields.RichTextField(blank=True)),
-                ('podsumowanie', wagtail.core.fields.RichTextField(blank=True)),
+                ('opis', wagtail.fields.RichTextField(blank=True)),
+                ('objasnienie', wagtail.fields.RichTextField(blank=True)),
+                ('komentarz_1', wagtail.fields.RichTextField(blank=True)),
+                ('komentarz_2', wagtail.fields.RichTextField(blank=True)),
+                ('komentarz_3', wagtail.fields.RichTextField(blank=True)),
+                ('podsumowanie', wagtail.fields.RichTextField(blank=True)),
             ],
             options={
                 'abstract': False,
